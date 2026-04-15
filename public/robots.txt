@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://drskjainclinic.com
+
+# Sitemaps
+Sitemap: https://drskjainclinic.com/sitemap.xml
