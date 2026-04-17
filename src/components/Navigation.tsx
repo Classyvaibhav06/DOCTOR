@@ -7,8 +7,8 @@ export function Navigation() {
     <nav className={isOpen ? 'nav-open' : ''}>
       <div className="nav-logo">
         <a href="/" style={{textDecoration:'none', color:'inherit'}}>
-          Dr. G.D. Memorial Clinic
-          <span>Dr. Rajesh Manghnani · Best Sexologist, Bhopal</span>
+          Burlington Clinic
+          <span>Dr. Rajesh Manghnani · Since 1926</span>
         </a>
       </div>
       

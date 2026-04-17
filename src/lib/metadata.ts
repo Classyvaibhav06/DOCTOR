@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-export const CITY = "bhopal";
-export const CLINIC_NAME = "Dr. Rajesh Maghnani Burlington Clinic";
-export const SITE_URL = "https://drskjainclinic.com";
+export const CITY = "Bhopal";
+export const CLINIC_NAME = "Dr. Rajesh Manghnani Burlington Clinic";
+export const SITE_URL = "https://bestsexologistdoctor.com";
 
 export const defaultDescription =
   "Professional and confidential sexual health clinic care with online consultation available for bhopal and nearby patients.";

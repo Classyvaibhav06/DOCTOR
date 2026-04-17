@@ -1,6 +1,12 @@
-import { getServiceBySlug } from "@/lib/services";
+import { getServiceBySlug, services } from "@/lib/services";
 import { notFound } from "next/navigation";
 import { Navigation } from "@/components/Navigation";
+
+export async function generateStaticParams() {
+  return services.map((service) => ({
+    slug: service.slug,
+  }));
+}
 
 export default async function ServiceDetail({ params }: { params: { slug: string } }) {
   const { slug } = await params;
@@ -14,20 +20,30 @@ export default async function ServiceDetail({ params }: { params: { slug: string
     <div className="redesigned-home">
       <Navigation />
       
-      <header className="hero" style={{ minHeight: "45vh", paddingTop: "120px", paddingBottom: "3rem" }}>
+      <header className="hero" style={{ minHeight: "45vh", paddingTop: "120px", paddingBottom: "3rem", position: "relative" }}>
         <div className="hero-bg"></div>
         <div className="hero-grain"></div>
-        <div className="container">
-          <div className="hero-badge mb-4">
-             <span className="hero-badge-dot"></span>
-             Clinical Treatment Pathway
+        <div className="container" style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: "3rem", alignItems: "center" }}>
+          <div>
+            <div className="hero-badge mb-4">
+               <span className="hero-badge-dot"></span>
+               Clinical Treatment Pathway
+            </div>
+            <h1 style={{ fontSize: "clamp(2.5rem, 5vw, 3.5rem)" }}>
+               {service.title} <em style={{ color: "var(--gold)" }}>Advocacy & Care</em>
+            </h1>
+            <p className="hero-sub" style={{ maxWidth: "600px" }}>
+               {service.shortDescription}
+            </p>
           </div>
-          <h1 style={{ fontSize: "clamp(2.5rem, 5vw, 3.5rem)" }}>
-             {service.title} <em style={{ color: "var(--gold)" }}>Advocacy & Care</em>
-          </h1>
-          <p className="hero-sub" style={{ maxWidth: "600px" }}>
-             {service.shortDescription}
-          </p>
+          <div className="bg-glass-light" style={{ borderRadius: "24px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.1)", height: "350px", position: "relative" }}>
+             <img 
+               src={service.image} 
+               alt={service.title} 
+               style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.8 }} 
+             />
+             <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, var(--navy), transparent)" }}></div>
+          </div>
         </div>
       </header>
 
@@ -51,6 +67,20 @@ export default async function ServiceDetail({ params }: { params: { slug: string
                     </div>
                   ))}
                 </div>
+              </div>
+
+              <div className="mt-12 mb-12" style={{ borderRadius: "24px", overflow: "hidden", height: "400px", position: "relative" }}>
+                 <img 
+                    src={service.image} 
+                    alt="Clinical Care" 
+                    style={{ width: "100%", height: "100%", objectFit: "cover", filter: "grayscale(0.3) contrast(1.1)" }} 
+                 />
+                 <div style={{ position: "absolute", inset: 0, background: "rgba(10, 22, 40, 0.4)", display: "flex", alignItems: "center", justifyContent: "center", padding: "3rem" }}>
+                    <div style={{ textAlign: "center", maxWidth: "500px" }}>
+                       <h3 style={{ fontSize: "2rem", color: "#fff", marginBottom: "1rem" }}>Evidence-Based <em style={{color: 'var(--gold)'}}>Results</em></h3>
+                       <p style={{ color: "rgba(255,255,255,0.9)", fontSize: "0.95rem" }}>Our treatments for {service.title} are backed by clinical studies and over 23 years of specialized practice experience.</p>
+                    </div>
+                 </div>
               </div>
 
               <div>

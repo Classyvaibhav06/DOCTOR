@@ -1,85 +1,104 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Navigation } from "@/components/Navigation";
 
 export default function AboutPage() {
   return (
-    <div className="pb-20">
-      {/* Banner */}
-      <section className="hero" style={{ minHeight: "300px", display: "flex", alignItems: "center" }}>
-        <div className="container-xl">
-          <h1 className="hero-title">About <span>Dr. Rajesh Maghnani</span></h1>
-          <p className="hero-sub">The legacy of India&apos;s most trusted sexual health specialist since 1926.</p>
+    <div className="redesigned-home">
+      <Navigation />
+      
+      <header className="hero" style={{ minHeight: "50vh", paddingTop: "140px", paddingBottom: "4rem" }}>
+        <div className="hero-bg"></div>
+        <div className="hero-grain"></div>
+        <div className="container">
+          <p className="overline" style={{ textAlign: "center", color: "var(--gold)" }}>A Legacy of Trust</p>
+          <h1 style={{ textAlign: "center", fontSize: "3.5rem", lineHeight: 1.2 }}>Dr. <em style={{ color: "var(--gold)" }}>Rajesh Manghnani</em></h1>
+          <p style={{ textAlign: "center", maxWidth: "700px", margin: "1.5rem auto", color: "rgba(255,255,255,0.6)", fontSize: "1.1rem" }}>
+            The legacy of India&apos;s most trusted sexual health specialist since 1926. 
+            Blending traditional wisdom with modern clinical excellence.
+          </p>
         </div>
-      </section>
+      </header>
 
-      {/* Content */}
-      <section className="section">
-        <div className="container-xl">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "4rem", alignItems: "start" }}>
-            <div>
-              <div style={{ borderRadius: 16, overflow: "hidden", border: "1px solid #e5e7eb", boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}>
-                <Image 
-                  src="/images/doctor-portrait.png" 
-                  alt="Dr. Rajesh Maghnani" 
-                  width={500} 
-                  height={600} 
-                  style={{ width: "100%", height: "auto" }}
-                />
-              </div>
-              <div style={{ marginTop: "1.5rem", background: "#f3f4f6", padding: "1.5rem", borderRadius: 12 }}>
-                <h3 className="text-heading" style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}>Credentials & Experience</h3>
-                <ul style={{ fontSize: "0.9rem", color: "#4b5563", listStyle: "disc", paddingLeft: "1.2rem" }}>
-                  <li>Senior Sexologist with over 50 years of clinical practice</li>
-                  <li>In charge of Burlington Clinic & Hospital, Bhopal</li>
-                  <li>World Book of Records Holder for Excellence</li>
-                  <li>ISO Certified Medical Professional</li>
-                  <li>Specialist in Natural & Holistic sexual health treatments</li>
-                </ul>
+      <section className="section" style={{ background: "var(--navy)", padding: "5rem 0" }}>
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "5rem", alignItems: "center" }} className="media-grid">
+            <div className="about-img-wrap" style={{ borderRadius: "24px", overflow: "hidden" }}>
+              <img 
+                src="https://bestsexologistdoctor.com/wp-content/uploads/2025/11/photo-output.jpg" 
+                alt="Dr. Rajesh Manghnani" 
+                style={{ width: "100%", height: "auto" }}
+              />
+              <div className="hero-img-badge" style={{ bottom: "20px", left: "20px" }}>
+                <div className="hero-img-badge-val">23+</div>
+                <div className="hero-img-badge-label">Years of Expertise</div>
               </div>
             </div>
             
             <div>
-              <h2 className="section-title">A Legacy of Trust</h2>
-              <p className="mt-6" style={{ color: "#4b5563", lineHeight: 1.8 }}>
-                Dr. Rajesh Maghnani is a name synonymous with Excellence and Trust in the field of sexual health. 
-                Carrying forward a legacy that started in 1926, Dr. Maghnani has dedicated his life to 
-                helping patients find sustainable, natural solutions to their most private concerns.
+              <p className="overline">The Doctor's Journey</p>
+              <h2 className="section-title" style={{ textAlign: "left", fontSize: "2.5rem", marginBottom: "2rem" }}>Pioneering Natural <br/><em style={{color: 'var(--gold)'}}>Sexual Wellness</em></h2>
+              <p style={{ color: "rgba(255,255,255,0.7)", lineHeight: 1.8, fontSize: "1.1rem", marginBottom: "1.5rem" }}>
+                Dr. Rajesh Manghnani is a name synonymous with excellence and discretion in the field of sexual health. 
+                Carrying forward a medical legacy that spans nearly a century, he has dedicated his career to finding 
+                sustainable, evidence-based solutions for patients across the globe.
               </p>
-              <p className="mt-4" style={{ color: "#4b5563", lineHeight: 1.8 }}>
-                Burlington Clinic, under his guidance, has grown from a local institution to a nationally 
-                recognized hospital serving over 5,50,000 patients. His approach is rooted in the 
-                philosophy of &quot;Treatment with Confidentiality&quot; — ensuring every patient feels respected, 
-                heard, and protected.
+              <p style={{ color: "rgba(255,255,255,0.7)", lineHeight: 1.8, fontSize: "1.1rem" }}>
+                Under his leadership, Burlington Clinic has evolved into a nationally recognized center for healing, 
+                serving over 5.5 lakh patients. His philosophy centers on "Private Care with Scientific Precision" — 
+                ensuring every patient feels heard, protected, and empowered.
               </p>
               
-              <h3 className="text-heading mt-8" style={{ fontSize: "1.4rem" }}>Our Philosophy</h3>
-              <p className="mt-3" style={{ color: "#4b5563", lineHeight: 1.8 }}>
-                We believe that sexual health is a critical component of overall wellbeing. Our clinic doesn&apos;t 
-                just provide prescriptions; we provide a pathway to confidence. By merging centuries-old 
-                herbal wisdom with modern clinical standards, we offer treatments that are effective and 
-                safe, with zero to minimal side effects.
-              </p>
-
-              <div className="grid-2 mt-8">
-                <div style={{ borderLeft: "4px solid #dc2626", paddingLeft: "1rem" }}>
-                  <div style={{ fontWeight: 800, fontSize: "1.5rem", color: "#0a1628" }}>98+</div>
-                  <div style={{ fontSize: "0.8rem", color: "#6b7280", textTransform: "uppercase" }}>Years of Service</div>
+              <div className="hero-stats" style={{ marginTop: "3rem", justifyContent: "flex-start", gap: "3rem" }}>
+                <div className="hero-stat">
+                  <div className="hero-stat-val">98+</div>
+                  <div className="hero-stat-label">Years Legacy</div>
                 </div>
-                <div style={{ borderLeft: "4px solid #dc2626", paddingLeft: "1rem" }}>
-                  <div style={{ fontWeight: 800, fontSize: "1.5rem", color: "#0a1628" }}>5.5L+</div>
-                  <div style={{ fontSize: "0.8rem", color: "#6b7280", textTransform: "uppercase" }}>Happy Patients</div>
+                <div className="hero-stat">
+                  <div className="hero-stat-val">5.5L+</div>
+                  <div className="hero-stat-label">Patients Served</div>
                 </div>
-              </div>
-
-              <div className="mt-10">
-                <Link href="/contact" className="btn-book" style={{ padding: "0.8rem 2rem" }}>
-                  Consult Dr. Rajesh Maghnani Today
-                </Link>
+                <div className="hero-stat">
+                  <div className="hero-stat-val">4.9★</div>
+                  <div className="hero-stat-label">Patient Rating</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      <section className="section" style={{ background: "rgba(255,255,255,0.02)", padding: "5rem 0" }}>
+        <div className="container" style={{maxWidth: '1200px'}}>
+          <div className="bg-glass" style={{ padding: "4rem", borderRadius: "32px", border: "1px solid rgba(212,168,83,0.1)" }}>
+             <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}>
+                <h3 style={{ fontSize: "2rem", color: "var(--gold2)", marginBottom: "1.5rem", fontFamily: "var(--font-serif)" }}>The Clinical Philosophy</h3>
+                <p style={{ fontSize: "1.15rem", lineHeight: 1.8, color: "rgba(255,255,255,0.8)" }}>
+                  "We believe that sexual health is a critical pillar of overall happiness. Our mission isn't just to treat symptoms, but to restore a man's confidence and a couple's harmony through the safest, most natural methods available in modern homeopathy."
+                </p>
+                <div style={{ marginTop: "2.5rem", fontWeight: "bold", fontSize: "1.1rem", textTransform: "uppercase", letterSpacing: "0.1em", color: 'var(--gold)' }}>— Dr. Rajesh Manghnani</div>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="cta-section">
+        <div className="container cta-inner">
+          <h2>Ready to Take the First Step?</h2>
+          <p>Book your confidential appointment today. Available for online video calls and in-person consultations.</p>
+          <div className="cta-buttons">
+            <a href="tel:+919893880001" className="btn-white">📞 Call Dr. Rajesh</a>
+            <a href="https://bestsexologistdoctor.com/index.php/payment/" className="btn-ghost">Book Appointment</a>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div className="container footer-inner">
+          <div className="footer-logo">Dr. G.D. Memorial Clinic</div>
+          <p className="footer-copy">© 2026 Dr. G.D. Memorial Clinic. All Rights Reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 }
