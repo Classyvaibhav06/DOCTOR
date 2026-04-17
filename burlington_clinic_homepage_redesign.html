@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Dr. Rajesh Manghnani – Best Sexologist Doctor in Bhopal | Dr. G.D. Memorial Clinic</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0a0f1e;
+  --navy2:#111827;
+  --red:#c8102e;
+  --red2:#a50d25;
+  --gold:#d4a853;
+  --gold2:#b8892a;
+  --cream:#faf7f2;
+  --cream2:#f0ebe0;
+  --text:#1a1a2e;
+  --muted:#6b6b80;
+  --border:rgba(0,0,0,0.08);
+  --white:#fff;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:72px;background:rgba(10,15,30,0.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(212,168,83,0.2)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;color:var(--white);letter-spacing:-0.01em;line-height:1.2}
+.nav-logo span{color:var(--gold);display:block;font-size:0.65rem;font-family:'DM Sans',sans-serif;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;opacity:0.8}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--red);color:#fff;border:none;padding:0.55rem 1.4rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;text-decoration:none;display:inline-block}
+.nav-cta:hover{background:var(--red2)}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--navy);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:72px}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 70% 50%, rgba(200,16,46,0.08) 0%, transparent 60%)}
+.hero-grain{position:absolute;inset:0;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");background-size:200px}
+.hero-line{position:absolute;left:50%;top:72px;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(212,168,83,0.2) 20%,rgba(212,168,83,0.2) 80%,transparent)}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:5rem 3.5rem 5rem 5rem;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(212,168,83,0.12);border:1px solid rgba(212,168,83,0.3);border-radius:100px;padding:0.35rem 1rem;font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem}
+.hero-badge-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.4)}}
+.hero h1{font-size:clamp(2.8rem,5vw,4.2rem);font-weight:700;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:1.25rem}
+.hero h1 em{color:var(--gold);font-style:italic}
+.hero-sub{font-size:0.95rem;color:rgba(255,255,255,0.55);line-height:1.8;margin-bottom:2.5rem;max-width:460px}
+.hero-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-bottom:3rem}
+.btn-primary{background:var(--red);color:#fff;text-decoration:none;padding:0.85rem 2rem;border-radius:5px;font-size:0.85rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;transition:all 0.2s;display:inline-block}
+.btn-primary:hover{background:var(--red2);transform:translateY(-1px)}
+.btn-outline{border:1.5px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.8);text-decoration:none;padding:0.83rem 1.8rem;border-radius:5px;font-size:0.85rem;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;transition:all 0.2s;display:inline-block}
+.btn-outline:hover{border-color:rgba(255,255,255,0.5);color:#fff}
+.hero-stats{display:flex;gap:0;border-top:1px solid rgba(255,255,255,0.08);padding-top:2rem}
+.hero-stat{padding:0 2rem 0 0;position:relative}
+.hero-stat+.hero-stat{padding-left:2rem;border-left:1px solid rgba(255,255,255,0.1)}
+.hero-stat-val{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:700;color:var(--gold);line-height:1}
+.hero-stat-label{font-size:0.68rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.3rem}
+.hero-right{display:flex;align-items:flex-end;justify-content:center;position:relative;z-index:2;padding:2rem 4rem 0 2rem}
+.hero-img-wrap{position:relative;width:100%;max-width:440px}
+.hero-img-wrap img{width:100%;display:block;border-radius:12px 12px 0 0;filter:contrast(1.05)}
+.hero-img-badge{position:absolute;top:2rem;right:-1.5rem;background:rgba(10,15,30,0.92);border:1px solid rgba(212,168,83,0.35);border-radius:12px;padding:1rem 1.25rem;text-align:center;backdrop-filter:blur(8px)}
+.hero-img-badge-val{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--gold)}
+.hero-img-badge-label{font-size:0.62rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.1em}
+.hero-img-badge2{position:absolute;bottom:3rem;left:-2rem;background:var(--red);border-radius:10px;padding:0.9rem 1.2rem;display:flex;align-items:center;gap:0.7rem}
+.badge2-icon{font-size:1.4rem}
+.badge2-text-top{font-size:0.65rem;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:0.1em}
+.badge2-text-val{font-size:0.95rem;font-weight:700;color:#fff}
+
+/* TRUST BAR */
+.trust-bar{background:var(--white);border-bottom:1px solid var(--border);padding:0.85rem 0;overflow:hidden}
+.trust-bar-inner{display:flex;align-items:center;justify-content:space-around;flex-wrap:wrap;gap:1rem;padding:0 4rem}
+.trust-item{display:flex;align-items:center;gap:0.5rem;font-size:0.75rem;font-weight:600;color:#374151;white-space:nowrap;letter-spacing:0.03em}
+.trust-dot{width:4px;height:4px;background:var(--gold);border-radius:50%}
+
+/* SECTION COMMONS */
+section{padding:6rem 0}
+.container{max-width:1200px;margin:0 auto;padding:0 4rem}
+.overline{font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--red);margin-bottom:0.75rem}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:700;line-height:1.15;letter-spacing:-0.02em;color:var(--text)}
+
+/* WHY CHOOSE US */
+.why{background:var(--cream)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.trust-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.trust-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.25rem;transition:all 0.25s;position:relative;overflow:hidden}
+.trust-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--red);border-radius:3px 0 0 3px;opacity:0;transition:opacity 0.25s}
+.trust-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.08)}
+.trust-card:hover::before{opacity:1}
+.trust-card-icon{font-size:1.4rem;margin-bottom:0.6rem}
+.trust-card-title{font-size:0.82rem;font-weight:700;color:var(--text);margin-bottom:0.3rem}
+.trust-card-desc{font-size:0.75rem;color:var(--muted);line-height:1.6}
+.doctor-card{border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.12);position:relative;border:1px solid var(--border)}
+.doctor-card img{width:100%;display:block}
+.doctor-stats-bar{background:var(--navy);padding:1.25rem 1.5rem;display:grid;grid-template-columns:repeat(4,1fr);text-align:center;gap:0.5rem}
+.ds-val{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--gold)}
+.ds-label{font-size:0.6rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em}
+
+/* SERVICES */
+.services{background:var(--navy2)}
+.services .overline{color:#f87171}
+.services .section-title{color:#fff}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.service-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:2rem;cursor:pointer;transition:all 0.25s;position:relative;overflow:hidden}
+.service-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),var(--gold));transform:scaleX(0);transition:transform 0.3s;transform-origin:left}
+.service-card:hover{background:rgba(255,255,255,0.07);transform:translateY(-4px)}
+.service-card:hover::after{transform:scaleX(1)}
+.service-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;color:rgba(212,168,83,0.15);line-height:1;margin-bottom:0.5rem}
+.service-icon{font-size:1.8rem;margin-bottom:1rem}
+.service-title{font-size:1.05rem;font-weight:600;color:#fff;margin-bottom:0.5rem}
+.service-desc{font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.7}
+.service-arrow{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.72rem;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.1em;margin-top:1rem}
+
+/* CONDITIONS */
+.conditions{background:var(--cream2);position:relative;overflow:hidden}
+.conditions::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:rgba(200,16,46,0.05);border-radius:50%}
+.conditions-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin-top:2.5rem}
+.condition-pill{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:0.85rem 1.1rem;font-size:0.82rem;font-weight:500;color:var(--text);display:flex;align-items:center;gap:0.5rem;transition:all 0.2s;cursor:pointer}
+.condition-pill:hover{background:var(--red);color:#fff;border-color:var(--red);transform:translateX(4px)}
+.condition-pill-arrow{color:var(--red);font-weight:700;font-size:1rem;transition:color 0.2s}
+.condition-pill:hover .condition-pill-arrow{color:rgba(255,255,255,0.7)}
+.conditions-cta{text-align:center;margin-top:2.5rem}
+
+/* ABOUT DOCTOR */
+.about{background:var(--navy);position:relative;overflow:hidden}
+.about::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 30% 50%,rgba(200,16,46,0.07) 0%,transparent 60%)}
+.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
+.about .overline{color:#f87171}
+.about .section-title{color:#fff}
+.about-desc{color:rgba(255,255,255,0.6);line-height:1.85;font-size:0.9rem;margin:1.25rem 0 2rem}
+.about-list{list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin-bottom:2rem}
+.about-list li{display:flex;align-items:flex-start;gap:0.7rem;font-size:0.83rem;color:rgba(255,255,255,0.7)}
+.about-list li::before{content:'✓';width:18px;height:18px;min-width:18px;background:rgba(200,16,46,0.25);border:1px solid rgba(200,16,46,0.5);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:2px;font-size:0.6rem;color:var(--red);font-weight:700}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem}
+.about-stat{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:1.1rem}
+.about-stat-val{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--gold)}
+.about-stat-label{font-size:0.65rem;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.25rem}
+.about-actions{display:flex;gap:0.75rem;flex-wrap:wrap}
+.about-img-wrap{border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.4);border:1px solid rgba(200,16,46,0.25);position:relative}
+.about-img-wrap img{width:100%;display:block;object-fit:cover}
+.about-img-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(10,15,30,0.85),transparent);padding:2rem 1.5rem 1.5rem}
+.about-img-tag{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(212,168,83,0.15);border:1px solid rgba(212,168,83,0.3);border-radius:100px;padding:0.4rem 1rem;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold)}
+
+/* CERTIFICATIONS */
+.certs{background:var(--white);padding:4rem 0}
+.certs-flex{display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap;margin-top:2rem}
+.cert-badge{display:flex;flex-direction:column;align-items:center;gap:0.5rem;padding:1.5rem 2rem;border:1px solid var(--border);border-radius:12px;transition:all 0.2s;text-align:center}
+.cert-badge:hover{box-shadow:0 8px 30px rgba(0,0,0,0.08);transform:translateY(-2px)}
+.cert-icon{font-size:2rem;margin-bottom:0.25rem}
+.cert-title{font-size:0.78rem;font-weight:700;color:var(--text)}
+.cert-sub{font-size:0.65rem;color:var(--muted);letter-spacing:0.05em}
+
+/* RATINGS */
+.ratings-section{background:var(--cream2);padding:5rem 0}
+.ratings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.rating-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.75rem;text-align:center;transition:all 0.25s}
+.rating-card:hover{box-shadow:0 12px 40px rgba(0,0,0,0.08);transform:translateY(-3px)}
+.rating-platform{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem}
+.rating-score{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--gold);line-height:1}
+.rating-stars{color:#f59e0b;font-size:1rem;letter-spacing:0.05em;margin:0.4rem 0}
+.rating-count{font-size:0.75rem;color:var(--muted)}
+
+/* TESTIMONIALS */
+.testimonials{background:var(--cream);overflow:hidden}
+.testimonials .section-title{text-align:center}
+.testimonials .overline{text-align:center}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.testi-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.75rem;transition:box-shadow 0.25s;position:relative}
+.testi-card:hover{box-shadow:0 12px 40px rgba(0,0,0,0.08)}
+.testi-stars{color:var(--gold);font-size:0.85rem;letter-spacing:0.05em;margin-bottom:1rem}
+.testi-quote{font-family:'Cormorant Garamond',serif;font-size:1.05rem;line-height:1.7;color:var(--text);margin-bottom:1.25rem;font-style:italic}
+.testi-qmark{font-family:'Cormorant Garamond',serif;position:absolute;top:1rem;right:1.5rem;font-size:4rem;color:var(--cream2);font-weight:700;line-height:1}
+.testi-author{display:flex;align-items:center;gap:0.75rem;border-top:1px solid var(--border);padding-top:1rem}
+.testi-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--red2));display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;color:#fff}
+.testi-name{font-size:0.82rem;font-weight:600;color:var(--text)}
+.testi-loc{font-size:0.7rem;color:var(--muted)}
+.testi-source{font-size:0.65rem;color:var(--muted);font-style:italic;margin-top:0.15rem}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,var(--red) 0%,#8b0000 100%);padding:5rem 0;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:-50%;right:-10%;width:600px;height:600px;border-radius:50%;border:1px solid rgba(255,255,255,0.08)}
+.cta-section::after{content:'';position:absolute;bottom:-40%;right:5%;width:400px;height:400px;border-radius:50%;border:1px solid rgba(255,255,255,0.05)}
+.cta-inner{text-align:center;position:relative;z-index:1}
+.cta-inner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;color:#fff;margin-bottom:0.75rem;letter-spacing:-0.02em}
+.cta-inner p{color:rgba(255,255,255,0.75);margin-bottom:2rem;font-size:0.95rem;max-width:520px;margin-left:auto;margin-right:auto}
+.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-white{background:#fff;color:var(--red);text-decoration:none;padding:0.9rem 2.2rem;border-radius:5px;font-size:0.85rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;transition:all 0.2s}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,0.4);color:#fff;text-decoration:none;padding:0.88rem 2rem;border-radius:5px;font-size:0.85rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;background:rgba(255,255,255,0.08);transition:all 0.2s}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.15)}
+.btn-whatsapp{background:#25d366;color:#fff;text-decoration:none;padding:0.9rem 2.2rem;border-radius:5px;font-size:0.85rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;transition:all 0.2s}
+.btn-whatsapp:hover{background:#1fad55;transform:translateY(-2px)}
+
+/* FAQ */
+.faq{background:var(--cream2)}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem}
+.faq-item{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;cursor:pointer;transition:box-shadow 0.2s}
+.faq-item:hover{box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;font-size:0.88rem;font-weight:600;color:var(--text);gap:1rem}
+.faq-chevron{width:20px;height:20px;border:1.5px solid var(--muted);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s;font-size:0.65rem;color:var(--muted)}
+.faq-item.open .faq-chevron{background:var(--red);border-color:var(--red);color:#fff;transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s ease;font-size:0.82rem;color:var(--muted);line-height:1.75}
+.faq-a-inner{padding:0 1.5rem 1.25rem}
+
+/* LOCATIONS */
+.locations{background:var(--white)}
+.locations .section-title{text-align:center}
+.locations .overline{text-align:center}
+.loc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.loc-card{border:1px solid var(--border);border-radius:14px;padding:2rem;position:relative;overflow:hidden;transition:all 0.25s}
+.loc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),var(--gold))}
+.loc-card:hover{box-shadow:0 12px 40px rgba(0,0,0,0.08);transform:translateY(-3px)}
+.loc-icon{width:44px;height:44px;background:var(--cream2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:1.25rem}
+.loc-city{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;color:var(--text);margin-bottom:0.4rem}
+.loc-address{font-size:0.78rem;color:var(--muted);line-height:1.6;margin-bottom:0.75rem}
+.loc-phone{font-size:0.82rem;font-weight:600;color:var(--text);margin-bottom:0.25rem}
+.loc-hours{font-size:0.72rem;color:var(--muted)}
+
+/* FOOTER */
+footer{background:var(--navy);padding:2.5rem 0;border-top:1px solid rgba(255,255,255,0.06)}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:0.72rem;color:rgba(255,255,255,0.3)}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:rgba(255,255,255,0.7)}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{font-size:0.72rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Dr. G.D. Memorial Clinic<span>Dr. Rajesh Manghnani · Best Sexologist, Bhopal</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#locations">Locations</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="tel:+919893880001" class="nav-cta">Book Appointment</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-line"></div>
+  <div class="hero-left">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      #1 Sexologist in Bhopal · Justdial 4.9/5
+    </div>
+    <h1>India's Most <em>Trusted</em><br>Sexologist &<br>Wellness Expert</h1>
+    <p class="hero-sub">Dr. Rajesh Manghnani brings 23+ years of specialized expertise in sexual health, combining evidence-based medicine with holistic healing. Personalized, confidential care for men and women across India.</p>
+    <div class="hero-actions">
+      <a href="https://bestsexologistdoctor.com/index.php/payment/" class="btn-primary" target="_blank">Book Appointment Online</a>
+      <a href="tel:+919893880001" class="btn-outline">📞 +91 9893880001</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-val">23+</div>
+        <div class="hero-stat-label">Years Experience</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">5.5L+</div>
+        <div class="hero-stat-label">Patients Treated</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">4.9★</div>
+        <div class="hero-stat-label">Justdial Rating</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <img src="https://bestsexologistdoctor.com/wp-content/uploads/2025/11/photo-output.jpg" alt="Dr. Rajesh Manghnani – Best Sexologist Doctor in Bhopal" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div style="display:none;background:rgba(255,255,255,0.04);height:460px;align-items:center;justify-content:center;border-radius:12px 12px 0 0"><span style="font-size:8rem;opacity:0.15">👨‍⚕️</span></div>
+      <div class="hero-img-badge">
+        <div class="hero-img-badge-val">887+</div>
+        <div class="hero-img-badge-label">Verified Reviews</div>
+      </div>
+      <div class="hero-img-badge2">
+        <div class="badge2-icon">🏆</div>
+        <div>
+          <div class="badge2-text-top">American College of</div>
+          <div class="badge2-text-val">Sexology Member</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item"><span>🏅</span> BHMS Certified · Clinical Sexology</div>
+    <div class="trust-dot"></div>
+    <div class="trust-item"><span>🇺🇸</span> ISO Certified (USA)</div>
+    <div class="trust-dot"></div>
+    <div class="trust-item"><span>📖</span> World Book of Records</div>
+    <div class="trust-dot"></div>
+    <div class="trust-item"><span>🏛️</span> Govt. Registered Clinic</div>
+    <div class="trust-dot"></div>
+    <div class="trust-item"><span>🔒</span> 100% Confidential Care</div>
+    <div class="trust-dot"></div>
+    <div class="trust-item"><span>💻</span> Online Consultation Available</div>
+  </div>
+</div>
+
+<!-- WHY CHOOSE US -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="why-grid">
+      <div>
+        <p class="overline">Why Choose Us</p>
+        <h2 class="section-title">Sexual Health Care<br>Rooted in Trust &<br>Expertise</h2>
+        <p style="font-size:0.9rem;color:var(--muted);line-height:1.8;margin:1.25rem 0 2rem">We understand that sexual health is an essential part of overall well-being. Dr. Rajesh Manghnani and his team provide compassionate, non-judgmental, personalized care — addressing both physical and psychological aspects of every condition.</p>
+        <div class="trust-cards">
+          <div class="trust-card">
+            <div class="trust-card-icon">🎓</div>
+            <div class="trust-card-title">Specialized Expertise</div>
+            <div class="trust-card-desc">Specialized training in sexual medicine, a member of the American College of Sexology — India's leading expert in diagnosis and treatment of sexual disorders.</div>
+          </div>
+          <div class="trust-card">
+            <div class="trust-card-icon">🌿</div>
+            <div class="trust-card-title">Holistic Approach</div>
+            <div class="trust-card-desc">Combining evidence-based medicine with traditional homeopathic healing for natural, long-lasting results with minimal side effects.</div>
+          </div>
+          <div class="trust-card">
+            <div class="trust-card-icon">🔒</div>
+            <div class="trust-card-title">Strict Confidentiality</div>
+            <div class="trust-card-desc">Discreet billing, private entry, secure records — your privacy is our foremost priority at every step of the consultation.</div>
+          </div>
+          <div class="trust-card">
+            <div class="trust-card-icon">💻</div>
+            <div class="trust-card-title">Convenient Online Care</div>
+            <div class="trust-card-desc">Secure video and phone consultations for patients across India and abroad — Mon to Sat, from the comfort of your home.</div>
+          </div>
+          <div class="trust-card">
+            <div class="trust-card-icon">📋</div>
+            <div class="trust-card-title">Personalized Plans</div>
+            <div class="trust-card-desc">Free diet charts, exercise suggestions, and fully customized treatment plans tailored to your specific health history.</div>
+          </div>
+          <div class="trust-card">
+            <div class="trust-card-icon">⭐</div>
+            <div class="trust-card-title">Proven Track Record</div>
+            <div class="trust-card-desc">4.9/5 rating on Justdial with 887+ verified reviews — recognized as Best Sexologist in Bhopal by Practo, Sulekha & more.</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="doctor-card">
+          <img src="https://bestsexologistdoctor.com/wp-content/uploads/2023/02/Untitled-design-20.png" alt="Dr. Rajesh Manghnani Clinic" onerror="this.style.display='none'"/>
+          <div class="doctor-stats-bar">
+            <div><div class="ds-val">23+</div><div class="ds-label">Yrs Practice</div></div>
+            <div><div class="ds-val">5.5L+</div><div class="ds-label">Patients</div></div>
+            <div><div class="ds-val">4.9★</div><div class="ds-label">Justdial</div></div>
+            <div><div class="ds-val">2</div><div class="ds-label">Clinics</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <p class="overline">Our Specialities</p>
+    <h2 class="section-title">Comprehensive Treatment Services</h2>
+    <p style="font-size:0.9rem;color:rgba(255,255,255,0.4);max-width:560px;line-height:1.8;margin-top:0.75rem">Evidence-based, holistic treatment for a wide range of sexual health concerns — delivered with compassion and expertise.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-icon">💊</div>
+        <div class="service-title">Erectile Dysfunction</div>
+        <div class="service-desc">Inability to achieve or maintain an erection — treated through personalized plans combining counselling and homeopathic medicine for lasting confidence.</div>
+        <div class="service-arrow">Learn More →</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-icon">⏱️</div>
+        <div class="service-title">Premature Ejaculation</div>
+        <div class="service-desc">Targeted behavioral and medical therapies addressing both psychological and physical causes — proven to improve control and satisfaction.</div>
+        <div class="service-arrow">Learn More →</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-icon">❤️</div>
+        <div class="service-title">Low Libido & Desire</div>
+        <div class="service-desc">Hormonal and psychological approaches addressing decreased interest in sexual activity due to stress, medication, or relationship factors.</div>
+        <div class="service-arrow">Learn More →</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <div class="service-icon">🌙</div>
+        <div class="service-title">Nightfall Treatment</div>
+        <div class="service-desc">Safe, effective solutions for nocturnal emissions using holistic lifestyle guidance and homeopathic German medicines with no side effects.</div>
+        <div class="service-arrow">Learn More →</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <div class="service-icon">🔬</div>
+        <div class="service-title">Male Infertility</div>
+        <div class="service-desc">Comprehensive fertility assessments and advanced diagnostic protocols to improve sperm health and support couples struggling to conceive.</div>
+        <div class="service-arrow">Learn More →</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">06</div>
+        <div class="service-icon">👩‍⚕️</div>
+        <div class="service-title">Female Sexual Problems</div>
+        <div class="service-desc">Specialized care for vaginismus, orgasmic disorders, genital pain syndrome, low female desire, and body image concerns — handled with full discretion.</div>
+        <div class="service-arrow">Learn More →</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">07</div>
+        <div class="service-icon">🧠</div>
+        <div class="service-title">Sexual Anxiety & Counselling</div>
+        <div class="service-desc">Confidential counseling and couples therapy to overcome performance anxiety, communication barriers, and psychological barriers to intimacy.</div>
+        <div class="service-arrow">Learn More →</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">08</div>
+        <div class="service-icon">🩺</div>
+        <div class="service-title">STI Diagnosis & Treatment</div>
+        <div class="service-desc">Discrete testing and management of sexually transmitted infections including chlamydia, gonorrhea, genital warts, and related conditions.</div>
+        <div class="service-arrow">Learn More →</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">09</div>
+        <div class="service-icon">🤝</div>
+        <div class="service-title">Couples Counseling</div>
+        <div class="service-desc">Professional guidance to help couples overcome intimacy barriers, improve communication, and strengthen their relationship bonds.</div>
+        <div class="service-arrow">Learn More →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONDITIONS -->
+<section class="conditions">
+  <div class="container">
+    <p class="overline">Comprehensive Care</p>
+    <h2 class="section-title">Conditions We Treat</h2>
+    <div class="conditions-grid">
+      <div class="condition-pill"><span class="condition-pill-arrow">→</span>Erectile Dysfunction</div>
+      <div class="condition-pill"><span class="condition-pill-arrow">→</span>Premature Ejaculation</div>
+      <div class="condition-pill"><span class="condition-pill-arrow">→</span>Low Libido / Loss of Desire</div>
+      <div class="condition-pill"><span class="condition-pill-arrow">→</span>Nightfall (Wet Dreams)</div>
+      <div class="condition-pill"><span class="condition-pill-arrow">→</span>Penis Size & Performance</div>
+      <div class="condition-pill"><span class="condition-pill-arrow">→</span>Male Infertility</div>
+      <div class="condition-pill"><span class="condition-pill-arrow">→</span>Sexual Weakness</div>
+      <div class="condition-pill"><span class="condition-pill-arrow">→</span>Masturbation Effects</div>
+      <div class="condition-pill"><span class="condition-pill-arrow">→</span>Lack of Confidence</div>
+      <div class="condition-pill"><span class="condition-pill-arrow">→</span>Ling Ki Kamzori / Shighrapatan</div>
+      <div class="condition-pill"><span class="condition-pill-arrow">→</span>Sexual Anxiety</div>
+      <div class="condition-pill"><span class="condition-pill-arrow">→</span>Vaginismus</div>
+      <div class="condition-pill"><span class="condition-pill-arrow">→</span>Orgasmic Disorders</div>
+      <div class="condition-pill"><span class="condition-pill-arrow">→</span>Delayed Ejaculation</div>
+      <div class="condition-pill"><span class="condition-pill-arrow">→</span>Genital Pain Syndrome</div>
+      <div class="condition-pill"><span class="condition-pill-arrow">→</span>Sex Addiction</div>
+    </div>
+    <div class="conditions-cta">
+      <a href="https://bestsexologistdoctor.com/index.php/disease-treatment-best-sexologist-treatment-in-bhopal/" class="btn-primary" target="_blank">View All Conditions & Treatments</a>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certs">
+  <div class="container" style="text-align:center">
+    <p class="overline" style="text-align:center">Accreditations & Recognition</p>
+    <h2 class="section-title" style="text-align:center">Trusted by Thousands, Recognized by All</h2>
+    <div class="certs-flex">
+      <div class="cert-badge">
+        <div class="cert-icon">🎓</div>
+        <div class="cert-title">BHMS Graduate</div>
+        <div class="cert-sub">Govt. Homeopathy Medical College</div>
+      </div>
+      <div class="cert-badge">
+        <div class="cert-icon">🇺🇸</div>
+        <div class="cert-title">American College of Sexology</div>
+        <div class="cert-sub">Member · Clinical Sexology</div>
+      </div>
+      <div class="cert-badge">
+        <div class="cert-icon">🏅</div>
+        <div class="cert-title">ISO Certified</div>
+        <div class="cert-sub">International Quality Standard · USA</div>
+      </div>
+      <div class="cert-badge">
+        <div class="cert-icon">📖</div>
+        <div class="cert-title">World Book of Records</div>
+        <div class="cert-sub">Recognized Achievement</div>
+      </div>
+      <div class="cert-badge">
+        <div class="cert-icon">🏛️</div>
+        <div class="cert-title">Govt. Registered Clinic</div>
+        <div class="cert-sub">Bhopal & Mumbai, India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RATINGS -->
+<section class="ratings-section">
+  <div class="container">
+    <p class="overline" style="text-align:center">Platform Ratings</p>
+    <h2 class="section-title" style="text-align:center">Top Rated Across All Platforms</h2>
+    <div class="ratings-grid">
+      <div class="rating-card">
+        <div class="rating-platform">Justdial · Kasturba Nagar</div>
+        <div class="rating-score">4.9</div>
+        <div class="rating-stars">★★★★★</div>
+        <div class="rating-count">887+ Verified Ratings</div>
+      </div>
+      <div class="rating-card">
+        <div class="rating-platform">Justdial · Kasturba Nagar (Gynae)</div>
+        <div class="rating-score">4.6</div>
+        <div class="rating-stars">★★★★★</div>
+        <div class="rating-count">80 Ratings · 19 Years in Healthcare</div>
+      </div>
+      <div class="rating-card">
+        <div class="rating-platform">Justdial · Arera Colony</div>
+        <div class="rating-score">4.7</div>
+        <div class="rating-stars">★★★★★</div>
+        <div class="rating-count">486 Ratings & Reviews</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT DOCTOR -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <p class="overline">About The Doctor</p>
+        <h2 class="section-title">Dr. Rajesh Manghnani</h2>
+        <p style="font-size:0.85rem;color:rgba(255,255,255,0.4);font-weight:500;margin-top:0.25rem;letter-spacing:0.05em;text-transform:uppercase">Senior Consultant · Dr. G.D. Memorial Clinic · Bhopal</p>
+        <p class="about-desc">Dr. Rajesh Manghnani is one of India's most renowned and experienced sexologists with 23+ years of specialized practice. His patient-first philosophy — rooted in trust, clinical discipline, and holistic care — has helped over 5,50,000 patients reclaim confidence and sexual wellness. A member of the American College of Sexology, Dr. Rajesh combines evidence-based medicine with the best of homeopathic German medicines, dilutions, and biochemic salts for 100% effective treatment with no disadvantages.</p>
+        <ul class="about-list">
+          <li>23+ years of specialised sexology practice with proven results</li>
+          <li>5,50,000+ consultations managed with confidence and care</li>
+          <li>BHMS, Clinical Sexology — Govt. Homeopathy Medical College</li>
+          <li>Member, American College of Sexology</li>
+          <li>ISO Certified (USA) · World Book of Records Awardee</li>
+          <li>Govt. registered clinic in Bhopal & Mumbai</li>
+          <li>Free diet charts, exercise & lifestyle guidance with every plan</li>
+          <li>Strict patient confidentiality maintained at all times</li>
+        </ul>
+        <div class="about-stats">
+          <div class="about-stat"><div class="about-stat-val">5.5L+</div><div class="about-stat-label">Patients Treated</div></div>
+          <div class="about-stat"><div class="about-stat-val">23 Yrs</div><div class="about-stat-label">Of Experience</div></div>
+          <div class="about-stat"><div class="about-stat-val">World</div><div class="about-stat-label">Book of Records</div></div>
+          <div class="about-stat"><div class="about-stat-val">ISO</div><div class="about-stat-label">Certified (USA)</div></div>
+        </div>
+        <div class="about-actions">
+          <a href="https://bestsexologistdoctor.com/index.php/about-us/" class="btn-primary" target="_blank">About Dr. Rajesh Manghnani</a>
+          <a href="https://bestsexologistdoctor.com/index.php/payment/" class="btn-outline" target="_blank">Book Appointment</a>
+        </div>
+      </div>
+      <div>
+        <div class="about-img-wrap">
+          <img src="https://bestsexologistdoctor.com/wp-content/uploads/2025/11/photo-output.jpg" alt="Dr. Rajesh Manghnani – Award-Winning Sexologist" onerror="this.style.display='none';document.getElementById('about-fallback').style.display='flex'"/>
+          <div id="about-fallback" style="display:none;background:rgba(255,255,255,0.04);height:520px;align-items:center;justify-content:center"><span style="font-size:8rem;opacity:0.1">👨‍⚕️</span></div>
+          <div class="about-img-overlay">
+            <div class="about-img-tag">🏆 Best Sexologist in Bhopal · Est. 2004</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <p class="overline">Patient Stories</p>
+    <h2 class="section-title">What Our Patients Say</h2>
+    <p style="font-size:0.9rem;color:var(--muted);text-align:center;max-width:520px;margin:0.75rem auto 0;line-height:1.7">Real experiences from verified patients across Practo, Sulekha & Justdial.</p>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-qmark">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">He first understands what the problem is, then explains how to change it. I have been taking medicines for 2 months and there has been a lot of difference. Highly recommend.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AK</div>
+          <div>
+            <div class="testi-name">Verified Patient</div>
+            <div class="testi-loc">Bhopal, MP</div>
+            <div class="testi-source">via Practo</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-qmark">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">I consulted for premature ejaculation and precum issues. His medicine and treatment did wonders for me. I got to know about Dr. Rajesh from YouTube — his experience shows.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SJ</div>
+          <div>
+            <div class="testi-name">Santosh J.</div>
+            <div class="testi-loc">Bhopal, MP</div>
+            <div class="testi-source">via Practo</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-qmark">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">I was suffering from erectile dysfunction with Diabetes Type 2 for a long time. Very depressed — but Dr. Rajesh gave me all solutions to my multiple issues. Life changing!</p>
+        <div class="testi-author">
+          <div class="testi-avatar">RK</div>
+          <div>
+            <div class="testi-name">Rajesh K.</div>
+            <div class="testi-loc">Bhopal, MP</div>
+            <div class="testi-source">via Sulekha</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-qmark">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">I was suffering from fissure, constipation and acidity for 5 years — no relief from allopathy. But Dr. Rajesh sir's treatment gave me a very comfortable experience. Thanks GD Memorial team!</p>
+        <div class="testi-author">
+          <div class="testi-avatar">VP</div>
+          <div>
+            <div class="testi-name">Verified Patient</div>
+            <div class="testi-loc">Bhopal, MP</div>
+            <div class="testi-source">via Sulekha</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-qmark">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Dr. Rajesh is knowledgeable, polite, and caring. Many patients recover from chronic illnesses after a few months of treatment. The free diet chart and exercise guidance is a bonus.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AM</div>
+          <div>
+            <div class="testi-name">Anil M.</div>
+            <div class="testi-loc">Indore, MP</div>
+            <div class="testi-source">via Justdial</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-qmark">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">I had genital warts and weakness since 2018. Visited neurologists and skin specialists — no relief. But Dr. Rajesh sir is a magical doctor. Completely recovered now.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SK</div>
+          <div>
+            <div class="testi-name">Suresh K.</div>
+            <div class="testi-loc">Bhopal, MP</div>
+            <div class="testi-source">via Sulekha</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner">
+      <h2>Ready to Regain Your Confidence?</h2>
+      <p>Book a confidential consultation with Dr. Rajesh Manghnani today. Online and in-person appointments available across India — Mon to Sat, 9 AM to 9 PM.</p>
+      <div class="cta-buttons">
+        <a href="https://bestsexologistdoctor.com/index.php/payment/" class="btn-white" target="_blank">Book Appointment Online</a>
+        <a href="tel:+919893880001" class="btn-ghost">Call: +91 9893880001</a>
+        <a href="https://wa.me/919936604444" class="btn-whatsapp" target="_blank">💬 WhatsApp Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <p class="overline">Common Questions</p>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq-grid">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Is my consultation completely confidential? <div class="faq-chevron">▾</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes, absolutely. Dr. G.D. Memorial Clinic maintains strict confidentiality at every step — from discreet billing and communication to private entry and records. Your privacy is our foremost priority.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can I consult online from another city? <div class="faq-chevron">▾</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. We offer secure video and phone consultations for patients across India and abroad. Our online consultation platform is private, easy to use, and available Monday to Saturday, 9 AM to 9 PM.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Are treatments natural with no side effects? <div class="faq-chevron">▾</div></div>
+        <div class="faq-a"><div class="faq-a-inner">We specialize in holistic treatments using homeopathic German medicines, dilutions, biochemic salts, syrups and mother tinctures. Our medicines offer 100% effective treatment with no disadvantages. Each plan is fully customized to your condition and medical history.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">What is the consultation fee? <div class="faq-chevron">▾</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Consultation fee is ₹500 at the Kasturba Nagar clinic. Dr. Rajesh also offers free phone consultations for initial queries. Online appointment booking is available at bestsexologistdoctor.com/payment.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">How many patients has the clinic treated? <div class="faq-chevron">▾</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Dr. G.D. Memorial Clinic has successfully treated over 5,50,000 patients since its establishment — making it one of India's most experienced and trusted sexual health and wellness practices.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Where are the clinic locations? <div class="faq-chevron">▾</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Main clinic: 47, Sector C, Kasturba Nagar, Near Chetak Bridge, Bhopal – 462023. Second location: GM Tower, 10 Number Market, Near Bake N Shake, Arera Colony, Bhopal – 462016. Online consultations available pan-India.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<section class="locations" id="locations">
+  <div class="container">
+    <p class="overline">Visit Us</p>
+    <h2 class="section-title">Clinic Locations</h2>
+    <div class="loc-grid">
+      <div class="loc-card">
+        <div class="loc-icon">📍</div>
+        <div class="loc-city">Kasturba Nagar (Main)</div>
+        <div class="loc-address">47, Sector C, Kasturba Nagar, Behind Petrol Pump, Near Chetak Bridge, Bhopal – 462023, Madhya Pradesh</div>
+        <div class="loc-phone">📞 +91 9893880001</div>
+        <div class="loc-hours">🕐 Mon–Sat: 9 AM – 8 PM · Consultation: ₹500</div>
+      </div>
+      <div class="loc-card">
+        <div class="loc-icon">📍</div>
+        <div class="loc-city">Arera Colony Branch</div>
+        <div class="loc-address">Shop No 05, Ground Floor, GM Tower, 10 Number Market, Near Bake N Shake, Arera Colony, Bhopal – 462016, Madhya Pradesh</div>
+        <div class="loc-phone">📞 +91 9893880001</div>
+        <div class="loc-hours">🕐 Mon–Sat: 10 AM – 7 PM</div>
+      </div>
+      <div class="loc-card">
+        <div class="loc-icon">💻</div>
+        <div class="loc-city">Online Consultation</div>
+        <div class="loc-address">Secure video & phone consultations for patients across India and abroad — completely private and confidential</div>
+        <div class="loc-phone">📞 +91 9893880001 &nbsp;|&nbsp; 💬 +91 9936604444</div>
+        <div class="loc-hours">🕐 Mon–Sat: 9 AM – 9 PM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Dr. G.D. Memorial Clinic · Dr. Rajesh Manghnani</div>
+      <div class="footer-links">
+        <a href="https://bestsexologistdoctor.com" target="_blank">Website</a>
+        <a href="https://bestsexologistdoctor.com/index.php/about-us/" target="_blank">About</a>
+        <a href="https://bestsexologistdoctor.com/index.php/contact-us/" target="_blank">Contact</a>
+        <a href="https://bestsexologistdoctor.com/index.php/testimonials-best-sexologist-in-bhopal/" target="_blank">Testimonials</a>
+      </div>
+      <div>
+        <div class="footer-copy">© 2026 Dr. Rajesh Manghnani · Dr. G.D. Memorial Clinic. All rights reserved.</div>
+        <div class="footer-copy" style="margin-top:0.3rem">ISO Certified · Est. 2004 · Govt. Registered · American College of Sexology Member · Confidential Care</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(el){
+  const a=el.querySelector('.faq-a');
+  const inner=el.querySelector('.faq-a-inner');
+  const isOpen=el.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>{
+    i.classList.remove('open');
+    i.querySelector('.faq-a').style.maxHeight='0';
+  });
+  if(!isOpen){
+    el.classList.add('open');
+    a.style.maxHeight=inner.offsetHeight+'px';
+  }
+}
+</script>
+</body>
+</html>

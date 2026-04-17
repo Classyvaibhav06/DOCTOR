@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
-import { Footer } from "@/components/Footer";
-import { Navbar } from "@/components/Navbar";
 import { WhatsAppFloatingButton } from "@/components/WhatsAppFloatingButton";
 import { SITE_URL } from "@/lib/metadata";
 
@@ -41,17 +39,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${playfairDisplay.variable}`}>
-      <body
-        style={{
-          minHeight: "100vh",
-          backgroundColor: "#f9fafb",
-          color: "#374151",
-          fontFamily: "var(--font-body)",
-        }}
-      >
-        <Navbar />
+      <body>
         <main>{children}</main>
-        <Footer />
         <WhatsAppFloatingButton />
       </body>
     </html>
