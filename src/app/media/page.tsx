@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Media & Awards | Dr. Rajesh Manghnani Burlington Clinic",
+  description: "Explore news releases, awards, and media coverage of Dr. Rajesh Manghnani and Burlington Clinic's legacy in sexual health.",
+};
+
 export default function MediaPage() {
   const newsItems = [
     { title: "Dr. Rajesh Maghnani awarded by World Book of Records", source: "Press Release", date: "2023" },

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Navigation } from "@/components/Navigation";
+import JsonLd, { generateFAQSchema } from "@/components/JsonLd";
 
 export function FAQSection() {
   const faqs = [
@@ -13,9 +14,11 @@ export function FAQSection() {
   ];
 
   const [openIdx, setOpenIdx] = useState<number | null>(null);
+  const faqSchema = generateFAQSchema(faqs);
 
   return (
     <section className="faq" id="faq">
+      <JsonLd data={faqSchema} />
       <div className="container">
         <p className="overline">Common Questions</p>
         <h2 className="section-title">Frequently Asked Questions</h2>

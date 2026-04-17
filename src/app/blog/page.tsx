@@ -1,40 +1,6 @@
 import React from "react";
 import { Navigation } from "@/components/Navigation";
-
-const blogPosts = [
-  {
-    title: "The Science of Sexual Wellness: A Holistic Approach",
-    date: "Dec 15, 2025",
-    category: "Wellness",
-    author: "Dr. Rajesh Manghnani",
-    excerpt: "Exploring how integrated medicine and lifestyle changes can revitalize intimacy and overall health in modern men.",
-    content: "Sexual health is often a reflection of our overall physiological and psychological state. In this article, Dr. Manghnani discusses the delicate balance between hormonal health, stress management, and traditional homeopathic therapies..."
-  },
-  {
-    title: "Myth-Busting: Homeopathy as a Cure for Intimacy Issues",
-    date: "Nov 22, 2025",
-    category: "Treatments",
-    author: "Medical Team",
-    excerpt: "Addressing common misconceptions about German homeopathic dilutions and their effectiveness in treating chronic sexual health conditions.",
-    content: "Many believe homeopathy takes months to show results. However, with precision dilutions and personalized constitutional remedies, we've seen rapid improvement in patients suffering from complex intimacy disorders..."
-  },
-  {
-    title: "Nurturing Prostate Health After 40",
-    date: "Oct 05, 2025",
-    category: "Mens Health",
-    author: "Dr. Rajesh Manghnani",
-    excerpt: "Essential tips and holistic treatments for maintaining a healthy prostate and preventing age-related sexual dysfunction.",
-    content: "Prostate health is a cornerstone of men's wellness. Understanding the signs of inflammation or enlargement early can save years of discomfort and prevent secondary sexual health complications..."
-  },
-  {
-    title: "Psychological Barriers to Performance",
-    date: "Sep 12, 2025",
-    category: "Psychology",
-    author: "Wellness Expert",
-    excerpt: "How performance anxiety and modern work stress impact physical intimacy, and how we treat the mind to heal the body.",
-    content: "The brain is the most powerful organ for intimacy. When stress hormones like cortisol dominate, wellness suffers. Our clinic uses a dual-path approach to stabilize both mental state and physical response..."
-  }
-];
+import { blogPosts } from "@/lib/blog-data";
 
 export default function BlogPage() {
   return (
@@ -57,7 +23,7 @@ export default function BlogPage() {
         <div className="container">
           <div className="media-grid" style={{gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '2rem'}}>
             {blogPosts.map((post, idx) => (
-              <div key={idx} className="blog-card bg-glass" style={{display: 'flex', flexDirection: 'column', height: '100%'}}>
+              <a key={idx} href={`/blog/${post.slug}`} className="blog-card bg-glass" style={{display: 'flex', flexDirection: 'column', height: '100%', textDecoration: 'none', color: 'inherit'}}>
                 <div className="blog-tag" style={{position: 'static', alignSelf: 'flex-start', marginBottom: '1.25rem'}}>{post.category}</div>
                 <h3 style={{fontSize: '1.5rem', marginBottom: '1rem', paddingRight: '0'}}>{post.title}</h3>
                 <p style={{flexGrow: 1}}>{post.excerpt}</p>
@@ -65,7 +31,7 @@ export default function BlogPage() {
                   <span className="blog-date" style={{fontSize: '0.75rem'}}>{post.date}</span>
                   <span style={{fontSize: '0.75rem', color: 'var(--gold)', fontWeight: '600'}}>{post.author}</span>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
