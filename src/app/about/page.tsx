@@ -95,7 +95,9 @@ export default function AboutPage() {
 
       <footer>
         <div className="container footer-inner">
-          <div className="footer-logo">Dr. G.D. Memorial Clinic</div>
+          <div className="footer-logo">
+            <img src="/images/logo.png" alt="Dr. G.D. Memorial Clinic" style={{ height: "30px", opacity: 0.7 }} />
+          </div>
           <p className="footer-copy">© 2026 Dr. G.D. Memorial Clinic. All Rights Reserved.</p>
         </div>
       </footer>

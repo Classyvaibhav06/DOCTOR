@@ -11,7 +11,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@ark-ui/react": "^5.36.1",
     "framer-motion": "^12.38.0",
+    "lucide-react": "^1.8.0",
     "next": "16.2.3",
     "next-sitemap": "^4.2.3",
     "react": "19.2.4",
