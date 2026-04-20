@@ -108,8 +108,8 @@ export function Footer() {
               style={{
                 fontSize: "0.72rem",
                 fontWeight: 600,
-                color: "#fcd34d",
-                border: "1px solid rgba(252,211,77,0.3)",
+                color: "#FAF9F6",
+                border: "1px solid rgba(250,249,246,0.3)",
                 padding: "0.25rem 0.75rem",
                 borderRadius: 100,
               }}
