@@ -77,62 +77,93 @@ export function TestimonialCarousel() {
   );
 
   return (
-    <section className="section py-16 md:py-24 border-b border-[#E8E6DF]" style={{ backgroundColor: "#F2F0E9" }}>
-      <div className="container-xl px-4 mx-auto max-w-7xl">
+    <section
+      style={{
+        padding: "5rem 0 6rem",
+        background: "#F8FAFC",
+        borderBottom: "1px solid #DBEAFE",
+        fontFamily: "'DM Sans', system-ui, sans-serif",
+      }}
+    >
+      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2rem" }}>
+
         {/* Header */}
-        <div className="text-center" style={{ marginBottom: "3.5rem" }}>
-          <div className="inline-flex items-center gap-2 justify-center mb-4">
-            <span className="h-[1px] w-8 bg-[#1A4D3E]"></span>
-            <p className="text-sm font-semibold tracking-widest uppercase text-[#1A4D3E]">
+        <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "0.6rem", justifyContent: "center", marginBottom: "1.1rem" }}>
+            <span style={{ display: "block", height: "1px", width: "28px", background: "#1E40AF" }}></span>
+            <p style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#1E40AF", margin: 0 }}>
               What Our Patients Say
             </p>
-            <span className="h-[1px] w-8 bg-[#1A4D3E]"></span>
+            <span style={{ display: "block", height: "1px", width: "28px", background: "#1E40AF" }}></span>
           </div>
-          
-          <h2 className="text-3xl md:text-5xl font-medium text-[#0F2922] tracking-tight mb-4">Patient Testimonials</h2>
-          <p className="text-[#4A5E58] max-w-2xl mx-auto text-lg">
+
+          <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontFamily: "'DM Serif Display', Georgia, serif", fontWeight: 400, color: "#0F172A", letterSpacing: "-0.01em", margin: "0 0 0.85rem" }}>
+            Patient Testimonials
+          </h2>
+          <p style={{ color: "#64748B", maxWidth: "560px", margin: "0 auto", fontSize: "1rem", lineHeight: 1.7 }}>
             Thousands of patients have regained confidence and wellbeing with our trusted care.
           </p>
         </div>
 
         {/* Cards */}
-        <div className="flex gap-6 overflow-hidden">
+        <div style={{ display: "flex", gap: "1.25rem", overflow: "hidden" }}>
           <AnimatePresence mode="popLayout">
             {visible.map((t, i) => (
               <motion.div
                 key={`${index}-${i}`}
-                className="bg-white p-8 border border-[#E8E6DF] shadow-sm flex flex-col"
-                style={{ flex: "1", minWidth: 0 }}
-                initial={{ opacity: 0, y: 16 }}
+                style={{
+                  flex: 1, minWidth: 0,
+                  background: "#fff",
+                  border: "1px solid #DBEAFE",
+                  borderRadius: "16px",
+                  padding: "2rem",
+                  boxShadow: "0 2px 12px rgba(30,64,175,0.06)",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+                initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }}
+                exit={{ opacity: 0, y: -14 }}
                 transition={{ delay: i * 0.08, duration: 0.4 }}
               >
                 {/* Stars */}
-                <div className="text-[#1A4D3E] text-xl mb-4 tracking-widest">
+                <div style={{ color: "#F59E0B", fontSize: "1rem", marginBottom: "1rem", letterSpacing: "0.1em" }}>
                   {"★".repeat(t.rating)}
                 </div>
 
                 {/* Quote */}
-                <p className="text-[#4A5E58] text-lg leading-relaxed mb-8 flex-grow">"{t.text}"</p>
+                <p style={{
+                  color: "#475569",
+                  fontSize: "0.93rem",
+                  lineHeight: 1.8,
+                  marginBottom: "1.8rem",
+                  flexGrow: 1,
+                  fontFamily: "'DM Serif Display', Georgia, serif",
+                  fontStyle: "italic",
+                  fontWeight: 400,
+                }}>
+                  &quot;{t.text}&quot;
+                </p>
 
                 {/* Meta */}
-                <div className="pt-6 border-t border-[#E8E6DF]">
-                  <div className="flex items-center justify-between">
+                <div style={{ paddingTop: "1.2rem", borderTop: "1px solid #EFF6FF" }}>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "0.75rem" }}>
                     <div>
-                      <div className="text-[#0F2922] font-bold">{t.name}</div>
-                      <div className="text-[#4A5E58] text-sm mt-0.5">{t.location}</div>
+                      <div style={{ color: "#0F172A", fontWeight: 700, fontSize: "0.88rem" }}>{t.name}</div>
+                      <div style={{ color: "#94A3B8", fontSize: "0.76rem", marginTop: "0.2rem" }}>{t.location}</div>
                     </div>
                     <span
                       style={{
-                        fontSize: "0.75rem",
-                        fontWeight: 600,
-                        background: "#FAF9F6",
-                        border: "1px solid #E8E6DF",
-                        color: "#1A4D3E",
-                        borderRadius: "4px",
-                        padding: "0.25rem 0.75rem",
+                        fontSize: "0.68rem",
+                        fontWeight: 700,
+                        background: "#EFF6FF",
+                        border: "1px solid #DBEAFE",
+                        color: "#1E40AF",
+                        borderRadius: "6px",
+                        padding: "0.22rem 0.7rem",
                         whiteSpace: "nowrap",
+                        letterSpacing: "0.02em",
+                        textTransform: "uppercase",
                       }}
                     >
                       {t.treatment}
@@ -145,7 +176,7 @@ export function TestimonialCarousel() {
         </div>
 
         {/* Dots */}
-        <div className="flex justify-center gap-3 mt-10">
+        <div style={{ display: "flex", justifyContent: "center", gap: "0.6rem", marginTop: "2.5rem" }}>
           {TESTIMONIALS.map((_, i) => (
             <button
               key={i}
@@ -155,15 +186,16 @@ export function TestimonialCarousel() {
                 width: i === index ? 32 : 8,
                 height: 8,
                 borderRadius: 4,
-                background: i === index ? "#1A4D3E" : "#D1D5DB",
+                background: i === index ? "#1E40AF" : "#CBD5E1",
                 border: "none",
                 cursor: "pointer",
-                transition: "width 0.3s, background 0.3s",
+                transition: "width 0.3s cubic-bezier(0.16,1,0.3,1), background 0.3s",
                 padding: 0,
               }}
             />
           ))}
         </div>
+
       </div>
     </section>
   );

@@ -62,7 +62,7 @@ export default async function ServiceDetail({ params }: { params: { slug: string
               </p>
 
               <div style={{ padding: "2.5rem", borderRadius: "18px", marginBottom: "3rem", background: "var(--cream)", border: "1px solid var(--border)" }}>
-                <h3 style={{ color: "var(--gold2)", fontSize: "1.5rem", marginBottom: "1.5rem", fontFamily: "'Playfair Display', serif" }}>Identifying Symptoms</h3>
+                <h3 style={{ color: "var(--gold2)", fontSize: "1.5rem", marginBottom: "1.5rem", fontFamily: "'DM Serif Display', Georgia, serif" }}>Identifying Symptoms</h3>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
                   {service.symptoms.map((s, i) => (
                     <div key={i} style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start", color: "var(--text)", fontSize: "0.95rem" }}>
@@ -81,7 +81,7 @@ export default async function ServiceDetail({ params }: { params: { slug: string
                   />
                  <div style={{ position: "absolute", inset: 0, background: "rgba(10, 22, 40, 0.4)", display: "flex", alignItems: "center", justifyContent: "center", padding: "3rem" }}>
                     <div style={{ textAlign: "center", maxWidth: "500px", background: "rgba(255,255,255,0.9)", padding: "2rem", borderRadius: "16px", backdropFilter: "blur(10px)" }}>
-                       <h3 style={{ fontSize: "2rem", color: "var(--text)", marginBottom: "1rem", fontFamily: "'Playfair Display', serif" }}>Evidence-Based <em style={{color: 'var(--gold)'}}>Results</em></h3>
+                       <h3 style={{ fontSize: "2rem", color: "var(--text)", marginBottom: "1rem", fontFamily: "'DM Serif Display', Georgia, serif", fontWeight: 400 }}>Evidence-Based <em style={{color: 'var(--gold)'}}>Results</em></h3>
                        <p style={{ color: "var(--muted)", fontSize: "0.95rem", lineHeight: 1.6 }}>Our treatments for {service.title} are backed by clinical studies and over 23 years of specialized practice experience.</p>
                     </div>
                  </div>
@@ -92,7 +92,7 @@ export default async function ServiceDetail({ params }: { params: { slug: string
                 <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
                   {service.treatmentApproach.map((step, i) => (
                     <div key={i} style={{ display: "flex", gap: "1.5rem", padding: "1.8rem", borderRadius: "14px", border: "1px solid var(--border)", background: "var(--white)", boxShadow: "var(--shadow)" }}>
-                      <div style={{ width: 44, height: 44, borderRadius: "50%", background: "var(--cream)", border: "1px solid var(--gold)", color: "var(--gold2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontWeight: 700, fontSize: "1.1rem", fontFamily: "'Playfair Display', serif" }}>
+                      <div style={{ width: 44, height: 44, borderRadius: "50%", background: "var(--cream)", border: "1px solid var(--gold)", color: "var(--gold2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontWeight: 700, fontSize: "1.1rem", fontFamily: "'DM Serif Display', Georgia, serif" }}>
                         {i + 1}
                       </div>
                       <div>
@@ -108,7 +108,7 @@ export default async function ServiceDetail({ params }: { params: { slug: string
             {/* Right Sidebar */}
             <div style={{ position: "sticky", top: "100px", height: "max-content" }}>
               <div style={{ border: "1px solid var(--border)", padding: "2.5rem", borderRadius: "18px", background: "var(--cream2)", boxShadow: "var(--shadow)" }}>
-                <h3 style={{ color: "var(--text)", fontSize: "1.6rem", marginBottom: "1rem", fontFamily: "'Playfair Display', serif" }}>Private Consultation</h3>
+                <h3 style={{ color: "var(--text)", fontSize: "1.6rem", marginBottom: "1rem", fontFamily: "'DM Serif Display', Georgia, serif", fontWeight: 400 }}>Private Consultation</h3>
                 <p style={{ color: "var(--muted)", fontSize: "0.95rem", marginBottom: "2rem", lineHeight: "1.7" }}>
                   Consult Dr. Rajesh Manghnani with 100% confidentiality regarding {service.title}. We prioritize your privacy and holistic recovery.
                 </p>
@@ -119,7 +119,7 @@ export default async function ServiceDetail({ params }: { params: { slug: string
               </div>
 
               <div style={{ marginTop: "2.5rem", padding: "2.5rem", borderRadius: "18px", border: "1px solid var(--border)", background: "var(--white)" }}>
-                 <h4 style={{ color: "var(--gold2)", marginBottom: "1.5rem", fontSize: "1.2rem", fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Clinic Excellence</h4>
+                 <h4 style={{ color: "var(--gold2)", marginBottom: "1.5rem", fontSize: "1.2rem", fontFamily: "'DM Serif Display', Georgia, serif", fontWeight: 400 }}>Clinic Excellence</h4>
                  <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "1rem", fontSize: "0.9rem", color: "var(--text)", fontWeight: 500 }}>
                     <li style={{display: "flex", alignItems: "center", gap: "10px"}}><span style={{color:"var(--gold)", fontSize: "1.2rem"}}>✓</span> 23+ Year Legacy of Trust</li>
                     <li style={{display: "flex", alignItems: "center", gap: "10px"}}><span style={{color:"var(--gold)", fontSize: "1.2rem"}}>✓</span> Certified German Homeopathic Care</li>
@@ -132,7 +132,7 @@ export default async function ServiceDetail({ params }: { params: { slug: string
         </div>
       </section>
 
-      <footer style={{ background: '#0a0a08', padding: '4rem 0', color: 'rgba(255,255,255,0.4)' }}>
+      <footer style={{ background: '#0F172A', borderTop: '3px solid #1E40AF', padding: '3rem 0', color: 'rgba(255,255,255,0.4)' }}>
         <div className="container" style={{ textAlign: "center" }}>
           <div style={{ marginBottom: "1.5rem", display: "inline-block" }}>
             <img src="/images/logo.png" alt="Dr. G.D. Memorial Clinic" style={{ height: "32px", opacity: 0.8 }} />

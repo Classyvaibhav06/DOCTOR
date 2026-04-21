@@ -27,16 +27,16 @@ export default function MediaPage() {
           <div className="grid-2">
             {newsItems.map((item, i) => (
               <div key={i} className="trust-card" style={{ textAlign: "left", padding: "2rem" }}>
-                <div style={{ color: "#dc2626", fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase", marginBottom: "0.5rem" }}>
+                <div style={{ color: "#1E40AF", fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase", marginBottom: "0.5rem" }}>
                   {item.source} • {item.date}
                 </div>
                 <h3 className="text-heading" style={{ fontSize: "1.2rem", marginBottom: "1rem" }}>{item.title}</h3>
-                <p style={{ color: "#6b7280", fontSize: "0.9rem", lineHeight: 1.6 }}>
+                <p style={{ color: "#64748B", fontSize: "0.9rem", lineHeight: 1.6 }}>
                   Dr. Rajesh Maghnani has been featured across various medical journals and health publications for his 
                   pioneering work in natural sexual health treatments and his commitment to patient privacy.
                 </p>
                 <div className="mt-4">
-                  <span style={{ color: "#0a1628", fontWeight: 600, fontSize: "0.85rem", cursor: "pointer", borderBottom: "1px solid #dc2626" }}>
+                  <span style={{ color: "#0F172A", fontWeight: 600, fontSize: "0.85rem", cursor: "pointer", borderBottom: "1px solid #1E40AF" }}>
                     Read Full Article
                   </span>
                 </div>
@@ -49,7 +49,7 @@ export default function MediaPage() {
             <div className="grid-3 mt-10">
               {[1, 2, 3].map((v) => (
                 <div key={v} style={{ aspectRatio: "16/9", background: "#f3f4f6", borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid #e5e7eb" }}>
-                  <div style={{ width: 60, height: 60, borderRadius: "50%", background: "#dc2626", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff" }}>
+                  <div style={{ width: 60, height: 60, borderRadius: "50%", background: "#1E40AF", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff" }}>
                     ▶
                   </div>
                 </div>

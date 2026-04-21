@@ -89,7 +89,7 @@ export default async function BlogPostPage({ params }: Props) {
             }}
           >
             <div style={{ position: 'absolute', top: 0, left: 0, width: '4px', height: '100%', background: 'var(--gold)' }} />
-            <h3 style={{ color: 'var(--text)', fontFamily: "'Playfair Display', serif", fontSize: '1.8rem', marginBottom: '1rem' }}>Consult Dr. Rajesh Manghnani</h3>
+            <h3 style={{ color: 'var(--text)', fontFamily: "'DM Serif Display', Georgia, serif", fontSize: '1.8rem', marginBottom: '1rem', fontWeight: 400 }}>Consult Dr. Rajesh Manghnani</h3>
             <p style={{ color: 'var(--muted)', marginBottom: '2rem', fontSize: '1.05rem' }}>If you are experiencing any of the issues discussed in this article, don't wait. Get professional, confidential advice from India's leading expert in sexual health.</p>
             <div style={{ display: 'flex', gap: '1.2rem', flexWrap: 'wrap' }}>
               <a href="tel:+919893880001" className="btn-primary">Call: +91 98938 80001</a>
@@ -107,7 +107,7 @@ export default async function BlogPostPage({ params }: Props) {
             {blogPosts.filter(p => p.slug !== post.slug).slice(0, 3).map((p, idx) => (
               <a key={idx} href={`/blog/${p.slug}`} className="blog-card" style={{ background: 'var(--white)' }}>
                 <div className="blog-tag">{p.category}</div>
-                <h3 style={{ fontSize: '1.3rem', marginBottom: '1rem', fontFamily: "'Playfair Display', serif" }}>{p.title}</h3>
+                <h3 style={{ fontSize: '1.3rem', marginBottom: '1rem', fontFamily: "'DM Serif Display', Georgia, serif", fontWeight: 400 }}>{p.title}</h3>
                 <p style={{ fontSize: '0.92rem', color: 'var(--muted)', lineHeight: 1.6 }}>{p.excerpt}</p>
                 <div className="service-arrow" style={{ marginTop: '1.5rem' }}>Read Article &rarr;</div>
               </a>
@@ -116,7 +116,7 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
       </section>
 
-      <footer style={{ background: '#0a0a08', padding: '4rem 0', color: 'rgba(255,255,255,0.4)' }}>
+      <footer style={{ background: '#0F172A', borderTop: '3px solid #1E40AF', padding: '3rem 0', color: 'rgba(255,255,255,0.4)' }}>
         <div className="container footer-inner" style={{ flexDirection: 'column', textAlign: 'center', gap: '1rem' }}>
           <div className="footer-logo" style={{ color: 'white' }}>Dr. G.D. Memorial Clinic</div>
           <p className="footer-copy">© 2026 Dr. G.D. Memorial Clinic. All Rights Reserved.</p>

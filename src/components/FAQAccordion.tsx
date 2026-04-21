@@ -50,52 +50,73 @@ export function FAQAccordion() {
   };
 
   return (
-    <section className="py-20 md:py-32 bg-[#FAF9F6]">
-      <div className="container px-4 mx-auto max-w-7xl">
+    <section style={{ padding: "5rem 0 6rem", background: "#F8FAFC", fontFamily: "'DM Sans', system-ui, sans-serif" }}>
+      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 1.5rem" }}>
         
         {/* Header */}
-        <div className="flex flex-col flex-wrap items-center justify-between mb-16 gap-8 text-center max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 justify-center mb-2">
-            <span className="h-[1px] w-8 bg-[#1A4D3E]"></span>
-            <p className="text-sm font-semibold tracking-widest uppercase text-[#1A4D3E]">
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: "3.5rem", maxWidth: "680px", marginLeft: "auto", marginRight: "auto" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "0.6rem", justifyContent: "center", marginBottom: "1rem" }}>
+            <span style={{ display: "block", height: "1px", width: "28px", background: "#1E40AF" }}></span>
+            <p style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#1E40AF", margin: 0 }}>
               Common Questions
             </p>
-            <span className="h-[1px] w-8 bg-[#1A4D3E]"></span>
+            <span style={{ display: "block", height: "1px", width: "28px", background: "#1E40AF" }}></span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-medium text-[#0F2922] tracking-tight">
+          <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontFamily: "'DM Serif Display', Georgia, serif", fontWeight: 400, color: "#0F172A", letterSpacing: "-0.01em", margin: "0 0 1rem" }}>
             Frequently Asked Questions
           </h2>
-          <p className="text-[#4A5E58] text-lg mt-4 leading-relaxed">
-            Everything you need to know about our treatments, booking, and consultations. Cannot find the answer you're looking for? Please contact us directly.
+          <p style={{ color: "#64748B", fontSize: "1rem", lineHeight: 1.75, margin: 0 }}>
+            Everything you need to know about our treatments, booking, and consultations. Cannot find the answer you&apos;re looking for? Please contact us directly.
           </p>
         </div>
 
         {/* Accordion List */}
-        <div className="max-w-4xl mx-auto flex flex-col gap-4">
+        <div style={{ maxWidth: "860px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
           {FAQS.map((f, i) => {
             const isOpen = openIndices.includes(i);
             return (
               <div 
-                key={i} 
-                className={`group border border-[#E8E6DF] rounded-2xl bg-white shadow-sm transition-all duration-300 ease-in-out ${isOpen ? 'ring-1 ring-[#1A4D3E]/20 shadow-md' : 'hover:border-[#1A4D3E]/30 hover:shadow-md'}`}
+                key={i}
+                style={{
+                  border: isOpen ? "1px solid #1E40AF" : "1px solid #DBEAFE",
+                  borderRadius: "14px",
+                  background: "#fff",
+                  boxShadow: isOpen ? "0 8px 32px rgba(30,64,175,0.09)" : "0 2px 8px rgba(0,0,0,0.04)",
+                  transition: "all 0.3s cubic-bezier(0.16,1,0.3,1)",
+                  overflow: "hidden",
+                  transform: isOpen ? "translateY(-1px)" : "none",
+                }}
               >
                 <button
                   onClick={() => toggleAccordion(i)}
-                  className="w-full text-left flex justify-between items-center px-6 py-5 md:px-8 md:py-6 gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1A4D3E] rounded-2xl"
+                  style={{
+                    width: "100%", textAlign: "left",
+                    display: "flex", justifyContent: "space-between", alignItems: "center",
+                    padding: "1.4rem 1.8rem", gap: "1.2rem",
+                    background: "none", border: "none", cursor: "pointer",
+                    outline: "none",
+                  }}
                   aria-expanded={isOpen}
                 >
-                  <h3 className={`text-base md:text-lg font-semibold transition-colors duration-200 ${isOpen ? 'text-[#1A4D3E]' : 'text-[#0F2922] group-hover:text-[#1A4D3E]'}`}>
+                  <h3 style={{
+                    fontSize: "1rem", fontWeight: 600,
+                    color: isOpen ? "#1E40AF" : "#0F172A",
+                    transition: "color 0.2s", margin: 0, lineHeight: 1.4,
+                  }}>
                     {f.q}
                   </h3>
                   
                   {/* Plus/Minus Icon */}
-                  <div className={`relative flex items-center justify-center shrink-0 w-6 h-6 rounded-full border transition-all duration-300 ${isOpen ? 'bg-[#1A4D3E] border-[#1A4D3E]' : 'border-[#E8E6DF] bg-[#FAF9F6] group-hover:border-[#1A4D3E]/50 group-hover:bg-white'}`}>
-                    {/* Horizontal line (always visible) */}
-                    <span className={`absolute w-3 h-[2px] transition-colors rounded-full ${isOpen ? 'bg-white' : 'bg-[#1A4D3E]'}`} />
-                    {/* Vertical line (rotates completely out of view horizontally when open to form a minus) */}
-                    <span 
-                      className={`absolute w-3 h-[2px] transition-all duration-300 rounded-full ${isOpen ? 'bg-white rotate-0 opacity-0' : 'bg-[#1A4D3E] rotate-90 opacity-100'}`} 
-                    />
+                  <div style={{
+                    position: "relative", display: "flex", alignItems: "center", justifyContent: "center",
+                    flexShrink: 0, width: "28px", height: "28px", borderRadius: "50%",
+                    border: isOpen ? "1.5px solid #1E40AF" : "1.5px solid #DBEAFE",
+                    background: isOpen ? "#1E40AF" : "#F8FAFC",
+                    transition: "all 0.3s",
+                    transform: isOpen ? "rotate(135deg)" : "none",
+                  }}>
+                    <span style={{ position: "absolute", width: "11px", height: "2px", borderRadius: "2px", background: isOpen ? "#fff" : "#1E40AF", transition: "background 0.2s" }} />
+                    <span style={{ position: "absolute", width: "2px", height: "11px", borderRadius: "2px", background: isOpen ? "#fff" : "#1E40AF", transition: "all 0.3s", opacity: isOpen ? 0 : 1 }} />
                   </div>
                 </button>
 
@@ -105,14 +126,15 @@ export function FAQAccordion() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }} // Highly polished ease curve
-                      className="overflow-hidden"
+                      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                      style={{ overflow: "hidden" }}
                     >
-                      <div className="px-6 pb-6 md:px-8 md:pb-8 pt-0 text-[#4A5E58] leading-relaxed text-sm md:text-base border-t border-transparent">
+                      <div style={{ padding: "0 1.8rem 1.6rem", color: "#64748B", lineHeight: 1.8, fontSize: "0.93rem", borderTop: "1px solid #EFF6FF" }}>
                         <motion.div
-                          initial={{ y: -8, opacity: 0 }}
+                          initial={{ y: -6, opacity: 0 }}
                           animate={{ y: 0, opacity: 1 }}
-                          transition={{ delay: 0.1, duration: 0.3 }}
+                          transition={{ delay: 0.08, duration: 0.28 }}
+                          style={{ paddingTop: "1rem" }}
                         >
                           {f.a}
                         </motion.div>

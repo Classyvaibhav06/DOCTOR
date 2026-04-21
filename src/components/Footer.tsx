@@ -106,12 +106,13 @@ export function Footer() {
             <span
               key={badge}
               style={{
-                fontSize: "0.72rem",
-                fontWeight: 600,
-                color: "#FAF9F6",
-                border: "1px solid rgba(250,249,246,0.3)",
-                padding: "0.25rem 0.75rem",
+                fontSize: "0.7rem",
+                fontWeight: 700,
+                color: "rgba(255,255,255,0.85)",
+                border: "1px solid rgba(147,197,253,0.3)",
+                padding: "0.25rem 0.85rem",
                 borderRadius: 100,
+                letterSpacing: "0.04em",
               }}
             >
               {badge}

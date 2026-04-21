@@ -29,7 +29,7 @@ export default function BlogPage() {
             {blogPosts.map((post, idx) => (
               <a key={idx} href={`/blog/${post.slug}`} className="blog-card" style={{ display: 'flex', flexDirection: 'column', height: '100%', textDecoration: 'none', background: 'var(--white)' }}>
                 <div className="blog-tag" style={{ position: 'static', alignSelf: 'flex-start', marginBottom: '1.25rem' }}>{post.category}</div>
-                <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', fontFamily: "'Playfair Display', serif" }}>{post.title}</h3>
+                <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', fontFamily: "'DM Serif Display', Georgia, serif" }}>{post.title}</h3>
                 <p style={{ flexGrow: 1, color: 'var(--muted)', fontSize: '0.92rem', lineHeight: 1.6 }}>{post.excerpt}</p>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '1.5rem', borderTop: '1px solid var(--border)', paddingTop: '1rem' }}>
                   <span className="blog-date" style={{ fontSize: '0.75rem', color: 'var(--muted)' }}>{post.date}</span>
@@ -52,7 +52,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <footer style={{ background: '#0a0a08', padding: '4rem 0', color: 'rgba(255,255,255,0.4)' }}>
+      <footer style={{ background: '#0F172A', borderTop: '3px solid #1E40AF', padding: '3rem 0', color: 'rgba(255,255,255,0.4)' }}>
         <div className="container footer-inner" style={{ flexDirection: 'column', textAlign: 'center', gap: '1rem' }}>
           <div className="footer-logo" style={{ color: 'white' }}>Dr. G.D. Memorial Clinic</div>
           <p className="footer-copy">© 2026 Dr. G.D. Memorial Clinic. All Rights Reserved.</p>
@@ -62,3 +62,4 @@ export default function BlogPage() {
     </div>
   );
 }
+

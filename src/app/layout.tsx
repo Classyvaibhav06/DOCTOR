@@ -1,21 +1,24 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { DM_Sans, DM_Serif_Display } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { WhatsAppFloatingButton } from "@/components/WhatsAppFloatingButton";
 import { SITE_URL } from "@/lib/metadata";
 import JsonLd, { generateMedicalBusinessSchema } from "@/components/JsonLd";
 
-const inter = Inter({
+const dmSans = DM_Sans({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
-const playfairDisplay = Playfair_Display({
+const dmSerifDisplay = DM_Serif_Display({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -65,7 +68,7 @@ export default function RootLayout({
   const businessSchema = generateMedicalBusinessSchema();
 
   return (
-    <html lang="en" className={`${inter.variable} ${playfairDisplay.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${dmSans.variable} ${dmSerifDisplay.variable}`} suppressHydrationWarning>
       <head>
         <JsonLd data={businessSchema} />
       </head>
