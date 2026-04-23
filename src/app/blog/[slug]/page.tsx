@@ -1,128 +1,230 @@
+"use client";
 import React from "react";
-import { Metadata } from "next";
 import { Navigation } from "@/components/Navigation";
 import { blogPosts } from "@/lib/blog-data";
-import { notFound } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
+import { Calendar, User, ArrowLeft, ArrowRight, Tag, Phone, Globe } from "lucide-react";
 
-type Props = {
-  params: { slug: string };
-};
-
-export async function generateStaticParams() {
-  return blogPosts.map((post) => ({
-    slug: post.slug,
-  }));
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
-
-  if (!post) return { title: "Post Not Found" };
-
-  return {
-    title: post.title,
-    description: post.excerpt,
-    keywords: post.keywords,
-    openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      type: "article",
-      publishedTime: new Date(post.date).toISOString(),
-      authors: [post.author],
-    },
-  };
-}
-
-export default async function BlogPostPage({ params }: Props) {
-  const { slug } = await params;
+export default function BlogPostPage() {
+  const { slug } = useParams();
   const post = blogPosts.find((p) => p.slug === slug);
 
   if (!post) notFound();
 
   return (
-    <div className="redesigned-home">
+    <div style={{ background: "#FFFFFF", minHeight: "100vh" }}>
       <Navigation />
       
-      <header className="hero" style={{ minHeight: '60vh', paddingTop: '140px', paddingBottom: '4rem', background: '#0a0a0a' }}>
-        <div className="hero-slider" style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
-          <div className="hero-slide active">
-            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=2000" alt="Medical Innovation" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.4)' }} />
+      <style>{`
+        .post-hero {
+          padding-top: 10rem;
+          padding-bottom: 5rem;
+          background: #F8FAFC;
+          border-bottom: 1px solid #DBEAFE;
+        }
+        .back-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: #1E40AF;
+          font-weight: 700;
+          font-size: 0.85rem;
+          text-decoration: none;
+          margin-bottom: 2rem;
+          transition: transform 0.2s;
+        }
+        .back-link:hover {
+          transform: translateX(-5px);
+        }
+        .post-h1 {
+          font-family: 'DM Serif Display', serif;
+          font-size: clamp(2.2rem, 5vw, 3.8rem);
+          color: #0F172A;
+          line-height: 1.15;
+          margin-bottom: 2rem;
+          font-weight: 400;
+        }
+        .post-meta {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 2rem;
+          color: #64748B;
+          font-size: 0.95rem;
+          margin-bottom: 1rem;
+        }
+        .post-article {
+          padding: 6rem 0;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        .post-featured-img {
+          width: 100%;
+          aspect-ratio: 16/9;
+          object-fit: cover;
+          border-radius: 24px;
+          margin-bottom: 4rem;
+          box-shadow: 0 30px 60px rgba(30, 64, 175, 0.1);
+          border: 1px solid #DBEAFE;
+        }
+        .post-body {
+          font-size: 1.15rem;
+          line-height: 1.9;
+          color: #334155;
+          white-space: pre-wrap;
+          font-family: 'Inter', sans-serif;
+        }
+        .post-body b, .post-body strong {
+          color: #0F172A;
+          font-weight: 700;
+        }
+        .consult-box {
+          margin-top: 6rem;
+          padding: 3.5rem;
+          background: #F1F5F9;
+          border-radius: 24px;
+          border-left: 6px solid #1E40AF;
+          position: relative;
+        }
+        .consult-box h3 {
+          font-family: 'DM Serif Display', serif;
+          font-size: 2rem;
+          color: #0F172A;
+          margin-bottom: 1rem;
+          font-weight: 400;
+        }
+        .consult-box p {
+          font-size: 1.05rem;
+          color: #64748B;
+          line-height: 1.7;
+          margin-bottom: 2.5rem;
+        }
+        .related-section {
+          padding: 8rem 0;
+          background: #F8FAFC;
+          border-top: 1px solid #DBEAFE;
+        }
+        .related-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+          gap: 2rem;
+          margin-top: 3.5rem;
+        }
+        .related-card {
+          background: #FFFFFF;
+          border: 1px solid #E2E8F0;
+          border-radius: 20px;
+          padding: 2rem;
+          text-decoration: none;
+          transition: all 0.3s;
+        }
+        .related-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 30px rgba(30, 64, 175, 0.05);
+          border-color: #1E40AF;
+        }
+        .related-card h4 {
+          font-family: 'DM Serif Display', serif;
+          font-size: 1.3rem;
+          color: #0F172A;
+          margin-bottom: 0.75rem;
+          font-weight: 400;
+        }
+        .related-card p {
+          font-size: 0.9rem;
+          color: #64748B;
+          line-height: 1.6;
+        }
+      `}</style>
+
+      {/* Post Hero */}
+      <header className="post-hero">
+        <div className="container" style={{ maxWidth: "1000px" }}>
+          <a href="/blog" className="back-link">
+            <ArrowLeft size={16} /> Back to Journal
+          </a>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "#EFF6FF", color: "#1E40AF", padding: "0.4rem 1rem", borderRadius: "50px", fontSize: "0.7rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "1.5rem" }}>
+            <Tag size={12} /> {post.category}
           </div>
-        </div>
-        <div className="hero-overlay" />
-        <div className="container" style={{ position: 'relative', zIndex: 3 }}>
-          <div className="blog-tag" style={{ margin: '0 auto 1.5rem', display: 'table', background: 'var(--gold)', color: 'white' }}>{post.category}</div>
-          <h1 style={{ textAlign: 'center', fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: 'white', lineHeight: 1.2, maxWidth: '900px', margin: '0 auto' }}>{post.title}</h1>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginTop: '2rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
-            <span>📅 {post.date}</span>
-            <span>✍️ {post.author}</span>
+          <h1 className="post-h1">{post.title}</h1>
+          <div className="post-meta">
+            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+              <Calendar size={18} color="#1E40AF" />
+              {post.date}
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+              <User size={18} color="#1E40AF" />
+              {post.author}
+            </div>
           </div>
         </div>
       </header>
 
-      <article className="post-content" style={{ padding: '5rem 0', background: 'var(--white)' }}>
-        <div className="container" style={{ maxWidth: '850px' }}>
-          <div style={{ marginBottom: '3rem' }}>
-             <img src="https://images.unsplash.com/photo-1576091160550-217359f4ecf8?auto=format&fit=crop&q=80&w=2000" alt={post.title} style={{ width: '100%', borderRadius: '18px', boxShadow: 'var(--shadow-lg)', border: '1px solid var(--border)' }} />
-          </div>
-          <div 
-            style={{ 
-              fontSize: '1.1rem', 
-              lineHeight: 1.9, 
-              color: 'var(--text)',
-              whiteSpace: 'pre-wrap'
-            }}
-          >
+      {/* Post Content */}
+      <main className="container">
+        <article className="post-article">
+          <img 
+            src={post.image} 
+            alt={post.title} 
+            className="post-featured-img" 
+          />
+          <div className="post-body">
             {post.content}
           </div>
 
-          <div 
-            style={{ 
-              marginTop: '5rem', 
-              padding: '3rem', 
-              background: 'var(--cream)', 
-              borderRadius: '18px', 
-              border: '1px solid var(--border)',
-              position: 'relative',
-              overflow: 'hidden'
-            }}
-          >
-            <div style={{ position: 'absolute', top: 0, left: 0, width: '4px', height: '100%', background: 'var(--gold)' }} />
-            <h3 style={{ color: 'var(--text)', fontFamily: "'DM Serif Display', Georgia, serif", fontSize: '1.8rem', marginBottom: '1rem', fontWeight: 400 }}>Consult Dr. Rajesh Manghnani</h3>
-            <p style={{ color: 'var(--muted)', marginBottom: '2rem', fontSize: '1.05rem' }}>If you are experiencing any of the issues discussed in this article, don't wait. Get professional, confidential advice from India's leading expert in sexual health.</p>
-            <div style={{ display: 'flex', gap: '1.2rem', flexWrap: 'wrap' }}>
-              <a href="tel:+919893880001" className="btn-primary">Call: +91 98938 80001</a>
-              <a href="https://bestsexologistdoctor.com/index.php/payment/" className="btn-secondary">Book Appointment Online</a>
+          {/* Consultation Box */}
+          <div className="consult-box">
+            <h3>Consult Dr. Rajesh Manghnani</h3>
+            <p>
+              If you are seeking professional, evidence-based solutions for the concerns discussed in this article, we invite you to book a private consultation. Experience the highest standard of confidential care.
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
+              <a 
+                href="tel:+919893880001" 
+                style={{ 
+                  display: "inline-flex", alignItems: "center", gap: "0.75rem", background: "#1E40AF", color: "#fff", 
+                  padding: "1rem 2rem", borderRadius: "12px", fontWeight: 700, textDecoration: "none", boxShadow: "0 10px 20px rgba(30, 64, 175, 0.2)"
+                }}
+              >
+                <Phone size={18} /> Call +91 98938 80001
+              </a>
+              <a 
+                href="https://bestsexologistdoctor.com/index.php/payment/" 
+                target="_blank"
+                style={{ 
+                  display: "inline-flex", alignItems: "center", gap: "0.75rem", background: "#fff", color: "#1E40AF", 
+                  padding: "1rem 2rem", borderRadius: "12px", fontWeight: 700, textDecoration: "none", border: "1px solid #DBEAFE"
+                }}
+              >
+                <Globe size={18} /> Book Appointment Online
+              </a>
             </div>
           </div>
-        </div>
-      </article>
+        </article>
+      </main>
 
-      <section className="more-posts" style={{ padding: '6rem 0', background: 'var(--cream2)' }}>
+      {/* Related Articles */}
+      <section className="related-section">
         <div className="container">
-          <p className="overline" style={{ textAlign: 'center' }}>Keep Reading</p>
-          <h2 className="section-title" style={{ marginBottom: '3.5rem', textAlign: 'center' }}>Related Articles</h2>
-          <div className="media-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2rem' }}>
+          <span className="overline" style={{ color: "#1E40AF" }}>Deepen Your Knowledge</span>
+          <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "2.5rem", color: "#0F172A", marginTop: "1rem" }}>Related <em style={{ color: "#1E40AF", fontStyle: "italic" }}>Articles</em></h2>
+          
+          <div className="related-grid">
             {blogPosts.filter(p => p.slug !== post.slug).slice(0, 3).map((p, idx) => (
-              <a key={idx} href={`/blog/${p.slug}`} className="blog-card" style={{ background: 'var(--white)' }}>
-                <div className="blog-tag">{p.category}</div>
-                <h3 style={{ fontSize: '1.3rem', marginBottom: '1rem', fontFamily: "'DM Serif Display', Georgia, serif", fontWeight: 400 }}>{p.title}</h3>
-                <p style={{ fontSize: '0.92rem', color: 'var(--muted)', lineHeight: 1.6 }}>{p.excerpt}</p>
-                <div className="service-arrow" style={{ marginTop: '1.5rem' }}>Read Article &rarr;</div>
+              <a key={idx} href={`/blog/${p.slug}`} className="related-card">
+                <div style={{ color: "#1E40AF", fontSize: "0.7rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "0.75rem" }}>{p.category}</div>
+                <h4>{p.title}</h4>
+                <p>{p.excerpt}</p>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginTop: "1.5rem", color: "#1E40AF", fontWeight: 700, fontSize: "0.85rem" }}>
+                  Read Entry <ArrowRight size={14} />
+                </div>
               </a>
             ))}
           </div>
         </div>
       </section>
 
-      <footer style={{ background: '#0F172A', borderTop: '3px solid #1E40AF', padding: '3rem 0', color: 'rgba(255,255,255,0.4)' }}>
-        <div className="container footer-inner" style={{ flexDirection: 'column', textAlign: 'center', gap: '1rem' }}>
-          <div className="footer-logo" style={{ color: 'white' }}>Dr. G.D. Memorial Clinic</div>
-          <p className="footer-copy">© 2026 Dr. G.D. Memorial Clinic. All Rights Reserved.</p>
-          <p style={{ fontSize: '0.7rem' }}>ISO Certified · World Book of Records · Expert Care Since 2004</p>
-        </div>
-      </footer>
     </div>
   );
 }
+
+

@@ -1,106 +1,367 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Navigation } from "@/components/Navigation";
+import {
+  Award,
+  BadgeCheck,
+  Building2,
+  GraduationCap,
+  HeartPulse,
+  ShieldCheck,
+  Users,
+} from "lucide-react";
 
 export default function AboutPage() {
+  const stats = [
+    { value: "23+", label: "Years Experience" },
+    { value: "5.5L+", label: "Patients Treated" },
+    { value: "4.9", label: "Justdial Rating" },
+    { value: "100%", label: "Confidential Care" },
+  ];
+
+  const credentials = [
+    {
+      icon: GraduationCap,
+      title: "BHMS Graduate",
+      text: "Govt. Homeopathy Medical College",
+    },
+    {
+      icon: BadgeCheck,
+      title: "Clinical Sexology",
+      text: "American College of Sexology Member",
+    },
+    {
+      icon: Award,
+      title: "World Book of Records",
+      text: "Recognized for medical contribution",
+    },
+    {
+      icon: ShieldCheck,
+      title: "ISO Certified",
+      text: "International quality benchmark (USA)",
+    },
+    {
+      icon: Building2,
+      title: "Established Clinic",
+      text: "Trusted center in Bhopal and Mumbai",
+    },
+    {
+      icon: Users,
+      title: "High Patient Trust",
+      text: "Large referral base and repeat families",
+    },
+  ];
+
   return (
-    <div className="redesigned-home">
+    <div style={{ background: "#F8FAFC" }}>
       <Navigation />
-      
-      <header className="hero" style={{ minHeight: "50vh", paddingTop: "140px", paddingBottom: "4rem" }}>
-        <div className="hero-bg"></div>
-        <div className="hero-grain"></div>
-        <div className="container">
-          <p className="overline" style={{ textAlign: "center", color: "var(--gold)" }}>A Legacy of Trust</p>
-          <h1 style={{ textAlign: "center", fontSize: "3.5rem", lineHeight: 1.2 }}>Dr. <em style={{ color: "var(--gold)" }}>Rajesh Manghnani</em></h1>
-          <p style={{ textAlign: "center", maxWidth: "700px", margin: "1.5rem auto", color: "rgba(255,255,255,0.6)", fontSize: "1.1rem" }}>
-            The legacy of India&apos;s most trusted sexual health specialist since 1926. 
-            Blending traditional wisdom with modern clinical excellence.
+
+      <header
+        style={{
+          padding: "8.5rem 0 3.5rem",
+          background:
+            "linear-gradient(150deg, #F8FAFC 0%, #EFF6FF 55%, #DBEAFE 100%)",
+          borderBottom: "1px solid #DBEAFE",
+        }}
+      >
+        <div className="container" style={{ textAlign: "center" }}>
+          <p
+            className="overline"
+            style={{ color: "#1E40AF", marginBottom: "0.75rem" }}
+          >
+            About Burlington Clinic
+          </p>
+          <h1
+            className="section-title"
+            style={{ fontSize: "clamp(2.2rem, 4.8vw, 3.8rem)", margin: 0 }}
+          >
+            Dr. Rajesh Manghnani &amp; The
+            <em style={{ color: "#1E40AF", fontStyle: "italic" }}>
+              {" "}
+              Care Legacy
+            </em>
+          </h1>
+          <p
+            style={{
+              maxWidth: "760px",
+              margin: "1.2rem auto 0",
+              color: "#64748B",
+              fontSize: "1.02rem",
+              lineHeight: 1.8,
+            }}
+          >
+            A modern, evidence-informed clinic where private consultation,
+            compassionate diagnosis, and long-term wellness planning come
+            together for men and women across India.
           </p>
         </div>
       </header>
 
-      <section className="section" style={{ background: "var(--navy)", padding: "5rem 0" }}>
+      <section style={{ padding: "2rem 0 3.5rem" }}>
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "5rem", alignItems: "center" }} className="media-grid">
-            <div className="about-img-wrap" style={{ borderRadius: "24px", overflow: "hidden" }}>
-              <img 
-                src="https://bestsexologistdoctor.com/wp-content/uploads/2025/11/photo-output.jpg" 
-                alt="Dr. Rajesh Manghnani" 
-                style={{ width: "100%", height: "auto" }}
-              />
-              <div className="hero-img-badge" style={{ bottom: "20px", left: "20px" }}>
-                <div className="hero-img-badge-val">23+</div>
-                <div className="hero-img-badge-label">Years of Expertise</div>
-              </div>
+          <div className="about-spotlight">
+            <div className="about-story-card">
+              <p className="about-kicker">How It Started</p>
+              <h2 className="about-title">
+                Building Trusted Sexual Wellness Through Clinical Precision
+              </h2>
+              <p className="about-copy">
+                Dr. Rajesh Manghnani has spent over two decades helping patients
+                recover confidence, restore relationships, and improve quality
+                of life through scientifically guided homeopathic and
+                lifestyle-based treatment plans.
+              </p>
+              <p className="about-copy">
+                At Burlington Clinic, every consultation is private, respectful,
+                and personalized. The focus is not just symptom control, but
+                complete wellbeing backed by clear diagnosis and ethical care.
+              </p>
             </div>
-            
-            <div>
-              <p className="overline">The Doctor's Journey</p>
-              <h2 className="section-title" style={{ textAlign: "left", fontSize: "2.5rem", marginBottom: "2rem" }}>Pioneering Natural <br/><em style={{color: 'var(--gold)'}}>Sexual Wellness</em></h2>
-              <p style={{ color: "rgba(255,255,255,0.7)", lineHeight: 1.8, fontSize: "1.1rem", marginBottom: "1.5rem" }}>
-                Dr. Rajesh Manghnani is a name synonymous with excellence and discretion in the field of sexual health. 
-                Carrying forward a medical legacy that spans nearly a century, he has dedicated his career to finding 
-                sustainable, evidence-based solutions for patients across the globe.
-              </p>
-              <p style={{ color: "rgba(255,255,255,0.7)", lineHeight: 1.8, fontSize: "1.1rem" }}>
-                Under his leadership, Burlington Clinic has evolved into a nationally recognized center for healing, 
-                serving over 5.5 lakh patients. His philosophy centers on "Private Care with Scientific Precision" — 
-                ensuring every patient feels heard, protected, and empowered.
-              </p>
-              
-              <div className="hero-stats" style={{ marginTop: "3rem", justifyContent: "flex-start", gap: "3rem" }}>
-                <div className="hero-stat">
-                  <div className="hero-stat-val">98+</div>
-                  <div className="hero-stat-label">Years Legacy</div>
-                </div>
-                <div className="hero-stat">
-                  <div className="hero-stat-val">5.5L+</div>
-                  <div className="hero-stat-label">Patients Served</div>
-                </div>
-                <div className="hero-stat">
-                  <div className="hero-stat-val">4.9★</div>
-                  <div className="hero-stat-label">Patient Rating</div>
-                </div>
+
+            <div className="about-right-stack">
+              <div className="about-image-card">
+                <Image
+                  src="/images/doctor_consultation.png"
+                  alt="Dr. Rajesh Manghnani consulting a patient"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+
+              <div className="about-stats-grid">
+                {stats.map((item) => (
+                  <div key={item.label} className="about-stat-item">
+                    <div className="about-stat-value">{item.value}</div>
+                    <div className="about-stat-label">{item.label}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section" style={{ background: "rgba(255,255,255,0.02)", padding: "5rem 0" }}>
-        <div className="container" style={{maxWidth: '1200px'}}>
-          <div className="bg-glass" style={{ padding: "4rem", borderRadius: "32px", border: "1px solid rgba(212,168,83,0.1)" }}>
-             <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}>
-                <h3 style={{ fontSize: "2rem", color: "var(--gold2)", marginBottom: "1.5rem", fontFamily: "var(--font-serif)" }}>The Clinical Philosophy</h3>
-                <p style={{ fontSize: "1.15rem", lineHeight: 1.8, color: "rgba(255,255,255,0.8)" }}>
-                  "We believe that sexual health is a critical pillar of overall happiness. Our mission isn't just to treat symptoms, but to restore a man's confidence and a couple's harmony through the safest, most natural methods available in modern homeopathy."
-                </p>
-                <div style={{ marginTop: "2.5rem", fontWeight: "bold", fontSize: "1.1rem", textTransform: "uppercase", letterSpacing: "0.1em", color: 'var(--gold)' }}>— Dr. Rajesh Manghnani</div>
-             </div>
+      <section style={{ padding: "0 0 4rem" }}>
+        <div className="container">
+          <div className="about-credentials-wrap">
+            <div className="about-cred-head">
+              <p
+                className="overline"
+                style={{ color: "#1E40AF", marginBottom: "0.65rem" }}
+              >
+                Doctor & Clinic Profile
+              </p>
+              <h3 className="about-cred-title">
+                Qualifications, Recognition &amp; Approach
+              </h3>
+            </div>
+
+            <div className="about-cred-grid">
+              {credentials.map((item) => (
+                <div key={item.title} className="about-cred-item">
+                  <item.icon size={18} color="#1E40AF" strokeWidth={2.2} />
+                  <div>
+                    <h4>{item.title}</h4>
+                    <p>{item.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="about-quote-box">
+              <HeartPulse size={18} color="#1E40AF" strokeWidth={2.1} />
+              <p>
+                Our commitment is simple: safe and natural treatment,
+                transparent guidance, and complete confidentiality at every
+                step.
+              </p>
+            </div>
+
+            <div className="about-cta-row">
+              <Link href="/contact" className="btn-primary">
+                Book Confidential Consultation
+              </Link>
+              <a
+                href="tel:+919893880001"
+                className="btn-secondary"
+                style={{ background: "#fff" }}
+              >
+                Call Clinic
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="cta-section">
-        <div className="container cta-inner">
-          <h2>Ready to Take the First Step?</h2>
-          <p>Book your confidential appointment today. Available for online video calls and in-person consultations.</p>
-          <div className="cta-buttons">
-            <a href="tel:+919893880001" className="btn-white">📞 Call Dr. Rajesh</a>
-            <a href="https://bestsexologistdoctor.com/index.php/payment/" className="btn-ghost">Book Appointment</a>
-          </div>
-        </div>
-      </section>
-
-      <footer>
-        <div className="container footer-inner">
-          <div className="footer-logo">
-            <img src="/images/logo.png" alt="Dr. G.D. Memorial Clinic" style={{ height: "30px", opacity: 0.7 }} />
-          </div>
-          <p className="footer-copy">© 2026 Dr. G.D. Memorial Clinic. All Rights Reserved.</p>
-        </div>
-      </footer>
+      <style>{`
+        .about-spotlight {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
+        }
+        .about-story-card,
+        .about-image-card,
+        .about-stats-grid,
+        .about-credentials-wrap {
+          background: #ffffff;
+          border: 1px solid #E2E8F0;
+          border-radius: 24px;
+        }
+        .about-story-card {
+          padding: 2.2rem 1.9rem;
+        }
+        .about-kicker {
+          font-size: 0.82rem;
+          font-weight: 800;
+          letter-spacing: 0.07em;
+          text-transform: uppercase;
+          color: #EA580C;
+          margin-bottom: 0.85rem;
+        }
+        .about-title {
+          font-family: "Plus Jakarta Sans", sans-serif;
+          font-size: clamp(2rem, 4vw, 3.1rem);
+          line-height: 1.1;
+          letter-spacing: -0.04em;
+          color: #0F172A;
+          margin-bottom: 1.1rem;
+        }
+        .about-copy {
+          font-size: 1rem;
+          color: #475569;
+          line-height: 1.8;
+          margin-bottom: 0.95rem;
+        }
+        .about-copy:last-child {
+          margin-bottom: 0;
+        }
+        .about-right-stack {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .about-image-card {
+          position: relative;
+          min-height: 345px;
+          overflow: hidden;
+        }
+        .about-stats-grid {
+          padding: 0.8rem;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0.8rem;
+        }
+        .about-stat-item {
+          border: 1px solid #E2E8F0;
+          border-radius: 16px;
+          padding: 1rem;
+          background: #F8FAFC;
+        }
+        .about-stat-value {
+          font-family: "Plus Jakarta Sans", sans-serif;
+          color: #0F172A;
+          font-size: 2.2rem;
+          font-weight: 800;
+          line-height: 1;
+          letter-spacing: -0.04em;
+        }
+        .about-stat-label {
+          margin-top: 0.45rem;
+          font-size: 0.88rem;
+          color: #475569;
+          font-weight: 500;
+        }
+        .about-credentials-wrap {
+          padding: 2rem;
+        }
+        .about-cred-head {
+          margin-bottom: 1.25rem;
+        }
+        .about-cred-title {
+          font-family: "Plus Jakarta Sans", sans-serif;
+          color: #0F172A;
+          font-size: clamp(1.5rem, 2.8vw, 2rem);
+          letter-spacing: -0.03em;
+        }
+        .about-cred-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 0.85rem;
+        }
+        .about-cred-item {
+          display: flex;
+          gap: 0.7rem;
+          align-items: flex-start;
+          border: 1px solid #DBEAFE;
+          border-radius: 14px;
+          padding: 0.85rem;
+          background: #EFF6FF;
+        }
+        .about-cred-item h4 {
+          font-size: 0.87rem;
+          color: #0F172A;
+          margin: 0 0 0.25rem;
+          font-weight: 700;
+        }
+        .about-cred-item p {
+          margin: 0;
+          color: #475569;
+          font-size: 0.8rem;
+          line-height: 1.55;
+        }
+        .about-quote-box {
+          margin-top: 1rem;
+          border: 1px solid #DBEAFE;
+          background: #F8FAFC;
+          border-radius: 14px;
+          padding: 0.95rem 1rem;
+          display: flex;
+          gap: 0.6rem;
+          align-items: flex-start;
+        }
+        .about-quote-box p {
+          margin: 0;
+          font-size: 0.95rem;
+          color: #334155;
+          line-height: 1.7;
+        }
+        .about-cta-row {
+          margin-top: 1.2rem;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.75rem;
+        }
+        @media (max-width: 1024px) {
+          .about-spotlight {
+            grid-template-columns: 1fr;
+          }
+          .about-image-card {
+            min-height: 300px;
+          }
+          .about-cred-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 640px) {
+          .about-story-card,
+          .about-credentials-wrap {
+            padding: 1.25rem;
+          }
+          .about-stats-grid {
+            grid-template-columns: 1fr;
+          }
+          .about-cred-grid {
+            grid-template-columns: 1fr;
+          }
+          .about-title {
+            font-size: 2rem;
+          }
+          .about-copy {
+            font-size: 0.94rem;
+          }
+        }
+      `}</style>
     </div>
   );
 }

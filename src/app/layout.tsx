@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { DM_Sans, DM_Serif_Display } from "next/font/google";
+import { DM_Sans, Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import { WhatsAppFloatingButton } from "@/components/WhatsAppFloatingButton";
 import { SITE_URL } from "@/lib/metadata";
 import JsonLd, { generateMedicalBusinessSchema } from "@/components/JsonLd";
+import { Footer } from "@/components/Footer";
 
 const dmSans = DM_Sans({
   variable: "--font-body",
@@ -13,11 +13,10 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-const dmSerifDisplay = DM_Serif_Display({
+const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -68,13 +67,13 @@ export default function RootLayout({
   const businessSchema = generateMedicalBusinessSchema();
 
   return (
-    <html lang="en" className={`${dmSans.variable} ${dmSerifDisplay.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${dmSans.variable} ${plusJakartaSans.variable}`} suppressHydrationWarning>
       <head>
         <JsonLd data={businessSchema} />
       </head>
       <body suppressHydrationWarning>
         <main>{children}</main>
-        <WhatsAppFloatingButton />
+        <Footer />
         <Script id="scroll-handler" strategy="afterInteractive">
           {`
             window.addEventListener('scroll', () => {

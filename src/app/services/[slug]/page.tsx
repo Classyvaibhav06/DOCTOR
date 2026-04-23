@@ -132,15 +132,7 @@ export default async function ServiceDetail({ params }: { params: { slug: string
         </div>
       </section>
 
-      <footer style={{ background: '#0F172A', borderTop: '3px solid #1E40AF', padding: '3rem 0', color: 'rgba(255,255,255,0.4)' }}>
-        <div className="container" style={{ textAlign: "center" }}>
-          <div style={{ marginBottom: "1.5rem", display: "inline-block" }}>
-            <img src="/images/logo.png" alt="Dr. G.D. Memorial Clinic" style={{ height: "32px", opacity: 0.8 }} />
-          </div>
-          <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.85rem", marginBottom: "0.5rem" }}>© 2026 Dr. G.D. Memorial Clinic. Dedicated to Ethical Sexual Wellness.</p>
-          <p style={{ fontSize: '0.7rem' }}>ISO Certified · World Book of Records · Expert Care Since 2004</p>
-        </div>
-      </footer>
     </div>
   );
 }
+

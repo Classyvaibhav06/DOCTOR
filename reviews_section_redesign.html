@@ -1,0 +1,189 @@
+
+<style>
+  .rv-wrap { font-family: var(--font-sans); padding: 2rem 0; }
+  .rv-header { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 2rem; margin-bottom: 3rem; }
+  .rv-score-block { display: flex; gap: 2rem; align-items: flex-start; }
+  .rv-big-score { font-size: 52px; font-weight: 500; color: var(--color-text-primary); line-height: 1; }
+  .rv-stars { display: flex; gap: 3px; margin: 8px 0 4px; }
+  .rv-star { width: 18px; height: 18px; fill: #7F77DD; }
+  .rv-star-half { fill: url(#half-fill); }
+  .rv-star-empty { fill: none; stroke: var(--color-border-secondary); stroke-width: 1.5; }
+  .rv-count { font-size: 13px; color: var(--color-text-secondary); }
+  .rv-bars { flex: 1; max-width: 280px; display: flex; flex-direction: column; gap: 7px; padding-left: 2rem; border-left: 0.5px solid var(--color-border-tertiary); }
+  .rv-bar-row { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--color-text-secondary); }
+  .rv-bar-track { flex: 1; height: 5px; background: var(--color-border-tertiary); border-radius: 99px; overflow: hidden; }
+  .rv-bar-fill { height: 100%; background: #7F77DD; border-radius: 99px; }
+  .rv-bar-label { min-width: 28px; text-align: right; }
+  .rv-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2.5rem; }
+  .rv-cat-badge { display: flex; align-items: center; gap: 6px; padding: 6px 14px; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); font-size: 13px; background: var(--color-background-primary); }
+  .rv-cat-score { color: #534AB7; font-weight: 500; }
+  .rv-cat-name { color: var(--color-text-secondary); }
+  .rv-divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin-bottom: 2.5rem; }
+  .rv-cards { display: flex; flex-direction: column; gap: 0; }
+  .rv-card { padding: 1.5rem 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .rv-card-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.75rem; gap: 1rem; }
+  .rv-user { display: flex; align-items: center; gap: 10px; }
+  .rv-avatar { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; background: var(--color-background-secondary); flex-shrink: 0; }
+  .rv-avatar-init { width: 38px; height: 38px; border-radius: 50%; background: #EEEDFE; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; color: #534AB7; flex-shrink: 0; }
+  .rv-uname { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
+  .rv-utime { font-size: 12px; color: var(--color-text-secondary); margin-top: 1px; }
+  .rv-card-score { display: flex; align-items: center; gap: 6px; }
+  .rv-card-score-num { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
+  .rv-card-stars { display: flex; gap: 2px; }
+  .rv-card-star { width: 14px; height: 14px; fill: #7F77DD; }
+  .rv-card-star-e { fill: none; stroke: var(--color-border-secondary); stroke-width: 1.5; }
+  .rv-quote { font-size: 14px; color: var(--color-text-primary); line-height: 1.7; margin-bottom: 1rem; }
+  .rv-photos { display: flex; gap: 8px; flex-wrap: wrap; }
+  .rv-photo { width: 72px; height: 56px; border-radius: var(--border-radius-md); object-fit: cover; border: 0.5px solid var(--color-border-tertiary); background: var(--color-background-secondary); }
+  .rv-source-tag { display: inline-block; padding: 2px 10px; border: 0.5px solid var(--color-border-tertiary); border-radius: 99px; font-size: 11px; color: var(--color-text-secondary); margin-top: 0.5rem; }
+  .rv-footer { margin-top: 2rem; text-align: center; }
+  .rv-footer a { font-size: 13px; color: #534AB7; text-decoration: underline; text-underline-offset: 4px; }
+  .rv-section-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: #534AB7; margin-bottom: 0.5rem; }
+  .rv-title { font-size: 22px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 0.25rem; }
+  .rv-sub { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; max-width: 500px; margin-bottom: 0; }
+  .rv-hero-card { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 1.5rem; border: 0.5px solid var(--color-border-tertiary); margin-bottom: 2rem; }
+  .rv-hero-quote { font-size: 15px; color: var(--color-text-primary); line-height: 1.8; margin-bottom: 1.25rem; font-style: italic; }
+  .rv-hero-user { display: flex; align-items: center; gap: 10px; }
+</style>
+
+<div class="rv-wrap">
+  <h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Patient reviews for Dr. Rajesh — 4.9 average from 5.5 lakh patients</h2>
+
+  <div style="margin-bottom: 2rem;">
+    <div class="rv-section-label">Clinical impact</div>
+    <p class="rv-title">Voices of restoration</p>
+    <p class="rv-sub">Real stories of emotional and physical restoration from patients who reclaimed their vitality.</p>
+  </div>
+
+  <div class="rv-header">
+    <div class="rv-score-block">
+      <div>
+        <div class="rv-big-score">4.9</div>
+        <div class="rv-stars">
+          <svg viewBox="0 0 18 17" class="rv-star"><polygon points="9,1 11.5,6.5 17.5,7.3 13,11.6 14.3,17.5 9,14.5 3.7,17.5 5,11.6 0.5,7.3 6.5,6.5"/></svg>
+          <svg viewBox="0 0 18 17" class="rv-star"><polygon points="9,1 11.5,6.5 17.5,7.3 13,11.6 14.3,17.5 9,14.5 3.7,17.5 5,11.6 0.5,7.3 6.5,6.5"/></svg>
+          <svg viewBox="0 0 18 17" class="rv-star"><polygon points="9,1 11.5,6.5 17.5,7.3 13,11.6 14.3,17.5 9,14.5 3.7,17.5 5,11.6 0.5,7.3 6.5,6.5"/></svg>
+          <svg viewBox="0 0 18 17" class="rv-star"><polygon points="9,1 11.5,6.5 17.5,7.3 13,11.6 14.3,17.5 9,14.5 3.7,17.5 5,11.6 0.5,7.3 6.5,6.5"/></svg>
+          <svg viewBox="0 0 18 17" class="rv-star"><polygon points="9,1 11.5,6.5 17.5,7.3 13,11.6 14.3,17.5 9,14.5 3.7,17.5 5,11.6 0.5,7.3 6.5,6.5"/></svg>
+        </div>
+        <div class="rv-count">5,50,000+ verified ratings</div>
+      </div>
+      <div class="rv-bars">
+        <div class="rv-bar-row"><span>5.0</span><div class="rv-bar-track"><div class="rv-bar-fill" style="width:78%"></div></div><span class="rv-bar-label">78%</span></div>
+        <div class="rv-bar-row"><span>4.0</span><div class="rv-bar-track"><div class="rv-bar-fill" style="width:14%"></div></div><span class="rv-bar-label">14%</span></div>
+        <div class="rv-bar-row"><span>3.0</span><div class="rv-bar-track"><div class="rv-bar-fill" style="width:5%"></div></div><span class="rv-bar-label">5%</span></div>
+        <div class="rv-bar-row"><span>2.0</span><div class="rv-bar-track"><div class="rv-bar-fill" style="width:2%"></div></div><span class="rv-bar-label">2%</span></div>
+        <div class="rv-bar-row"><span>1.0</span><div class="rv-bar-track"><div class="rv-bar-fill" style="width:1%"></div></div><span class="rv-bar-label">1%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rv-cats">
+    <div class="rv-cat-badge"><span class="rv-cat-score">4.9</span><span class="rv-cat-name">Overall care</span></div>
+    <div class="rv-cat-badge"><span class="rv-cat-score">4.8</span><span class="rv-cat-name">Explanation</span></div>
+    <div class="rv-cat-badge"><span class="rv-cat-score">4.9</span><span class="rv-cat-name">Treatment</span></div>
+    <div class="rv-cat-badge"><span class="rv-cat-score">4.7</span><span class="rv-cat-name">Diet & guidance</span></div>
+    <div class="rv-cat-badge"><span class="rv-cat-score">4.8</span><span class="rv-cat-name">Approachability</span></div>
+  </div>
+
+  <hr class="rv-divider">
+
+  <div class="rv-hero-card">
+    <div class="rv-hero-quote">"I was suffering from erectile dysfunction with Diabetes Type 2 for a long time. Very depressed — but Dr. Rajesh gave me all solutions to my multiple issues. Life changing! The way he explains the medical and psychological overlap is what gave me the confidence to follow the treatment."</div>
+    <div class="rv-hero-user">
+      <div class="rv-avatar-init">RK</div>
+      <div>
+        <div class="rv-uname">Rajesh K. <span style="font-weight:400;color:var(--color-text-secondary)">· Bhopal</span></div>
+        <div class="rv-utime">Primary clinical case · via Sulekha</div>
+      </div>
+      <div class="rv-card-score" style="margin-left: auto;">
+        <span class="rv-card-score-num">5.0</span>
+        <div class="rv-card-stars">
+          <svg viewBox="0 0 14 13" class="rv-card-star"><polygon points="7,1 8.8,4.8 13,5.4 10,8.3 10.8,12.5 7,10.5 3.2,12.5 4,8.3 1,5.4 5.2,4.8"/></svg>
+          <svg viewBox="0 0 14 13" class="rv-card-star"><polygon points="7,1 8.8,4.8 13,5.4 10,8.3 10.8,12.5 7,10.5 3.2,12.5 4,8.3 1,5.4 5.2,4.8"/></svg>
+          <svg viewBox="0 0 14 13" class="rv-card-star"><polygon points="7,1 8.8,4.8 13,5.4 10,8.3 10.8,12.5 7,10.5 3.2,12.5 4,8.3 1,5.4 5.2,4.8"/></svg>
+          <svg viewBox="0 0 14 13" class="rv-card-star"><polygon points="7,1 8.8,4.8 13,5.4 10,8.3 10.8,12.5 7,10.5 3.2,12.5 4,8.3 1,5.4 5.2,4.8"/></svg>
+          <svg viewBox="0 0 14 13" class="rv-card-star"><polygon points="7,1 8.8,4.8 13,5.4 10,8.3 10.8,12.5 7,10.5 3.2,12.5 4,8.3 1,5.4 5.2,4.8"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rv-cards" id="reviews-list">
+    <div class="rv-card">
+      <div class="rv-card-top">
+        <div class="rv-user">
+          <div class="rv-avatar-init">VP</div>
+          <div>
+            <div class="rv-uname">Verified Patient <span style="font-weight:400;color:var(--color-text-secondary)">· Bhopal</span></div>
+            <div class="rv-utime">4 months ago</div>
+          </div>
+        </div>
+        <div class="rv-card-score">
+          <span class="rv-card-score-num">5.0</span>
+          <div class="rv-card-stars">
+            <svg viewBox="0 0 14 13" class="rv-card-star"><polygon points="7,1 8.8,4.8 13,5.4 10,8.3 10.8,12.5 7,10.5 3.2,12.5 4,8.3 1,5.4 5.2,4.8"/></svg>
+            <svg viewBox="0 0 14 13" class="rv-card-star"><polygon points="7,1 8.8,4.8 13,5.4 10,8.3 10.8,12.5 7,10.5 3.2,12.5 4,8.3 1,5.4 5.2,4.8"/></svg>
+            <svg viewBox="0 0 14 13" class="rv-card-star"><polygon points="7,1 8.8,4.8 13,5.4 10,8.3 10.8,12.5 7,10.5 3.2,12.5 4,8.3 1,5.4 5.2,4.8"/></svg>
+            <svg viewBox="0 0 14 13" class="rv-card-star"><polygon points="7,1 8.8,4.8 13,5.4 10,8.3 10.8,12.5 7,10.5 3.2,12.5 4,8.3 1,5.4 5.2,4.8"/></svg>
+            <svg viewBox="0 0 14 13" class="rv-card-star"><polygon points="7,1 8.8,4.8 13,5.4 10,8.3 10.8,12.5 7,10.5 3.2,12.5 4,8.3 1,5.4 5.2,4.8"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="rv-quote">He first understands what the problem is, then explains how to change it. Highly recommend for his logical approach to medicine.</div>
+      <span class="rv-source-tag">via Practo</span>
+    </div>
+
+    <div class="rv-card">
+      <div class="rv-card-top">
+        <div class="rv-user">
+          <div class="rv-avatar-init">SJ</div>
+          <div>
+            <div class="rv-uname">Santosh J. <span style="font-weight:400;color:var(--color-text-secondary)">· Bhopal</span></div>
+            <div class="rv-utime">6 months ago</div>
+          </div>
+        </div>
+        <div class="rv-card-score">
+          <span class="rv-card-score-num">5.0</span>
+          <div class="rv-card-stars">
+            <svg viewBox="0 0 14 13" class="rv-card-star"><polygon points="7,1 8.8,4.8 13,5.4 10,8.3 10.8,12.5 7,10.5 3.2,12.5 4,8.3 1,5.4 5.2,4.8"/></svg>
+            <svg viewBox="0 0 14 13" class="rv-card-star"><polygon points="7,1 8.8,4.8 13,5.4 10,8.3 10.8,12.5 7,10.5 3.2,12.5 4,8.3 1,5.4 5.2,4.8"/></svg>
+            <svg viewBox="0 0 14 13" class="rv-card-star"><polygon points="7,1 8.8,4.8 13,5.4 10,8.3 10.8,12.5 7,10.5 3.2,12.5 4,8.3 1,5.4 5.2,4.8"/></svg>
+            <svg viewBox="0 0 14 13" class="rv-card-star"><polygon points="7,1 8.8,4.8 13,5.4 10,8.3 10.8,12.5 7,10.5 3.2,12.5 4,8.3 1,5.4 5.2,4.8"/></svg>
+            <svg viewBox="0 0 14 13" class="rv-card-star"><polygon points="7,1 8.8,4.8 13,5.4 10,8.3 10.8,12.5 7,10.5 3.2,12.5 4,8.3 1,5.4 5.2,4.8"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="rv-quote">Consulted for premature ejaculation and precum. His medicine and treatment did wonders for me. His YouTube lectures are very enlightening.</div>
+      <span class="rv-source-tag">via YouTube referral</span>
+    </div>
+
+    <div class="rv-card">
+      <div class="rv-card-top">
+        <div class="rv-user">
+          <div class="rv-avatar-init">AM</div>
+          <div>
+            <div class="rv-uname">Anil M. <span style="font-weight:400;color:var(--color-text-secondary)">· Indore</span></div>
+            <div class="rv-utime">3 months ago</div>
+          </div>
+        </div>
+        <div class="rv-card-score">
+          <span class="rv-card-score-num">5.0</span>
+          <div class="rv-card-stars">
+            <svg viewBox="0 0 14 13" class="rv-card-star"><polygon points="7,1 8.8,4.8 13,5.4 10,8.3 10.8,12.5 7,10.5 3.2,12.5 4,8.3 1,5.4 5.2,4.8"/></svg>
+            <svg viewBox="0 0 14 13" class="rv-card-star"><polygon points="7,1 8.8,4.8 13,5.4 10,8.3 10.8,12.5 7,10.5 3.2,12.5 4,8.3 1,5.4 5.2,4.8"/></svg>
+            <svg viewBox="0 0 14 13" class="rv-card-star"><polygon points="7,1 8.8,4.8 13,5.4 10,8.3 10.8,12.5 7,10.5 3.2,12.5 4,8.3 1,5.4 5.2,4.8"/></svg>
+            <svg viewBox="0 0 14 13" class="rv-card-star"><polygon points="7,1 8.8,4.8 13,5.4 10,8.3 10.8,12.5 7,10.5 3.2,12.5 4,8.3 1,5.4 5.2,4.8"/></svg>
+            <svg viewBox="0 0 14 13" class="rv-card-star"><polygon points="7,1 8.8,4.8 13,5.4 10,8.3 10.8,12.5 7,10.5 3.2,12.5 4,8.3 1,5.4 5.2,4.8"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="rv-quote">Knowledgeable, polite, and caring. Many patients recover from chronic illnesses after a few months of treatment. The free diet chart and exercise guidance is a bonus.</div>
+      <span class="rv-source-tag">via Justdial</span>
+    </div>
+  </div>
+
+  <div class="rv-footer" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 0.5px solid var(--color-border-tertiary);">
+    <a href="https://bestsexologistdoctor.com/index.php/testimonials-best-sexologist-in-bhopal/" target="_blank" rel="noopener">Read all 5,50,000+ patient narratives →</a>
+  </div>
+</div>

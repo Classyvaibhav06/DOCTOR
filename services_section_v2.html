@@ -1,0 +1,305 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&family=Outfit:wght@300;400;500&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.s-root {
+  font-family: 'Outfit', sans-serif;
+  background: var(--color-background-primary);
+  padding: 3.5rem 2rem 3rem;
+}
+
+.s-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.s-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #1E40AF;
+  margin-bottom: 10px;
+}
+
+.s-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 1.08;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.s-title em {
+  font-style: italic;
+  color: #1E40AF;
+}
+
+.s-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #1E40AF;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 11px 22px;
+  border-radius: 100px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.s-cta-btn:hover { background: #1e3a8a; }
+
+.s-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.s-card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 16px;
+  padding: 1.5rem 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.s-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: #1E40AF;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+.s-card:hover { border-color: #BFDBFE; background: #F8FAFF; }
+.s-card:hover::before { transform: scaleX(1); }
+
+.s-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #EFF6FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  transition: background 0.25s, transform 0.25s;
+  flex-shrink: 0;
+}
+.s-card:hover .s-icon-box {
+  background: #DBEAFE;
+  transform: scale(1.07);
+}
+
+.s-icon-box svg {
+  width: 22px;
+  height: 22px;
+  stroke: #1E40AF;
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.s-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+.s-card-desc {
+  font-size: 12.5px;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  font-weight: 300;
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.s-learn {
+  font-size: 12px;
+  font-weight: 500;
+  color: #1E40AF;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity 0.22s, transform 0.22s;
+}
+.s-card:hover .s-learn { opacity: 1; transform: translateY(0); }
+
+.s-footer {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 0.5px solid var(--color-border-tertiary);
+}
+
+.s-footer-note {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  font-weight: 300;
+}
+.s-footer-note b { font-weight: 500; color: var(--color-text-primary); }
+
+.s-all-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1E40AF;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.s-all-link:hover { border-color: #1E40AF; }
+
+@media (max-width: 580px) {
+  .s-grid { grid-template-columns: 1fr 1fr; }
+  .s-title { font-size: 30px; }
+}
+@media (max-width: 380px) {
+  .s-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<h2 class="sr-only">Our specialities — expert care for every condition at Dr. Rajesh Manghnani's clinic</h2>
+
+<div class="s-root">
+
+  <div class="s-header">
+    <div>
+      <div class="s-eyebrow">Our Specialities</div>
+      <h2 class="s-title">Expert Care For <em>Every</em> Condition</h2>
+    </div>
+    <a href="https://bestsexologistdoctor.com/index.php/payment/" target="_blank" class="s-cta-btn">
+      Book a Consultation
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 11.5l9-9M5 2.5h6.5V9"/></svg>
+    </a>
+  </div>
+
+  <div class="s-grid">
+
+    <a href="/services/erectile-dysfunction" class="s-card">
+      <div class="s-icon-box">
+        <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 1 5 5c0 2.5-1.5 4.5-3.5 5.5V17h2v2h-2v2h-3v-2H8.5v-2h2v-4.5C8.5 11.5 7 9.5 7 7a5 5 0 0 1 5-5z"/><circle cx="12" cy="7" r="2"/></svg>
+      </div>
+      <div class="s-card-title">Erectile Dysfunction</div>
+      <div class="s-card-desc">Holistic treatment combining evidence-based medicine and counselling for lasting, confident results.</div>
+      <div class="s-learn">Learn more <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M5.5 2H10v4.5"/></svg></div>
+    </a>
+
+    <a href="/services/premature-ejaculation" class="s-card">
+      <div class="s-icon-box">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 15.5"/><line x1="12" y1="3" x2="12" y2="1"/></svg>
+      </div>
+      <div class="s-card-title">Premature Ejaculation</div>
+      <div class="s-card-desc">Behavioral and medical strategies tailored to your physiology for enhanced control and satisfaction.</div>
+      <div class="s-learn">Learn more <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M5.5 2H10v4.5"/></svg></div>
+    </a>
+
+    <a href="/services/low-libido" class="s-card">
+      <div class="s-icon-box">
+        <svg viewBox="0 0 24 24"><path d="M12 21C12 21 4 14.5 4 9a8 8 0 0 1 16 0c0 5.5-8 12-8 12z"/><path d="M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+      </div>
+      <div class="s-card-title">Low Libido &amp; Desire</div>
+      <div class="s-card-desc">Restoring hormonal balance and psychological drive through a fully natural, integrated approach.</div>
+      <div class="s-learn">Learn more <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M5.5 2H10v4.5"/></svg></div>
+    </a>
+
+    <a href="/services/infertility" class="s-card">
+      <div class="s-icon-box">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M8 8c0 0 0 4 4 4s4-4 4-4"/><path d="M12 12v8"/><path d="M9 17h6"/><circle cx="7" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/></svg>
+      </div>
+      <div class="s-card-title">Male Infertility</div>
+      <div class="s-card-desc">Science-backed fertility diagnostics and protocols to improve sperm health and reproductive outcomes.</div>
+      <div class="s-learn">Learn more <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M5.5 2H10v4.5"/></svg></div>
+    </a>
+
+    <a href="/services/female-sexual-problems" class="s-card">
+      <div class="s-icon-box">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 12v8"/><path d="M9 18h6"/><path d="M6 21c.5-2 3-3 6-3s5.5 1 6 3"/></svg>
+      </div>
+      <div class="s-card-title">Female Sexual Issues</div>
+      <div class="s-card-desc">Compassionate, expert support for vaginismus, orgasmic disorders, and low desire in women.</div>
+      <div class="s-learn">Learn more <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M5.5 2H10v4.5"/></svg></div>
+    </a>
+
+    <a href="/services/sexual-anxiety" class="s-card">
+      <div class="s-icon-box">
+        <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9l-6-6z"/><path d="M9 3v6h6"/><path d="M12 12v4"/><circle cx="12" cy="11" r="0.5" fill="#1E40AF" stroke="none"/></svg>
+      </div>
+      <div class="s-card-title">Sexual Anxiety</div>
+      <div class="s-card-desc">Confidential therapy addressing psychological barriers to intimacy, performance, and self-confidence.</div>
+      <div class="s-learn">Learn more <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M5.5 2H10v4.5"/></svg></div>
+    </a>
+
+    <a href="/services/nightfall" class="s-card">
+      <div class="s-icon-box">
+        <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/><path d="M15 10l2 2-2 2"/><path d="M13 12h4"/></svg>
+      </div>
+      <div class="s-card-title">Nightfall Treatment</div>
+      <div class="s-card-desc">Premium herbal and homeopathic protocols with proven clinical outcomes for nocturnal emission.</div>
+      <div class="s-learn">Learn more <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M5.5 2H10v4.5"/></svg></div>
+    </a>
+
+    <a href="/services/sti-treatment" class="s-card">
+      <div class="s-icon-box">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><rect x="9" y="12" width="6" height="9" rx="1"/><path d="M9 7h6"/><path d="M12 7v2"/></svg>
+      </div>
+      <div class="s-card-title">STI Care</div>
+      <div class="s-card-desc">Discreet, thorough diagnostic testing and medically supervised management of sexual infections.</div>
+      <div class="s-learn">Learn more <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M5.5 2H10v4.5"/></svg></div>
+    </a>
+
+    <a href="/services/couples-counseling" class="s-card">
+      <div class="s-icon-box">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="s-card-title">Couples Therapy</div>
+      <div class="s-card-desc">Professional mediation and intimacy coaching to rebuild connection, trust, and emotional bonds.</div>
+      <div class="s-learn">Learn more <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M5.5 2H10v4.5"/></svg></div>
+    </a>
+
+  </div>
+
+  <div class="s-footer">
+    <p class="s-footer-note">We treat <b>50+ specialized conditions</b>. Don't see yours listed?</p>
+    <a href="https://bestsexologistdoctor.com/index.php/disease-treatment-best-sexologist-treatment-in-bhopal/" target="_blank" class="s-all-link">
+      Browse all 50+ treatments →
+    </a>
+  </div>
+
+</div>

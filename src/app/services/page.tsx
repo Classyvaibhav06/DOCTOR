@@ -67,15 +67,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <footer style={{ background: '#0a0a08', padding: '4rem 0', color: 'rgba(255,255,255,0.4)' }}>
-        <div className="container footer-inner" style={{ flexDirection: 'column', textAlign: 'center', gap: '1rem' }}>
-          <div className="footer-logo">
-            <img src="/images/logo.png" alt="Dr. G.D. Memorial Clinic" style={{ height: "30px", opacity: 0.8 }} />
-          </div>
-          <p className="footer-copy">© 2026 Dr. G.D. Memorial Clinic. All Rights Reserved.</p>
-          <p style={{ fontSize: '0.7rem' }}>ISO Certified · World Book of Records · Expert Care Since 2004</p>
-        </div>
-      </footer>
     </div>
   );
 }
+

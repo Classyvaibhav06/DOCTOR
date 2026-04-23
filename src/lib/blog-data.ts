@@ -1,52 +1,68 @@
 export const blogPosts = [
   {
-    slug: "natural-ways-to-improve-sexual-wellness",
-    title: "5 Natural Ways to Improve Sexual Wellness & Confidence",
-    date: "Dec 15, 2025",
-    category: "Wellness",
+    slug: "understanding-sexual-dysfunction",
+    title: "Understanding Sexual Dysfunction: Causes, Types & Modern Treatments",
+    excerpt: "Sexual dysfunction affects millions of men and women. Learn about the evidence-based treatments available today and how to reclaim your confidence...",
+    category: "Men's Health",
+    date: "Apr 10, 2026",
     author: "Dr. Rajesh Manghnani",
-    excerpt: "Discover evidence-based natural strategies to enhance your intimate health, from specific exercises to German homeopathic constitutional remedies.",
-    content: "Sexual wellness is a combination of physical vitality, hormonal balance, and psychological peace. At Burlington Clinic, we emphasize a holistic approach: \n\n1. **Pelvic floor exercises (Kegels)** for better control. \n2. **A diet rich in Zinc and Vitamin D** to support healthy testosterone. \n3. **Stress reduction** through mindfulness and breathwork. \n4. **Specialized German homeopathic biochemic salts** for cellular health. \n5. **Consistent sleep patterns** to regulate the endocrine system naturally.",
-    keywords: ["sexual wellness", "natural intimacy tips", "Dr. Rajesh Manghnani", "homeopathic wellness"]
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1600",
+    content: "Sexual dysfunction is a broad term that covers a range of issues affecting intimacy and sexual health. For men, this often includes Erectile Dysfunction (ED) or Premature Ejaculation (PE). For women, it can involve low libido or pain during intimacy. \n\nModern treatments focus on the root cause, whether it is physical (like vascular health), psychological (stress/anxiety), or hormonal. At Dr. Rajesh Manghnani's clinic, we use a combination of German homeopathic remedies and lifestyle counseling to achieve sustainable results without side effects.",
+    keywords: ["sexual dysfunction", "sex health treatments", "Dr. Rajesh Manghnani"]
   },
   {
-    slug: "premature-ejaculation-treatment-homeopathy",
-    title: "Effective Homeopathic Treatments for Premature Ejaculation (Shighrapatan)",
-    date: "Nov 22, 2025",
-    category: "Treatments",
-    author: "Medical Team",
-    excerpt: "Learn how holistic medicine addresses the root cause of premature ejaculation without the side effects of conventional narcotics.",
-    content: "Shighrapatan or premature ejaculation often stems from hypersensitivity or anxiety. Conventional treatments often use numbing agents or SSRIs which have side effects. Homeopathy uses highly diluted mother tinctures to stabilize the nervous system and improve control naturally. At our clinic, we provide a structured 3nd step approach that has helped thousands of men reclaim their confidence without any synthetic drugs.",
-    keywords: ["premature ejaculation treatment", "homeopathy for sex health", "shighrapatan solution", "ayurvedic sexologist"]
-  },
-  {
-    slug: "male-infertility-causes-solutions",
-    title: "Male Infertility: Understanding Sperm Health and Natural Solutions",
-    date: "Oct 05, 2025",
-    category: "Mens Health",
+    slug: "erectile-dysfunction-myths",
+    title: "5 Myths About Erectile Dysfunction Every Man Should Stop Believing",
+    excerpt: "Misinformation around ED prevents men from seeking help. We bust the most common myths with clinical facts...",
+    category: "Men's Health",
+    date: "Mar 28, 2026",
     author: "Dr. Rajesh Manghnani",
-    excerpt: "Low sperm count and motility are on the rise. We explore the environmental causes and how homeopathic supplements can improve fertility.",
-    content: "Modern lifestyle factors like blue light exposure, sedentary habits, and chemical pollutants are significant contributors to male infertility. Our fertility protocols focus on antioxidant-rich homeopathic treatments that support healthy spermatogenesis. We also emphasize lifestyle modifications, such as reducing laptop heat and wearing breathable fabrics.",
-    keywords: ["male infertility", "sperm motility", "natural pregnancy tips", "fertility doctor bhopal"]
+    image: "https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&q=80&w=1600",
+    content: "Myth 1: ED is just a part of aging. Reality: While more common in older men, it is often caused by underlying health conditions like diabetes or heart disease that can be treated at any age. \n\nMyth 2: It's all in your head. Reality: While anxiety plays a role, up to 80% of cases have a physical cause. \n\nMyth 3: Pills are the only solution. Reality: Natural treatments and lifestyle changes are often more effective in the long run.",
+    keywords: ["ED myths", "erectile dysfunction facts", "male wellness"]
   },
   {
-    slug: "performance-anxiety-counselling",
-    title: "Overcoming Performance Anxiety: The Mind-Body Connection",
-    date: "Sep 12, 2025",
-    category: "Psychology",
-    author: "Wellness Expert",
-    excerpt: "Why the brain is the most important organ for intimacy and how counselling at Burlington Clinic helps men regain confidence.",
-    content: "Performance anxiety is a self-fulfilling prophecy. When you worry about performance, your body enters 'fight or flight' mode, releasing adrenaline that constricts blood vessels and redirects energy away from reproductive organs toward survival muscles. This biological shift makes physical intimacy technically difficult, which then creates more anxiety for future encounters.\n\nAt Dr. Rajesh Manghnani's Burlington Clinic, we address this through a 3-Step Mind-Body protocol:\n\n1. **Cognitive Reframing**: We help patients identify the subconscious triggers—whether they are rooted in past experiences, societal pressure, or fear of failure.\n2. **Homeopathic Stabilization**: Using high-grade German biochemic remedies, we work to balance the nervous system, reducing the 'excitability' that triggers the fight-or-flight response prematurely.\n3. **Behavioral Tools**: Practical techniques like 'Sensate Focus' and mindfulness exercises that allow you to ground yourself in the present moment rather than being lost in anxious thoughts.\n\nRemember, the brain is the most powerful organ for intimacy. By treating both the psychological 'software' and the physical 'hardware', we achieve results that are both rapid and sustainable.",
-    keywords: ["performance anxiety", "sexual counselling bhopal", "intimacy therapy", "overcoming stress"]
-  },
-  {
-    slug: "erectile-dysfunction-diet-tips",
-    title: "Top 7 Superfoods to Support Erectile Function and Circulation",
-    date: "Aug 28, 2025",
-    category: "Nutrition",
+    slug: "female-sexual-wellness",
+    title: "Women's Sexual Health: Breaking the Silence Around Intimacy Issues",
+    excerpt: "Female sexual wellness is often overlooked. Discover why open conversations and expert care make all the difference...",
+    category: "Women's Health",
+    date: "Mar 15, 2026",
     author: "Dr. Rajesh Manghnani",
-    excerpt: "What you eat directly impacts your vascular health. Discover the best foods for improving blood flow and reducing intimacy issues.",
-    content: "Vascular health is the foundation of erectile function. Watermelon (rich in L-citrulline), Leafy Greens, Dark Chocolate, and Pistachios are all excellent for improving Nitric Oxide production, which is essential for blood flow. Incorporating these into a daily routine can lead to significant long-term improvements in cardiovascular and intimate health.",
-    keywords: ["ED diet tips", "superfoods for men", "improve blood circulation", "sexual health food"]
+    image: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=1600",
+    content: "Women's sexual health is a complex interplay of hormones, emotions, and physical well-being. Issues like HSDD (Hypoactive Sexual Desire Disorder) or hormonal shifts during menopause can significantly impact quality of life. \n\nOur clinic provides a safe, confidential space for women to discuss these issues and receive holistic treatments tailored to their specific needs.",
+    keywords: ["women's sexual health", "HSDD treatment", "female wellness"]
+  },
+  {
+    slug: "premature-ejaculation-solutions",
+    title: "Premature Ejaculation: Effective Solutions That Actually Work",
+    excerpt: "PE is the most common male sexual complaint. Modern medicine offers highly effective, discreet solutions...",
+    category: "Men's Health",
+    date: "Feb 20, 2026",
+    author: "Dr. Rajesh Manghnani",
+    image: "https://images.unsplash.com/photo-1575998064976-9df66085cc83?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njd8fHNleG9sb2dpc3R8ZW58MHx8MHx8fDA%3D",
+    content: "Premature Ejaculation (PE) affects 1 in 3 men at some point in their lives. It is often linked to high sensitivity or performance anxiety. \n\nWe offer a multi-step approach involving biochemic stabilization of the nervous system and behavioral techniques to improve control and confidence naturally.",
+    keywords: ["premature ejaculation", "PE solutions", "men's health"]
+  },
+  {
+    slug: "low-libido-causes",
+    title: "Low Libido in Men & Women: Hidden Causes You May Not Expect",
+    excerpt: "Hormonal imbalances, stress, and lifestyle factors quietly erode desire. Here's how to identify and address them...",
+    category: "General Wellness",
+    date: "Feb 05, 2026",
+    author: "Dr. Rajesh Manghnani",
+    image: "https://images.unsplash.com/photo-1445510491599-c391e8046a68?auto=format&fit=crop&q=80&w=1600",
+    content: "A drop in desire is often a signal from your body that something is out of balance. Common culprits include chronic stress, poor sleep, or vitamin deficiencies. \n\nIdentifying the root cause is the first step toward regaining your vitality. Our holistic protocols address both the symptoms and the underlying imbalances.",
+    keywords: ["low libido", "increase desire", "wellness tips"]
+  },
+  {
+    slug: "ayurveda-sexual-health",
+    title: "Ayurveda & Sexual Health: Ancient Wisdom Meets Modern Science",
+    excerpt: "Integrating Ayurvedic principles with evidence-based medicine for a holistic approach to sexual wellness...",
+    category: "Holistic Care",
+    date: "Jan 22, 2026",
+    author: "Dr. Rajesh Manghnani",
+    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=1600",
+    content: "Ayurveda views sexual health as a vital part of overall 'Ojas' or life force. By combining time-tested herbs with modern clinical insights, we provide a balanced path to wellness. \n\nOur treatments focus on 'Vajikarana' therapy to enhance reproductive health and overall vigor.",
+    keywords: ["Ayurveda sex health", "holistic medicine", "ancient wisdom"]
   }
 ];
