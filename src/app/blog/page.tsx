@@ -2,8 +2,23 @@
 import React, { useState } from "react";
 import { blogPosts } from "@/lib/blog-data";
 import { Navigation } from "@/components/Navigation";
+import { Fraunces, Manrope } from "next/font/google";
 
-const categoryColors = {
+const blogHeadingFont = Fraunces({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-blog-heading",
+  display: "swap",
+});
+
+const blogBodyFont = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-blog-body",
+  display: "swap",
+});
+
+const categoryColors: Record<string, string> = {
   "Men's Health": "#1E40AF",
   "Women's Health": "#be185d",
   "General Wellness": "#065f46",
@@ -21,23 +36,29 @@ export default function BlogPage() {
   const remainingPosts = blogPosts.slice(4);
 
   const filtered = blogPosts.filter((post) => {
-    const matchCat = activeCategory === "All" || post.category === activeCategory;
+    const matchCat =
+      activeCategory === "All" || post.category === activeCategory;
     const matchSearch =
       post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
     return matchCat && matchSearch;
   });
 
-
   return (
-    <div style={{ fontFamily: "'Source Sans 3', sans-serif", background: "#FAFAFA", minHeight: "100vh", color: "#1a1a2e" }}>
+    <div
+      className={`blog-page ${blogHeadingFont.variable} ${blogBodyFont.variable}`}
+      style={{
+        fontFamily: "var(--font-blog-body)",
+        background: "#FAFAFA",
+        minHeight: "100vh",
+        color: "#1a1a2e",
+      }}
+    >
       <Navigation />
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap');
-
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        body { font-family: 'Source Sans 3', sans-serif; }
+        body { font-family: var(--font-blog-body); }
 
         .page-wrap { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 
@@ -52,7 +73,7 @@ export default function BlogPage() {
           display: flex; align-items: center; justify-content: space-between;
         }
         .nav-logo {
-          font-family: 'Playfair Display', serif;
+          font-family: var(--font-blog-heading);
           font-size: 1.6rem;
           font-weight: 700;
           color: #1E40AF;
@@ -62,13 +83,13 @@ export default function BlogPage() {
           font-size: 0.8rem;
           color: #64748B;
           margin-top: 0.15rem;
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
         }
         .nav-links {
           display: flex; gap: 1.5rem; list-style: none;
         }
         .nav-links a {
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
           font-size: 0.85rem;
           font-weight: 600;
           color: #1a1a2e;
@@ -86,7 +107,7 @@ export default function BlogPage() {
           margin-bottom: 2.5rem;
         }
         .blog-hero-strip h1 {
-          font-family: 'Playfair Display', serif;
+          font-family: var(--font-blog-heading);
           font-size: clamp(2rem, 5vw, 3.2rem);
           font-weight: 700;
           color: #0F172A;
@@ -95,7 +116,7 @@ export default function BlogPage() {
         .blog-hero-strip p {
           font-size: 0.95rem;
           color: #64748B;
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
           margin-bottom: 1.5rem;
         }
 
@@ -119,7 +140,7 @@ export default function BlogPage() {
           color: #475569;
           text-transform: uppercase;
           letter-spacing: 0.05em;
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
           transition: all 0.2s;
         }
         .filter-pill.active {
@@ -136,7 +157,7 @@ export default function BlogPage() {
           border: 1.5px solid #cbd5e1;
           border-radius: 4px;
           font-size: 0.85rem;
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
           outline: none;
           width: 220px;
         }
@@ -161,7 +182,7 @@ export default function BlogPage() {
 
         /* FEATURED POST */
         .featured-section h2 {
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
           font-size: 0.75rem;
           font-weight: 800;
           text-transform: uppercase;
@@ -199,11 +220,11 @@ export default function BlogPage() {
           text-transform: uppercase;
           padding: 0.25rem 0.75rem;
           margin: 1.25rem 1.25rem 0.5rem;
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
         }
         .featured-body { padding: 0 1.25rem 1.5rem; }
         .featured-body h3 {
-          font-family: 'Playfair Display', serif;
+          font-family: var(--font-blog-heading);
           font-size: 1.55rem;
           font-weight: 700;
           color: #0F172A;
@@ -214,14 +235,14 @@ export default function BlogPage() {
           font-size: 0.9rem;
           color: #64748B;
           line-height: 1.65;
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
         }
         .featured-meta {
           display: flex;
           gap: 1.5rem;
           font-size: 0.78rem;
           color: #94A3B8;
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
           margin-top: 1rem;
           padding-top: 0.75rem;
           border-top: 1px solid #f1f5f9;
@@ -229,7 +250,7 @@ export default function BlogPage() {
 
         /* EDITOR'S PICKS */
         .picks-section h2 {
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
           font-size: 0.75rem;
           font-weight: 800;
           text-transform: uppercase;
@@ -270,11 +291,11 @@ export default function BlogPage() {
           font-weight: 800;
           text-transform: uppercase;
           letter-spacing: 0.1em;
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
           margin-bottom: 0.3rem;
         }
         .pick-title {
-          font-family: 'Playfair Display', serif;
+          font-family: var(--font-blog-heading);
           font-size: 1rem;
           font-weight: 700;
           color: #0F172A;
@@ -285,7 +306,7 @@ export default function BlogPage() {
           font-size: 0.8rem;
           color: #64748B;
           line-height: 1.5;
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
           display: -webkit-box;
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
@@ -295,7 +316,7 @@ export default function BlogPage() {
           font-size: 0.72rem;
           color: #94A3B8;
           margin-top: 0.4rem;
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
         }
 
         /* MORE POSTS GRID */
@@ -303,7 +324,7 @@ export default function BlogPage() {
           margin-bottom: 5rem;
         }
         .more-section h2 {
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
           font-size: 0.75rem;
           font-weight: 800;
           text-transform: uppercase;
@@ -341,11 +362,11 @@ export default function BlogPage() {
           font-weight: 800;
           text-transform: uppercase;
           letter-spacing: 0.1em;
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
           margin-bottom: 0.5rem;
         }
         .more-card-body h3 {
-          font-family: 'Playfair Display', serif;
+          font-family: var(--font-blog-heading);
           font-size: 1.1rem;
           font-weight: 700;
           color: #0F172A;
@@ -356,7 +377,7 @@ export default function BlogPage() {
           font-size: 0.82rem;
           color: #64748B;
           line-height: 1.6;
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
           display: -webkit-box;
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
@@ -366,7 +387,7 @@ export default function BlogPage() {
           font-size: 0.72rem;
           color: #94A3B8;
           margin-top: 0.75rem;
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
         }
 
         /* CTA */
@@ -378,12 +399,12 @@ export default function BlogPage() {
           margin-bottom: 0;
         }
         .cta-strip h3 {
-          font-family: 'Playfair Display', serif;
+          font-family: var(--font-blog-heading);
           font-size: 1.8rem;
           margin-bottom: 0.75rem;
         }
         .cta-strip p {
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
           font-size: 0.95rem;
           opacity: 0.85;
           margin-bottom: 1.5rem;
@@ -396,7 +417,7 @@ export default function BlogPage() {
           font-weight: 700;
           font-size: 0.9rem;
           text-decoration: none;
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
         }
         .btn-outline-white {
           border: 2px solid #fff; color: #fff;
@@ -405,7 +426,7 @@ export default function BlogPage() {
           font-weight: 700;
           font-size: 0.9rem;
           text-decoration: none;
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
         }
 
         /* FOOTER */
@@ -421,7 +442,7 @@ export default function BlogPage() {
           margin-bottom: 2rem;
         }
         .footer h4 {
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
           font-size: 0.75rem;
           font-weight: 800;
           text-transform: uppercase;
@@ -430,7 +451,7 @@ export default function BlogPage() {
           color: #fff;
         }
         .footer p, .footer a, .footer li {
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
           font-size: 0.85rem;
           color: rgba(248,250,252,0.5);
           text-decoration: none;
@@ -443,7 +464,7 @@ export default function BlogPage() {
           text-align: center;
           font-size: 0.75rem;
           color: rgba(248,250,252,0.3);
-          font-family: 'Source Sans 3', sans-serif;
+          font-family: var(--font-blog-body);
         }
 
         @media (max-width: 768px) {
@@ -453,14 +474,18 @@ export default function BlogPage() {
           .footer-grid { grid-template-columns: 1fr; }
           .nav-links { display: none; }
         }
+          .page-wrap h1{
+          margin-top: 2.5rem;}
       `}</style>
-
 
       {/* HERO STRIP */}
       <div className="blog-hero-strip">
         <div className="page-wrap">
           <h1>Dr. Rajesh's Medical Blog</h1>
-          <p>Professional insights, research-backed advice, and holistic wisdom from India's leading sexual wellness expert.</p>
+          <p>
+            Professional insights, research-backed advice, and holistic wisdom
+            from India's leading sexual wellness expert.
+          </p>
 
           {/* Filter */}
           <div className="filter-bar">
@@ -489,17 +514,23 @@ export default function BlogPage() {
       {/* MAIN CONTENT */}
       <main style={{ padding: "2rem 0" }}>
         <div className="page-wrap">
-
           {/* Two-col: Featured + Editor's Picks */}
           <div className="main-content-grid">
             {/* LEFT: Latest / Featured */}
             <div className="featured-section">
               <h2>Latest Post</h2>
               <a href={`/blog/${featuredPost.slug}`} className="featured-card">
-                <img src={featuredPost.image} alt={featuredPost.title} className="featured-img" />
+                <img
+                  src={featuredPost.image}
+                  alt={featuredPost.title}
+                  className="featured-img"
+                />
                 <div
                   className="featured-badge"
-                  style={{ background: categoryColors[featuredPost.category] || "#1E40AF" }}
+                  style={{
+                    background:
+                      categoryColors[featuredPost.category] || "#1E40AF",
+                  }}
                 >
                   {featuredPost.category}
                 </div>
@@ -517,14 +548,27 @@ export default function BlogPage() {
             {/* RIGHT: Editor's Picks */}
             <div className="picks-section">
               <h2>Editor's Picks</h2>
-              <div style={{ background: "#fff", border: "1px solid #e2e8f0", borderRadius: 4, overflow: "hidden" }}>
+              <div
+                style={{
+                  background: "#fff",
+                  border: "1px solid #e2e8f0",
+                  borderRadius: 4,
+                  overflow: "hidden",
+                }}
+              >
                 {editorPicks.map((post, i) => (
                   <a key={i} href={`/blog/${post.slug}`} className="pick-card">
-                    <img src={post.image} alt={post.title} className="pick-img" />
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="pick-img"
+                    />
                     <div className="pick-content">
                       <div
                         className="pick-cat"
-                        style={{ color: categoryColors[post.category] || "#1E40AF" }}
+                        style={{
+                          color: categoryColors[post.category] || "#1E40AF",
+                        }}
                       >
                         {post.category}
                       </div>
@@ -551,13 +595,17 @@ export default function BlogPage() {
                     <div className="more-card-body">
                       <div
                         className="more-cat"
-                        style={{ color: categoryColors[post.category] || "#1E40AF" }}
+                        style={{
+                          color: categoryColors[post.category] || "#1E40AF",
+                        }}
                       >
                         {post.category}
                       </div>
                       <h3>{post.title}</h3>
                       <p>{post.excerpt}</p>
-                      <div className="more-meta">By {post.author} · {post.date}</div>
+                      <div className="more-meta">
+                        By {post.author} · {post.date}
+                      </div>
                     </div>
                   </a>
                 ))}
@@ -566,8 +614,33 @@ export default function BlogPage() {
           )}
 
           {filtered.length === 0 && (
-            <div style={{ textAlign: "center", padding: "3rem 0", color: "#64748B", fontFamily: "'Source Sans 3', sans-serif" }}>
-              <p>No articles found. <button onClick={() => { setActiveCategory("All"); setSearchQuery(""); }} style={{ color: "#1E40AF", fontWeight: 700, background: "none", border: "none", cursor: "pointer", textDecoration: "underline" }}>Clear filters</button></p>
+            <div
+              style={{
+                textAlign: "center",
+                padding: "3rem 0",
+                color: "#64748B",
+                fontFamily: "var(--font-blog-body)",
+              }}
+            >
+              <p>
+                No articles found.{" "}
+                <button
+                  onClick={() => {
+                    setActiveCategory("All");
+                    setSearchQuery("");
+                  }}
+                  style={{
+                    color: "#1E40AF",
+                    fontWeight: 700,
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    textDecoration: "underline",
+                  }}
+                >
+                  Clear filters
+                </button>
+              </p>
             </div>
           )}
         </div>
@@ -576,15 +649,24 @@ export default function BlogPage() {
       {/* CTA */}
       <div className="cta-strip">
         <div className="page-wrap">
-          <h3>Have a Personal Question?</h3>
-          <p>Get professional, confidential medical advice directly from Dr. Rajesh Manghnani via a private call or secure online consultation.</p>
+          <h3 style={{color:"white",}}>Have a Personal Question?</h3>
+          <p>
+            Get professional, confidential medical advice directly from Dr.
+            Rajesh Manghnani via a private call or secure online consultation.
+          </p>
           <div className="cta-btns">
-            <a href="tel:+919893880001" className="btn-white">📞 Call Dr. Rajesh</a>
-            <a href="https://bestsexologistdoctor.com/index.php/payment/" className="btn-outline-white">Book Online</a>
+            <a href="tel:+919893880001" className="btn-white">
+              📞 Call Dr. Rajesh
+            </a>
+            <a
+              href="https://bestsexologistdoctor.com/index.php/payment/"
+              className="btn-outline-white"
+            >
+              Book Online
+            </a>
           </div>
         </div>
       </div>
-
     </div>
   );
 }

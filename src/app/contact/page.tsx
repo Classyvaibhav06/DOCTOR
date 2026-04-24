@@ -45,6 +45,7 @@ export default function ContactPage() {
 
       {/* ── HERO ── */}
       <header
+        className="contact-hero"
         style={{
           background:
             "linear-gradient(145deg, #0F172A 0%, #1E3A8A 60%, #1E40AF 100%)",
@@ -124,6 +125,7 @@ export default function ContactPage() {
 
           {/* Quick action pills */}
           <div
+            className="contact-hero-actions"
             style={{
               display: "flex",
               flexWrap: "wrap",
@@ -198,10 +200,14 @@ export default function ContactPage() {
       </header>
 
       {/* ── MAIN CONTENT ── */}
-      <section style={{ background: "#F8FAFC", padding: "6rem 0" }}>
+      <section
+        className="contact-section"
+        style={{ background: "#F8FAFC", padding: "6rem 0" }}
+      >
         <div className="container">
           {/* Trust bar */}
           <div
+            className="contact-trust-bar"
             style={{
               display: "flex",
               flexWrap: "wrap",
@@ -250,6 +256,7 @@ export default function ContactPage() {
           >
             {/* LEFT: Contact Form */}
             <div
+              className="contact-form-card"
               style={{
                 background: "#fff",
                 borderRadius: 24,
@@ -293,6 +300,7 @@ export default function ContactPage() {
                 }}
               >
                 <div
+                  className="contact-form-row"
                   style={{
                     display: "grid",
                     gridTemplateColumns: "1fr 1fr",
@@ -457,10 +465,12 @@ export default function ContactPage() {
 
             {/* RIGHT: Info + Locations */}
             <div
+              className="contact-info-stack"
               style={{ display: "flex", flexDirection: "column", gap: "2rem" }}
             >
               {/* Quick contact info */}
               <div
+                className="contact-direct-card"
                 style={{
                   background: "linear-gradient(145deg, #0F172A, #1E3A8A)",
                   borderRadius: 20,
@@ -574,6 +584,7 @@ export default function ContactPage() {
 
               {/* Certifications */}
               <div
+                className="contact-trust-card"
                 style={{
                   background: "#fff",
                   border: "1px solid #E2E8F0",
@@ -595,6 +606,7 @@ export default function ContactPage() {
                   Why Trust Us
                 </h4>
                 <div
+                  className="contact-trust-points"
                   style={{
                     display: "grid",
                     gridTemplateColumns: "1fr 1fr",
@@ -663,6 +675,7 @@ export default function ContactPage() {
             >
               {locations.slice(0, 1).map((loc) => (
                 <div
+                  className="contact-location-card"
                   key={loc.name}
                   style={{
                     background: "#fff",
@@ -672,7 +685,10 @@ export default function ContactPage() {
                     boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
                   }}
                 >
-                  <div style={{ height: 240, position: "relative" }}>
+                  <div
+                    className="contact-location-map"
+                    style={{ height: 240, position: "relative" }}
+                  >
                     <iframe
                       src={loc.map}
                       width="100%"
@@ -683,7 +699,10 @@ export default function ContactPage() {
                   </div>
 
                   {/* Info */}
-                  <div style={{ padding: "1.75rem" }}>
+                  <div
+                    className="contact-location-info"
+                    style={{ padding: "1.75rem" }}
+                  >
                     <div
                       style={{
                         display: "inline-block",
@@ -782,6 +801,67 @@ export default function ContactPage() {
         @media (max-width: 900px) {
           .contact-main-grid {
             grid-template-columns: 1fr !important;
+            gap: 1.75rem !important;
+          }
+
+          .contact-section {
+            padding: 4rem 0 !important;
+          }
+
+          .contact-hero {
+            padding: 7.5rem 0 3.5rem !important;
+          }
+
+          .contact-form-card,
+          .contact-direct-card,
+          .contact-trust-card {
+            padding: 1.5rem !important;
+            border-radius: 16px !important;
+          }
+
+          .contact-trust-bar {
+            margin-bottom: 2.75rem !important;
+            gap: 0.75rem !important;
+          }
+
+          .contact-trust-points {
+            grid-template-columns: 1fr !important;
+            gap: 0.65rem !important;
+          }
+
+          .contact-form-row {
+            grid-template-columns: 1fr !important;
+            gap: 0.9rem !important;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .contact-hero-actions {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            width: 100%;
+          }
+
+          .contact-hero-actions > a {
+            justify-content: center;
+            width: 100%;
+            text-align: center;
+          }
+
+          .contact-form-card {
+            padding: 1.2rem !important;
+          }
+
+          .contact-info-stack {
+            gap: 1.1rem !important;
+          }
+
+          .contact-location-map {
+            height: 200px !important;
+          }
+
+          .contact-location-info {
+            padding: 1.15rem !important;
           }
         }
       `}</style>

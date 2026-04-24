@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { DM_Sans, Plus_Jakarta_Sans } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import { SITE_URL } from "@/lib/metadata";
 import JsonLd, { generateMedicalBusinessSchema } from "@/components/JsonLd";
 import { Footer } from "@/components/Footer";
+import { GlobalScrollEffects } from "@/components/GlobalScrollEffects";
 
 const dmSans = DM_Sans({
   variable: "--font-body",
@@ -23,8 +23,9 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Best Sexologist in Bhopal | Dr. Rajesh Manghnani Burlington Clinic",
-    template: "%s | Dr. Rajesh Manghnani"
+    default:
+      "Best Sexologist in Bhopal | Dr. Rajesh Manghnani Burlington Clinic",
+    template: "%s | Dr. Rajesh Manghnani",
   },
   description:
     "Dr. Rajesh Manghnani Burlington Clinic – India's most trusted sexual health clinic since 1926. 5,50,000+ patients treated. ISO Certified. World Book of Records holder. Confidential consultations available online.",
@@ -67,22 +68,18 @@ export default function RootLayout({
   const businessSchema = generateMedicalBusinessSchema();
 
   return (
-    <html lang="en" className={`${dmSans.variable} ${plusJakartaSans.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${dmSans.variable} ${plusJakartaSans.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <JsonLd data={businessSchema} />
       </head>
       <body suppressHydrationWarning>
+        <GlobalScrollEffects />
         <main>{children}</main>
         <Footer />
-        <Script id="scroll-handler" strategy="afterInteractive">
-          {`
-            window.addEventListener('scroll', () => {
-              const nav = document.querySelector('nav');
-              if (window.scrollY > 50) nav?.classList.add('scrolled');
-              else nav?.classList.remove('scrolled');
-            });
-          `}
-        </Script>
       </body>
     </html>
   );

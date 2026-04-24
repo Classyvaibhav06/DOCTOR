@@ -1866,6 +1866,7 @@ export default function Home() {
       {/* ── VOICES OF RESTORATION (Booking Style Redesign) ── */}
       <section
         id="testimonials"
+        className="rv-section"
         style={{ background: "#F8FAFC", padding: "6rem 0" }}
       >
         <style>{`
@@ -2077,8 +2078,107 @@ export default function Home() {
           }
 
           @media (max-width: 768px) {
-            .rv-header-row { flex-direction: column; gap: 2rem; }
-            .rv-container { padding: 1.5rem; border-radius: 0; border-left: none; border-right: none; }
+            .rv-section {
+              padding: 4rem 0 !important;
+            }
+            .rv-header-row {
+              flex-direction: column;
+              gap: 1.5rem;
+              margin-bottom: 1.5rem;
+            }
+            .rv-container {
+              padding: 1.25rem;
+              border-radius: 14px;
+            }
+            .rv-overall {
+              align-items: flex-start;
+            }
+            .rv-overall-score {
+              font-size: 2.7rem;
+            }
+            .rv-bars-container {
+              width: 100%;
+            }
+            .rv-bar-label {
+              min-width: 88px;
+              font-size: 0.8rem;
+            }
+            .rv-categories {
+              margin-bottom: 2rem;
+              gap: 0.6rem;
+            }
+            .rv-cat-badge {
+              width: 100%;
+              justify-content: space-between;
+              font-size: 0.88rem;
+              padding: 0.6rem 0.75rem;
+            }
+            .rv-item {
+              padding: 1.25rem 0;
+            }
+            .rv-item-header {
+              flex-direction: column;
+              gap: 0.75rem;
+              margin-bottom: 0.75rem;
+            }
+            .rv-user-info {
+              width: 100%;
+            }
+            .rv-user-name {
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 0.15rem;
+              font-size: 0.98rem;
+            }
+            .rv-item-score {
+              gap: 0.45rem;
+            }
+            .rv-item-score-num {
+              font-size: 0.95rem;
+            }
+            .rv-overall-stars svg {
+              width: 15px;
+              height: 15px;
+            }
+            .rv-item-text {
+              font-size: 0.93rem;
+              line-height: 1.7;
+              margin-bottom: 1rem;
+            }
+            .rv-photo {
+              width: 70px;
+              height: 70px;
+            }
+            .rv-footer-link {
+              margin-top: 1rem;
+              font-size: 0.92rem;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .rv-section {
+              padding: 3.25rem 0 !important;
+            }
+            .rv-container {
+              padding: 1rem;
+            }
+            .rv-overall-score {
+              font-size: 2.3rem;
+            }
+            .rv-bar-row {
+              gap: 8px;
+            }
+            .rv-bar-label {
+              min-width: 74px;
+              font-size: 0.74rem;
+            }
+            .rv-user-time {
+              font-size: 0.76rem;
+            }
+            .rv-photo {
+              width: 62px;
+              height: 62px;
+            }
           }
         `}</style>
 
