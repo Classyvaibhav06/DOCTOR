@@ -1,10 +1,31 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
+
+type BookingFormData = {
+  name: string;
+  email: string;
+  phone: string;
+  concern: string;
+  preferredTime: string;
+};
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [bookingOpen, setBookingOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+  const [submitMessage, setSubmitMessage] = useState("");
+  const [bookingForm, setBookingForm] = useState<BookingFormData>({
+    name: "",
+    email: "",
+    phone: "",
+    concern: "Erectile Dysfunction",
+    preferredTime: "",
+  });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -20,16 +41,68 @@ export function Navigation() {
     };
   }, [bookingOpen]);
 
+  const handleBookingInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) => {
+    const { name, value } = e.target;
+    setBookingForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const resetBookingForm = () => {
+    setBookingForm({
+      name: "",
+      email: "",
+      phone: "",
+      concern: "Erectile Dysfunction",
+      preferredTime: "",
+    });
+  };
+
+  const handleBookingSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitStatus("idle");
+    setSubmitMessage("");
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/book", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(bookingForm),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data?.message || "Unable to submit booking request.");
+      }
+
+      setSubmitStatus("success");
+      setSubmitMessage(data?.message || "Request submitted successfully.");
+      resetBookingForm();
+    } catch (error) {
+      const message =
+        error instanceof Error
+          ? error.message
+          : "Something went wrong while submitting your request.";
+      setSubmitStatus("error");
+      setSubmitMessage(message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <>
       <nav
         className={`${isOpen ? "nav-open" : ""} ${scrolled ? "scrolled" : ""}`}
       >
         <div className="nav-logo">
-          <a href="/#home" className="nav-logo-link">
+          <Link href="/#home" className="nav-logo-link">
             <img src="/images/logo.png" alt="Dr. G.D. Memorial Clinic" />
             <span className="nav-brand-text">Dr. Rajesh Manghnani</span>
-          </a>
+          </Link>
         </div>
 
         <div
@@ -44,24 +117,24 @@ export function Navigation() {
 
         <ul className={`nav-links ${isOpen ? "active" : ""}`}>
           <li>
-            <a href="/services" onClick={() => setIsOpen(false)}>
+            <Link href="/services" onClick={() => setIsOpen(false)}>
               SERVICES
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/about" onClick={() => setIsOpen(false)}>
+            <Link href="/about" onClick={() => setIsOpen(false)}>
               ABOUT
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/blog" onClick={() => setIsOpen(false)}>
+            <Link href="/blog" onClick={() => setIsOpen(false)}>
               BLOG
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/contact" onClick={() => setIsOpen(false)}>
+            <Link href="/contact" onClick={() => setIsOpen(false)}>
               CONTACT
-            </a>
+            </Link>
           </li>
           <li className="mobile-only-cta">
             <button
@@ -165,23 +238,39 @@ export function Navigation() {
 
               <div className="booking-right">
                 <h3 className="booking-form-title">Request a Callback</h3>
-                <form
-                  className="booking-form"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    alert("We'll call you back soon!");
-                    setBookingOpen(false);
-                  }}
-                >
+                <form className="booking-form" onSubmit={handleBookingSubmit}>
                   <div className="booking-form-row">
                     <div className="booking-field">
                       <label>Your Name</label>
-                      <input type="text" placeholder="Full name" required />
+                      <input
+                        type="text"
+                        name="name"
+                        value={bookingForm.name}
+                        onChange={handleBookingInputChange}
+                        placeholder="Full name"
+                        required
+                      />
                     </div>
+                    <div className="booking-field">
+                      <label>Email Address</label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={bookingForm.email}
+                        onChange={handleBookingInputChange}
+                        placeholder="you@example.com"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="booking-form-row">
                     <div className="booking-field">
                       <label>Phone Number</label>
                       <input
                         type="tel"
+                        name="phone"
+                        value={bookingForm.phone}
+                        onChange={handleBookingInputChange}
                         placeholder="+91 XXXXX XXXXX"
                         required
                       />
@@ -189,7 +278,11 @@ export function Navigation() {
                   </div>
                   <div className="booking-field">
                     <label>Concern / Service</label>
-                    <select>
+                    <select
+                      name="concern"
+                      value={bookingForm.concern}
+                      onChange={handleBookingInputChange}
+                    >
                       <option>Erectile Dysfunction</option>
                       <option>Premature Ejaculation</option>
                       <option>Low Libido</option>
@@ -202,12 +295,31 @@ export function Navigation() {
                     <label>Preferred Time</label>
                     <input
                       type="text"
+                      name="preferredTime"
+                      value={bookingForm.preferredTime}
+                      onChange={handleBookingInputChange}
                       placeholder="e.g., Morning, Evening, Weekends"
                     />
                   </div>
-                  <button type="submit" className="booking-submit">
-                    Request Callback
+                  <button
+                    type="submit"
+                    className="booking-submit"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Submitting..." : "Request Callback"}
                   </button>
+                  {submitStatus !== "idle" && (
+                    <p
+                      className="booking-submit-status"
+                      style={{
+                        fontSize: "0.85rem",
+                        color:
+                          submitStatus === "success" ? "#047857" : "#dc2626",
+                      }}
+                    >
+                      {submitMessage}
+                    </p>
+                  )}
                   <p className="booking-privacy">
                     🔒 Safe & Discreet — Your privacy is guaranteed
                   </p>
