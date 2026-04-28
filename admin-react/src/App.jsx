@@ -2,8 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 
 const WEBSITE_BASE_URL =
   import.meta.env.VITE_MAIN_WEBSITE_URL || "http://localhost:3000";
-const UPLOAD_API_BASE =
-  import.meta.env.VITE_UPLOAD_API_BASE || "http://localhost:4101";
+const UPLOAD_API_BASE = WEBSITE_BASE_URL;
 const BLOGS_API_BASE = import.meta.env.DEV
   ? "/api/blogs"
   : `${WEBSITE_BASE_URL}/api/blogs`;
@@ -93,7 +92,7 @@ export default function App() {
       const formData = new FormData();
       formData.append("image", selectedImageFile);
 
-      const response = await fetch(`${UPLOAD_API_BASE}/upload`, {
+      const response = await fetch(`${WEBSITE_BASE_URL}/api/upload`, {
         method: "POST",
         body: formData,
       });
