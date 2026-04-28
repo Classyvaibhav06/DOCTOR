@@ -17,7 +17,7 @@ async function getConnection() {
     return { client: cachedClient, db: cachedDb, bucket: cachedBucket };
   }
 
-  const client = new MongoClient(mongoUri);
+  const client = new MongoClient(mongoUri as string);
   await client.connect();
   const db = client.db(mongoDbName);
   const bucket = new GridFSBucket(db, { bucketName: "blog-images" });

@@ -24,7 +24,7 @@ async function getConnection() {
     return { client: cachedClient, db: cachedDb, bucket: cachedBucket };
   }
 
-  const client = new MongoClient(mongoUri);
+  const client = new MongoClient(mongoUri as string);
   await client.connect();
   const db = client.db(mongoDbName);
   const bucket = new GridFSBucket(db, { bucketName: "blog-images" });
@@ -56,7 +56,7 @@ export async function POST(req: NextRequest) {
       .replace(/[^a-zA-Z0-9_.-]/g, "-");
     const fileId = new ObjectId();
 
-    return new Promise((resolve) => {
+    return new Promise<NextResponse>((resolve) => {
       const uploadStream = bucket.openUploadStreamWithId(
         fileId,
         `${Date.now()}-${safeBase}`,
