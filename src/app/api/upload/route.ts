@@ -15,30 +15,22 @@ if (!mongoUri) {
   throw new Error("MONGODB_URI is not configured.");
 }
 
-let cachedClient: MongoClient | null = null;
-let cachedDb: any = null;
+import { getMongoDb } from "@/lib/mongodb";
+
+export const runtime = "nodejs";
+
 let cachedBucket: GridFSBucket | null = null;
 
-async function getConnection() {
-  if (cachedClient && cachedDb && cachedBucket) {
-    return { client: cachedClient, db: cachedDb, bucket: cachedBucket };
-  }
-
-  const client = new MongoClient(mongoUri as string);
-  await client.connect();
-  const db = client.db(mongoDbName);
-  const bucket = new GridFSBucket(db, { bucketName: "blog-images" });
-
-  cachedClient = client;
-  cachedDb = db;
-  cachedBucket = bucket;
-
-  return { client, db, bucket };
+async function getBucket() {
+  if (cachedBucket) return cachedBucket;
+  const db = await getMongoDb();
+  cachedBucket = new GridFSBucket(db, { bucketName: "blog-images" });
+  return cachedBucket;
 }
 
 export async function POST(req: NextRequest) {
   try {
-    const { bucket } = await getConnection();
+    const bucket = await getBucket();
 
     const formData = await req.formData();
     const imageFile = formData.get("image") as File | null;
@@ -110,7 +102,7 @@ export async function POST(req: NextRequest) {
 // Health check endpoint
 export async function GET() {
   try {
-    await getConnection();
+    await getMongoDb();
     return NextResponse.json({ ok: true }, { headers: CORS_HEADERS });
   } catch (error) {
     return NextResponse.json(

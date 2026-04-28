@@ -8,25 +8,17 @@ if (!mongoUri) {
   throw new Error("MONGODB_URI is not configured.");
 }
 
-let cachedClient: MongoClient | null = null;
-let cachedDb: any = null;
+import { getMongoDb } from "@/lib/mongodb";
+
+export const runtime = "nodejs";
+
 let cachedBucket: GridFSBucket | null = null;
 
-async function getConnection() {
-  if (cachedClient && cachedDb && cachedBucket) {
-    return { client: cachedClient, db: cachedDb, bucket: cachedBucket };
-  }
-
-  const client = new MongoClient(mongoUri as string);
-  await client.connect();
-  const db = client.db(mongoDbName);
-  const bucket = new GridFSBucket(db, { bucketName: "blog-images" });
-
-  cachedClient = client;
-  cachedDb = db;
-  cachedBucket = bucket;
-
-  return { client, db, bucket };
+async function getBucket() {
+  if (cachedBucket) return cachedBucket;
+  const db = await getMongoDb();
+  cachedBucket = new GridFSBucket(db, { bucketName: "blog-images" });
+  return cachedBucket;
 }
 
 export async function GET(
@@ -40,7 +32,8 @@ export async function GET(
       return new NextResponse("Invalid image id.", { status: 400 });
     }
 
-    const { db, bucket } = await getConnection();
+    const db = await getMongoDb();
+    const bucket = await getBucket();
 
     const fileId = new ObjectId(id);
     const files = await db
@@ -55,31 +48,26 @@ export async function GET(
     const file = files[0];
     const downloadStream = bucket.openDownloadStream(fileId);
 
-    const chunks: Buffer[] = [];
+    const readableStream = new ReadableStream({
+      start(controller) {
+        downloadStream.on("data", (chunk) => controller.enqueue(new Uint8Array(chunk)));
+        downloadStream.on("end", () => controller.close());
+        downloadStream.on("error", (err) => controller.error(err));
+      },
+      cancel() {
+        downloadStream.destroy();
+      },
+    });
 
-    return await new Promise<Response>((resolve) => {
-      downloadStream.on("data", (chunk) => {
-        chunks.push(chunk);
-      });
-
-      downloadStream.on("end", () => {
-        const buffer = Buffer.concat(chunks);
-        resolve(
-          new NextResponse(buffer, {
-            headers: {
-              "Content-Type": file.contentType || "application/octet-stream",
-              "Cache-Control": "public, max-age=31536000, immutable",
-            },
-          }),
-        );
-      });
-
-      downloadStream.on("error", () => {
-        resolve(new NextResponse("Image not found.", { status: 404 }));
-      });
+    return new Response(readableStream, {
+      headers: {
+        "Content-Type": file.contentType || "application/octet-stream",
+        "Cache-Control": "public, max-age=31536000, immutable",
+      },
     });
   } catch (error) {
-    return new NextResponse(
+    console.error("Error serving image:", error);
+    return new Response(
       error instanceof Error ? error.message : "Unable to load image.",
       { status: 500 },
     );
