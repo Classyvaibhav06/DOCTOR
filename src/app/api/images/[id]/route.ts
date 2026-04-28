@@ -32,7 +32,7 @@ async function getConnection() {
 export async function GET(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> },
-) {
+): Promise<Response> {
   try {
     const { id } = await params;
 
@@ -57,7 +57,7 @@ export async function GET(
 
     const chunks: Buffer[] = [];
 
-    return new Promise((resolve) => {
+    return await new Promise<Response>((resolve) => {
       downloadStream.on("data", (chunk) => {
         chunks.push(chunk);
       });
