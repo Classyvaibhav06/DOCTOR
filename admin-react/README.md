@@ -12,6 +12,7 @@ It is outside `src/` and does not use Next.js routing.
 - It calls your main website API at `http://localhost:3000/api/blogs`.
 - MongoDB connection is handled by the main website (Next.js API routes).
 - There is no separate admin server.
+- Uploaded images are stored in MongoDB GridFS through the root upload server and are served back through `/images/:id`.
 
 ## Setup
 
@@ -24,6 +25,7 @@ It is outside `src/` and does not use Next.js routing.
 7. Run `npm run dev`.
 
 Admin UI runs on:
+
 - `http://localhost:5174`
 
 ## Features

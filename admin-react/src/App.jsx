@@ -56,9 +56,7 @@ export default function App() {
       const response = await fetch(BLOGS_API_BASE);
       const data = await readApiResponse(response);
       if (!response.ok)
-        throw new Error(
-          data?.message || data?.raw || "Failed to load blogs",
-        );
+        throw new Error(data?.message || data?.raw || "Failed to load blogs");
       setBlogs(Array.isArray(data.blogs) ? data.blogs : []);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to load blogs");
@@ -112,7 +110,7 @@ export default function App() {
 
       const fullUrl = uploadedUrl.startsWith("http")
         ? uploadedUrl
-        : `${WEBSITE_BASE_URL}${uploadedUrl}`;
+        : `${UPLOAD_API_BASE}${uploadedUrl}`;
 
       setForm((prev) => ({ ...prev, image: fullUrl }));
       setMessage("Image uploaded successfully.");
@@ -160,9 +158,7 @@ export default function App() {
 
       const data = await readApiResponse(response);
       if (!response.ok)
-        throw new Error(
-          data?.message || data?.raw || "Failed to create blog",
-        );
+        throw new Error(data?.message || data?.raw || "Failed to create blog");
 
       setMessage("Blog created successfully.");
       setForm(initialForm);
@@ -193,9 +189,7 @@ export default function App() {
       });
       const data = await readApiResponse(response);
       if (!response.ok)
-        throw new Error(
-          data?.message || data?.raw || "Failed to delete blog",
-        );
+        throw new Error(data?.message || data?.raw || "Failed to delete blog");
 
       setMessage("Blog deleted successfully.");
       await loadBlogs();
