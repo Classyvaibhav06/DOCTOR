@@ -1,11 +1,48 @@
 import { useEffect, useMemo, useState } from "react";
 
+function trimTrailingSlash(value) {
+  return String(value || "").replace(/\/$/, "");
+}
+
+function joinUrl(base, path) {
+  return `${trimTrailingSlash(base)}${path}`;
+}
+
+function resolveUploadEndpoint(value, fallbackOrigin) {
+  const trimmed = trimTrailingSlash(value);
+
+  if (!trimmed) return "";
+
+  try {
+    const url = new URL(trimmed);
+    return url.pathname === "/" ? `${url.origin}/upload` : trimmed;
+  } catch {
+    return trimmed.startsWith("/")
+      ? trimmed
+      : joinUrl(fallbackOrigin, `/${trimmed}`);
+  }
+}
+
+function getOriginFromUrl(value, fallbackOrigin) {
+  try {
+    return new URL(value, fallbackOrigin).origin;
+  } catch {
+    return fallbackOrigin;
+  }
+}
+
 const WEBSITE_BASE_URL =
-  import.meta.env.VITE_MAIN_WEBSITE_URL || "http://localhost:3000";
-const UPLOAD_API_BASE = WEBSITE_BASE_URL;
+  trimTrailingSlash(import.meta.env.VITE_MAIN_WEBSITE_URL) ||
+  "http://localhost:3000";
+const UPLOAD_ENDPOINT =
+  resolveUploadEndpoint(
+    import.meta.env.VITE_UPLOAD_API_BASE,
+    WEBSITE_BASE_URL,
+  ) || joinUrl(WEBSITE_BASE_URL, "/upload");
+const UPLOAD_ORIGIN = getOriginFromUrl(UPLOAD_ENDPOINT, WEBSITE_BASE_URL);
 const BLOGS_API_BASE = import.meta.env.DEV
   ? "/api/blogs"
-  : `${WEBSITE_BASE_URL}/api/blogs`;
+  : joinUrl(WEBSITE_BASE_URL, "/api/blogs");
 
 const initialForm = {
   title: "",
@@ -92,7 +129,7 @@ export default function App() {
       const formData = new FormData();
       formData.append("image", selectedImageFile);
 
-      const response = await fetch(`${WEBSITE_BASE_URL}/api/upload`, {
+      const response = await fetch(UPLOAD_ENDPOINT, {
         method: "POST",
         body: formData,
       });
@@ -109,7 +146,7 @@ export default function App() {
 
       const fullUrl = uploadedUrl.startsWith("http")
         ? uploadedUrl
-        : `${UPLOAD_API_BASE}${uploadedUrl}`;
+        : joinUrl(UPLOAD_ORIGIN, uploadedUrl);
 
       setForm((prev) => ({ ...prev, image: fullUrl }));
       setMessage("Image uploaded successfully.");
