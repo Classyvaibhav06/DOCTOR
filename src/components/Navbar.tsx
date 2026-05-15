@@ -18,9 +18,9 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header style={{ borderBottom: "1px solid #DBEAFE", background: "#FFFFFF", color: "#0F172A", fontFamily: "'DM Sans', system-ui, sans-serif" }}>
+    <header style={{ borderBottom: "1px solid #e6f4f3", background: "#FFFFFF", color: "var(--text)", fontFamily: "'DM Sans', system-ui, sans-serif" }}>
       {/* ── Top Info Bar ── */}
-      <div style={{ background: "#1E40AF", color: "#FFFFFF", padding: "0.5rem 0" }}>
+      <div style={{ background: "#3c8f8c", color: "#FFFFFF", padding: "0.5rem 0" }}>
         <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 1.5rem", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "0.5rem", fontSize: "0.78rem" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", flexWrap: "wrap", fontWeight: 600, letterSpacing: "0.04em" }}>
             <a href="tel:+919936604444" style={{ display: "flex", alignItems: "center", gap: "0.35rem", color: "rgba(255,255,255,0.92)", textDecoration: "none", transition: "color 0.2s" }}
@@ -65,7 +65,7 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: "0.85rem", textDecoration: "none" }}>
           <div
-            style={{ width: "46px", height: "46px", flexShrink: 0, background: "#1E40AF", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 14px rgba(30,64,175,0.3)", transition: "transform 0.2s" }}
+            style={{ width: "46px", height: "46px", flexShrink: 0, background: "#3c8f8c", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 14px rgba(60,143,140,0.3)", transition: "transform 0.2s" }}
             onMouseEnter={e => (e.currentTarget.style.transform = "scale(1.06)")}
             onMouseLeave={e => (e.currentTarget.style.transform = "scale(1)")}
           >
@@ -75,10 +75,10 @@ export function Navbar() {
             </svg>
           </div>
           <div>
-            <div style={{ color: "#0F172A", fontWeight: 700, fontSize: "1.05rem", letterSpacing: "-0.01em", lineHeight: 1, marginBottom: "0.25rem", fontFamily: "'DM Sans', system-ui, sans-serif" }}>
+            <div style={{ color: "var(--text)", fontWeight: 700, fontSize: "1.05rem", letterSpacing: "-0.01em", lineHeight: 1, marginBottom: "0.25rem", fontFamily: "'DM Sans', system-ui, sans-serif" }}>
               Burlington Clinic &amp; Hospital
             </div>
-            <div style={{ color: "#64748B", fontSize: "0.62rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em" }}>
+            <div style={{ color: "var(--muted)", fontSize: "0.62rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em" }}>
               Dr. Rajesh Maghnani · Since 1926
             </div>
           </div>
@@ -91,9 +91,9 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                style={{ color: "#64748B", textDecoration: "none", transition: "color 0.2s" }}
-                onMouseEnter={e => (e.currentTarget.style.color = "#1E40AF")}
-                onMouseLeave={e => (e.currentTarget.style.color = "#64748B")}
+                style={{ color: "var(--muted)", textDecoration: "none", transition: "color 0.2s" }}
+                onMouseEnter={e => (e.currentTarget.style.color = "#3c8f8c")}
+                onMouseLeave={e => (e.currentTarget.style.color = "var(--muted)")}
               >
                 {link.label}
               </Link>
@@ -105,12 +105,12 @@ export function Navbar() {
               display: "inline-flex", alignItems: "center", justifyContent: "center",
               borderRadius: "8px", fontSize: "0.78rem", fontWeight: 700,
               textTransform: "uppercase", letterSpacing: "0.06em", textDecoration: "none",
-              background: "#1E40AF", color: "#fff", padding: "0.6rem 1.4rem",
-              boxShadow: "0 4px 14px rgba(30,64,175,0.28)", transition: "all 0.22s",
+              background: "#3c8f8c", color: "#fff", padding: "0.6rem 1.4rem",
+              boxShadow: "0 4px 14px rgba(60,143,140,0.28)", transition: "all 0.22s",
               whiteSpace: "nowrap",
             }}
-            onMouseEnter={e => { e.currentTarget.style.background = "#1D3A9E"; e.currentTarget.style.boxShadow = "0 6px 20px rgba(30,64,175,0.38)"; e.currentTarget.style.transform = "translateY(-1px)"; }}
-            onMouseLeave={e => { e.currentTarget.style.background = "#1E40AF"; e.currentTarget.style.boxShadow = "0 4px 14px rgba(30,64,175,0.28)"; e.currentTarget.style.transform = "translateY(0)"; }}
+            onMouseEnter={e => { e.currentTarget.style.background = "#2d6d6b"; e.currentTarget.style.boxShadow = "0 6px 20px rgba(60,143,140,0.38)"; e.currentTarget.style.transform = "translateY(-1px)"; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "#3c8f8c"; e.currentTarget.style.boxShadow = "0 4px 14px rgba(60,143,140,0.28)"; e.currentTarget.style.transform = "translateY(0)"; }}
           >
             Book Now
           </Link>
@@ -124,11 +124,11 @@ export function Navbar() {
               display: "inline-flex", alignItems: "center", justifyContent: "center",
               borderRadius: "7px", fontSize: "0.72rem", fontWeight: 700,
               textTransform: "uppercase", letterSpacing: "0.08em", textDecoration: "none",
-              border: "1.5px solid #1E40AF", color: "#1E40AF",
+              border: "1.5px solid #3c8f8c", color: "#3c8f8c",
               padding: "0.4rem 0.9rem", transition: "all 0.2s",
             }}
-            onMouseEnter={e => { e.currentTarget.style.background = "#1E40AF"; e.currentTarget.style.color = "#fff"; }}
-            onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#1E40AF"; }}
+            onMouseEnter={e => { e.currentTarget.style.background = "#3c8f8c"; e.currentTarget.style.color = "#fff"; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#3c8f8c"; }}
             className="mobile-book-btn"
           >
             Book
@@ -139,23 +139,23 @@ export function Navbar() {
             style={{ display: "flex", flexDirection: "column", gap: "5px", padding: "0.4rem", background: "none", border: "none", cursor: "pointer" }}
             className="hamburger-btn"
           >
-            <span style={{ display: "block", width: "22px", height: "2px", background: "#0F172A", borderRadius: "2px", transition: "transform 0.3s", transform: menuOpen ? "rotate(45deg) translateY(7px)" : "none" }}></span>
-            <span style={{ display: "block", width: "22px", height: "2px", background: "#0F172A", borderRadius: "2px", transition: "opacity 0.3s", opacity: menuOpen ? 0 : 1 }}></span>
-            <span style={{ display: "block", width: "22px", height: "2px", background: "#0F172A", borderRadius: "2px", transition: "transform 0.3s", transform: menuOpen ? "rotate(-45deg) translateY(-7px)" : "none" }}></span>
+            <span style={{ display: "block", width: "22px", height: "2px", background: "var(--text)", borderRadius: "2px", transition: "transform 0.3s", transform: menuOpen ? "rotate(45deg) translateY(7px)" : "none" }}></span>
+            <span style={{ display: "block", width: "22px", height: "2px", background: "var(--text)", borderRadius: "2px", transition: "opacity 0.3s", opacity: menuOpen ? 0 : 1 }}></span>
+            <span style={{ display: "block", width: "22px", height: "2px", background: "var(--text)", borderRadius: "2px", transition: "transform 0.3s", transform: menuOpen ? "rotate(-45deg) translateY(-7px)" : "none" }}></span>
           </button>
         </div>
       </nav>
 
       {/* Mobile Dropdown */}
       {menuOpen && (
-        <div style={{ background: "#fff", borderTop: "1px solid #DBEAFE", padding: "1rem 1.5rem 1.5rem", display: "flex", flexDirection: "column", gap: "0.25rem", boxShadow: "0 8px 32px rgba(30,64,175,0.10)", position: "absolute", width: "100%", zIndex: 50 }}>
+        <div style={{ background: "#fff", borderTop: "1px solid #e6f4f3", padding: "1rem 1.5rem 1.5rem", display: "flex", flexDirection: "column", gap: "0.25rem", boxShadow: "0 8px 32px rgba(60,143,140,0.10)", position: "absolute", width: "100%", zIndex: 50 }}>
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              style={{ color: "#0F172A", fontWeight: 600, padding: "0.75rem 0", borderBottom: "1px solid #EFF6FF", textDecoration: "none", fontSize: "0.9rem", transition: "color 0.2s" }}
-              onMouseEnter={e => (e.currentTarget.style.color = "#1E40AF")}
-              onMouseLeave={e => (e.currentTarget.style.color = "#0F172A")}
+              style={{ color: "var(--text)", fontWeight: 600, padding: "0.75rem 0", borderBottom: "1px solid #f0f9f9", textDecoration: "none", fontSize: "0.9rem", transition: "color 0.2s" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "#3c8f8c")}
+              onMouseLeave={e => (e.currentTarget.style.color = "var(--text)")}
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
@@ -166,9 +166,9 @@ export function Navbar() {
             style={{
               display: "flex", alignItems: "center", justifyContent: "center",
               borderRadius: "8px", fontSize: "0.88rem", fontWeight: 700,
-              textDecoration: "none", background: "#1E40AF", color: "#fff",
+              textDecoration: "none", background: "#3c8f8c", color: "#fff",
               padding: "0.85rem 1.5rem", marginTop: "0.75rem",
-              boxShadow: "0 4px 14px rgba(30,64,175,0.25)",
+              boxShadow: "0 4px 14px rgba(60,143,140,0.25)",
             }}
             onClick={() => setMenuOpen(false)}
           >

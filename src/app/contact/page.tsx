@@ -49,7 +49,7 @@ export default function ContactPage() {
         className="contact-hero"
         style={{
           background:
-            "linear-gradient(145deg, #0F172A 0%, #1E3A8A 60%, #1E40AF 100%)",
+            "linear-gradient(145deg, #051a1a 0%, #2d6d6b 60%, #3c8f8c 100%)",
           padding: "9rem 0 5rem",
           position: "relative",
           overflow: "hidden",
@@ -91,7 +91,7 @@ export default function ContactPage() {
               fontWeight: 800,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: "#93C5FD",
+              color: "#7fbdbb",
               marginBottom: "1.25rem",
             }}
           >
@@ -109,7 +109,7 @@ export default function ContactPage() {
               letterSpacing: "-0.04em",
             }}
           >
-            Get In <em style={{ color: "#60A5FA" }}>Touch</em> With Us
+            Get In <em style={{ color: "#7fbdbb" }}>Touch</em> With Us
           </h1>
           <p
             style={{
@@ -182,14 +182,14 @@ export default function ContactPage() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "0.6rem",
-                background: "linear-gradient(135deg, #3B82F6, #1D4ED8)",
+                background: "linear-gradient(135deg, #3c8f8c, #2d6d6b)",
                 color: "#fff",
                 padding: "0.85rem 1.75rem",
                 borderRadius: "50px",
                 fontWeight: 700,
                 fontSize: "0.9rem",
                 textDecoration: "none",
-                boxShadow: "0 8px 24px rgba(59,130,246,0.4)",
+                boxShadow: "0 8px 24px rgba(60, 143, 140, 0.4)",
                 transition: "all 0.2s",
               }}
             >
@@ -231,12 +231,12 @@ export default function ContactPage() {
                   alignItems: "center",
                   gap: "0.6rem",
                   background: "#fff",
-                  border: "1px solid #DBEAFE",
+                  border: "1px solid #e6f4f3",
                   borderRadius: "50px",
                   padding: "0.6rem 1.25rem",
                   fontSize: "0.85rem",
                   fontWeight: 600,
-                  color: "#1E40AF",
+                  color: "#3c8f8c",
                   boxShadow: "0 2px 8px rgba(30,64,175,0.06)",
                 }}
               >
@@ -272,7 +272,7 @@ export default function ContactPage() {
                   fontWeight: 800,
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
-                  color: "#1E40AF",
+                  color: "#3c8f8c",
                   marginBottom: "0.75rem",
                 }}
               >
@@ -290,7 +290,7 @@ export default function ContactPage() {
                   letterSpacing: "-0.04em",
                 }}
               >
-                Tell Us About Your <em style={{ color: "#1E40AF" }}>Concern</em>
+                Tell Us About Your <em style={{ color: "#3c8f8c" }}>Concern</em>
               </h2>
 
               <ContactFormClient />
@@ -322,7 +322,7 @@ export default function ContactPage() {
                     letterSpacing: "-0.04em",
                   }}
                 >
-                  Reach Us <em style={{ color: "#60A5FA" }}>Directly</em>
+                  Reach Us <em style={{ color: "#7fbdbb" }}>Directly</em>
                 </h3>
                 {[
                   {
@@ -430,7 +430,7 @@ export default function ContactPage() {
                   style={{
                     fontSize: "0.85rem",
                     fontWeight: 700,
-                    color: "#1E40AF",
+                    color: "#3c8f8c",
                     textTransform: "uppercase",
                     letterSpacing: "0.1em",
                     marginBottom: "1.25rem",
@@ -479,7 +479,7 @@ export default function ContactPage() {
                   fontWeight: 800,
                   letterSpacing: "0.18em",
                   textTransform: "uppercase",
-                  color: "#1E40AF",
+                  color: "#3c8f8c",
                   marginBottom: "0.75rem",
                 }}
               >
@@ -495,7 +495,7 @@ export default function ContactPage() {
                   letterSpacing: "-0.04em",
                 }}
               >
-                Visit Our <em style={{ color: "#1E40AF" }}>Clinics</em>
+                Visit Our <em style={{ color: "#3c8f8c" }}>Clinics</em>
               </h2>
             </div>
 
@@ -540,7 +540,7 @@ export default function ContactPage() {
                       style={{
                         display: "inline-block",
                         background: "#EFF6FF",
-                        color: "#1E40AF",
+                        color: "#3c8f8c",
                         fontSize: "0.65rem",
                         fontWeight: 800,
                         textTransform: "uppercase",
@@ -594,7 +594,7 @@ export default function ContactPage() {
                         >
                           <span
                             style={{
-                              color: "#1E40AF",
+                              color: "#3c8f8c",
                               lineHeight: 0,
                               marginTop: "0.15rem",
                             }}
@@ -611,7 +611,7 @@ export default function ContactPage() {
                       style={{
                         display: "inline-block",
                         marginTop: "1.25rem",
-                        background: "linear-gradient(135deg, #1E40AF, #3B82F6)",
+                        background: "linear-gradient(135deg, #3c8f8c, #3B82F6)",
                         color: "#fff",
                         padding: "0.7rem 1.5rem",
                         borderRadius: 8,
