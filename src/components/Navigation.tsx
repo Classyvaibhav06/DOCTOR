@@ -8,7 +8,13 @@ import { Search } from "lucide-react";
 type NavItem = {
   label: string;
   href: string;
-  dropdown?: { label: string; href: string }[];
+  isMega?: boolean;
+  dropdown?: {
+    label: string;
+    href: string;
+    description?: string;
+    image?: string;
+  }[];
 };
 
 const mainNavItems: NavItem[] = [
@@ -17,28 +23,91 @@ const mainNavItems: NavItem[] = [
   {
     label: "Services",
     href: "/services",
+    isMega: true,
     dropdown: [
-      { label: "Erectile Dysfunction", href: "/services/erectile-dysfunction" },
-      { label: "Premature Ejaculation", href: "/services/premature-ejaculation" },
-      { label: "Low Libido", href: "/services/low-libido" },
-      { label: "Male Infertility", href: "/services/male-infertility" },
-      { label: "Nightfall Treatment", href: "/services/nightfall" },
-      { label: "Phimosis Treatment", href: "/services/phimosis" },
-      { label: "Sexual Weakness", href: "/services/sexual-weakness" },
-      { label: "Online Consultation", href: "/ask-online" },
+      { 
+        label: "Erectile Dysfunction", 
+        href: "/services/erectile-dysfunction",
+        description: "Advanced diagnostic and treatment options for ED to restore confidence and function.",
+        image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80"
+      },
+      { 
+        label: "Premature Ejaculation", 
+        href: "/services/premature-ejaculation",
+        description: "Effective therapeutic strategies to improve control and enhance stamina.",
+        image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=400&q=80"
+      },
+      { 
+        label: "Low Libido", 
+        href: "/services/low-libido",
+        description: "Comprehensive hormonal and psychological support to reignite your drive.",
+        image: "https://images.unsplash.com/photo-1576091160550-2173ff9e5eb2?auto=format&fit=crop&w=400&q=80"
+      },
+      { 
+        label: "Male Infertility", 
+        href: "/services/male-infertility",
+        description: "Evidence-based fertility solutions combining modern medicine and holistic care.",
+        image: "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=400&q=80"
+      },
+      { 
+        label: "Nightfall Treatment", 
+        href: "/services/nightfall",
+        description: "Natural and safe clinical protocols to overcome nightfall issues safely.",
+        image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=400&q=80"
+      },
     ],
   },
   {
     label: "Disease",
     href: "/disease",
+    isMega: true,
     dropdown: [
-      { label: "Sexual Disorders", href: "/disease" },
-      { label: "Male Sexual Health", href: "/disease#male" },
-      { label: "Hormonal Issues", href: "/disease#hormonal" },
+      { 
+        label: "Sexual Disorders", 
+        href: "/disease",
+        description: "Understanding common sexual health challenges and clinical pathways to recovery.",
+        image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=400&q=80"
+      },
+      { 
+        label: "Male Sexual Health", 
+        href: "/disease#male",
+        description: "Focusing on physiological and psychological factors affecting male sexual wellness.",
+        image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80"
+      },
+      { 
+        label: "Hormonal Issues", 
+        href: "/disease#hormonal",
+        description: "Specialized care for testosterone balance and endocrine-related health concerns.",
+        image: "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=400&q=80"
+      },
     ],
   },
   { label: "Blog", href: "/blog" },
-  { label: "Contact Us", href: "/contact" },
+  { 
+    label: "Contact Us", 
+    href: "/contact",
+    isMega: true,
+    dropdown: [
+      { 
+        label: "Main Clinic — Kasturba Nagar", 
+        href: "/contact",
+        description: "Visit our primary facility located near Chetak Bridge for comprehensive care.",
+        image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=400&q=80"
+      },
+      { 
+        label: "Arera Colony Branch", 
+        href: "/contact",
+        description: "Conveniently located at 10 Number Market for easy access to expert consultations.",
+        image: "https://images.unsplash.com/photo-1638202993928-7267aad84c31?auto=format&fit=crop&w=400&q=80"
+      },
+      { 
+        label: "Online Consultation", 
+        href: "/ask-online",
+        description: "Book a private video or tele-consultation from the comfort of your home.",
+        image: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=400&q=80"
+      },
+    ],
+  },
 ];
 
 /* ── Dropdown Item Component ── */
@@ -46,11 +115,46 @@ function DropdownMenu({ items }: { items: { label: string; href: string }[] }) {
   return (
     <div className="nav3-dropdown">
       {items.map((item) => (
-        <Link key={item.href} href={item.href} className="nav3-dropdown-item">
+        <Link key={item.label} href={item.href} className="nav3-dropdown-item">
           <span className="nav3-dropdown-arrow">›</span>
           {item.label}
         </Link>
       ))}
+    </div>
+  );
+}
+
+/* ── Mega Menu Component ── */
+function MegaMenu({ items }: { items: { label: string; href: string; description?: string; image?: string }[] }) {
+  const [activeItem, setActiveItem] = useState(items[0]);
+
+  return (
+    <div className="nav3-megamenu">
+      <div className="megamenu-left">
+        {items.map((item) => (
+          <div 
+            key={item.label} 
+            className={`megamenu-tab ${activeItem.label === item.label ? 'active' : ''}`}
+            onMouseEnter={() => setActiveItem(item)}
+          >
+            <Link href={item.href}>{item.label}</Link>
+          </div>
+        ))}
+      </div>
+      <div className="megamenu-right">
+        <div className="megamenu-content">
+          <h3 className="megamenu-title">{activeItem.label}</h3>
+          <p className="megamenu-desc">{activeItem.description || "Discover our specialized treatment designed for your well-being."}</p>
+          <Link href={activeItem.href} className="megamenu-btn">
+            Explore <span>→</span>
+          </Link>
+        </div>
+        {activeItem.image && (
+          <div className="megamenu-image">
+            <img src={activeItem.image} alt={activeItem.label} />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -79,7 +183,7 @@ function NavItem({ item, isActive }: { item: NavItem; isActive: boolean }) {
   return (
     <div
       ref={ref}
-      className="nav3-item-wrap"
+      className={`nav3-item-wrap ${item.isMega ? 'nav3-item-mega' : ''}`}
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >
@@ -93,13 +197,13 @@ function NavItem({ item, isActive }: { item: NavItem; isActive: boolean }) {
           <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </Link>
-      {open && <DropdownMenu items={item.dropdown} />}
+      {open && (item.isMega ? <MegaMenu items={item.dropdown} /> : <DropdownMenu items={item.dropdown} />)}
     </div>
   );
 }
 
 /* ── Main Navigation Component ── */
-export function Navigation() {
+export const Navigation = ({ onBookAppointment }: { onBookAppointment?: () => void }) => {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
@@ -157,7 +261,7 @@ export function Navigation() {
             <Link href="/" className="nav2-brand-link">
               <div className="nav2-logo-icon">
                 <svg viewBox="0 0 48 48" width="40" height="40" fill="none">
-                  <circle cx="24" cy="24" r="22" fill="#1E40AF" />
+                  <circle cx="24" cy="24" r="22" fill="var(--blue)" />
                   <path d="M22 14h4v8h8v4h-8v8h-4v-8h-8v-4h8v-8z" fill="#fff"/>
                 </svg>
               </div>
@@ -201,14 +305,13 @@ export function Navigation() {
 
           {/* Column C: Stacked CTAs */}
           <div className="nav2-col-c">
-            <a
-              href="https://bestsexologistdoctor.com/index.php/payment/"
-              target="_blank"
-              rel="noopener"
+            <button
               className="nav2-btn-primary"
+              onClick={onBookAppointment}
+              style={{ cursor: "pointer", border: "none" }}
             >
               Book Appointment
-            </a>
+            </button>
           </div>
 
           {/* Mobile hamburger */}
@@ -271,7 +374,7 @@ export function Navigation() {
                     <div className="nav-mobile-sub">
                       {item.dropdown.map((sub) => (
                         <Link
-                          key={sub.href}
+                          key={sub.label}
                           href={sub.href}
                           className="nav-mobile-sub-link"
                           onClick={() => setMobileOpen(false)}
@@ -293,15 +396,16 @@ export function Navigation() {
               )}
             </div>
           ))}
-          <a
-            href="https://bestsexologistdoctor.com/index.php/payment/"
-            target="_blank"
-            rel="noopener"
+          <button
             className="nav-mobile-book"
-            onClick={() => setMobileOpen(false)}
+            onClick={() => {
+              setMobileOpen(false);
+              onBookAppointment?.();
+            }}
+            style={{ cursor: "pointer", border: "none", width: "100%" }}
           >
             📅 Book Appointment
-          </a>
+          </button>
         </div>
       )}
 
@@ -319,7 +423,7 @@ export function Navigation() {
 
         /* ── ZONE 1: Top Utility Bar ── */
         .nav1 {
-          background: #0f172a; /* dark navy */
+          background: var(--text); /* dark navy */
           color: rgba(255,255,255,0.8);
           font-size: 0.75rem;
           font-weight: 500;
@@ -402,14 +506,14 @@ export function Navigation() {
           font-family: 'Plus Jakarta Sans', sans-serif;
           font-weight: 800;
           font-size: 1.3rem;
-          color: #0f172a;
+          color: var(--text);
           letter-spacing: -0.01em;
           line-height: 1.1;
         }
         .nav2-brand-tagline {
           font-size: 0.7rem;
           font-weight: 600;
-          color: #64748b;
+          color: var(--muted);
           letter-spacing: 0.08em;
           text-transform: uppercase;
           margin-top: 0.3rem;
@@ -445,14 +549,14 @@ export function Navigation() {
         .nav2-badge-title {
           font-size: 0.85rem;
           font-weight: 800;
-          color: #0f172a;
+          color: var(--text);
           line-height: 1.1;
           text-transform: uppercase;
         }
         .nav2-badge-sub {
           font-size: 0.65rem;
           font-weight: 700;
-          color: #1e40af;
+          color: var(--blue);
           letter-spacing: 0.08em;
           text-transform: uppercase;
           margin-top: 0.15rem;
@@ -471,7 +575,7 @@ export function Navigation() {
           justify-content: flex-end;
         }
         .nav2-btn-primary {
-          background: #1e40af;
+          background: var(--blue);
           color: #ffffff;
           font-size: 0.8rem;
           font-weight: 700;
@@ -481,10 +585,10 @@ export function Navigation() {
           border-radius: 6px;
           text-decoration: none;
           transition: background 0.2s, transform 0.2s;
-          box-shadow: 0 4px 10px rgba(30,64,175,0.2);
+          box-shadow: 0 4px 10px rgba(60, 143, 140, 0.2);
         }
         .nav2-btn-primary:hover {
-          background: #1d3a9e;
+          background: var(--blue2);
           transform: translateY(-1px);
         }
 
@@ -503,7 +607,7 @@ export function Navigation() {
           display: block;
           width: 24px;
           height: 2px;
-          background: #1e40af;
+          background: var(--blue);
           border-radius: 2px;
           transition: transform 0.3s, opacity 0.3s;
         }
@@ -513,13 +617,13 @@ export function Navigation() {
 
         /* ── ZONE 3: Navigation Bar ── */
         nav.nav3 {
-          background: #1e40af; /* deep blue */
+          background: var(--blue); /* deep teal */
           top: 112px; /* 32 + 80 */
           z-index: 1000;
           height: 44px;
           display: flex;
           align-items: center;
-          border-bottom: 3px solid #1d3a9e; /* visual grounding */
+          border-bottom: 3px solid var(--blue2); /* visual grounding */
         }
         .nav3-inner {
           width: 100%;
@@ -573,6 +677,7 @@ export function Navigation() {
         }
 
         .nav3-item-wrap { position: relative; height: 100%; }
+        .nav3-item-mega { position: static; }
         .nav3-link--has-dropdown { cursor: pointer; }
         .nav3-chevron {
           width: 10px; height: 10px;
@@ -587,15 +692,14 @@ export function Navigation() {
           position: absolute;
           top: 100%;
           left: 0;
-          min-width: 230px;
-          background: #fff;
-          border-radius: 0 0 8px 8px;
-          box-shadow: 0 10px 30px rgba(30,64,175,0.15);
+          min-width: 220px;
+          background: #0a1a19;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.3);
           z-index: 100;
           overflow: hidden;
           animation: dropIn 0.15s ease;
-          border: 1px solid #e2e8f0;
-          border-top: none;
+          border: 1px solid rgba(255,255,255,0.1);
+          border-top: 2px solid #3c8f8c;
         }
         @keyframes dropIn {
           from { opacity: 0; transform: translateY(-4px); }
@@ -616,9 +720,117 @@ export function Navigation() {
         .nav3-dropdown-item:last-child { border-bottom: none; }
         .nav3-dropdown-item:hover {
           background: #f8fafc;
-          color: #1e40af;
+          color: var(--blue);
         }
         .nav3-dropdown-arrow { color: #94a3b8; font-size: 1rem; line-height: 1; }
+
+        /* Mega Menu */
+        .nav3-megamenu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          width: 100%;
+          background: #0a1a19;
+          box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+          display: flex;
+          border-top: 2px solid #3c8f8c;
+          border-bottom: 1px solid rgba(255,255,255,0.1);
+          overflow: hidden;
+          animation: dropIn 0.2s ease;
+          z-index: 100;
+        }
+        .megamenu-left {
+          width: 320px;
+          background: rgba(255,255,255,0.02);
+          border-right: 1px solid rgba(255,255,255,0.08);
+          display: flex;
+          flex-direction: column;
+          padding: 1rem 0;
+        }
+        .megamenu-tab {
+          border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .megamenu-tab:last-child {
+          border-bottom: none;
+        }
+        .megamenu-tab a {
+          display: block;
+          padding: 1.25rem 2.5rem;
+          color: rgba(255,255,255,0.65);
+          font-weight: 600;
+          font-size: 0.9rem;
+          text-decoration: none;
+          transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .megamenu-tab.active a, .megamenu-tab a:hover {
+          color: #fff;
+          background: rgba(60, 143, 140, 0.15);
+          padding-left: 3rem;
+          box-shadow: inset 4px 0 0 #3c8f8c;
+        }
+        .megamenu-right {
+          flex: 1;
+          padding: 3.5rem 5rem;
+          display: flex;
+          gap: 4rem;
+          background: transparent;
+          max-width: 1200px;
+          margin: 0 auto;
+          width: 100%;
+        }
+        .megamenu-content {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .megamenu-title {
+          color: #fff;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 1.8rem;
+          font-weight: 800;
+          margin-bottom: 1rem;
+          margin-top: 0;
+          letter-spacing: -0.02em;
+        }
+        .megamenu-desc {
+          color: rgba(255,255,255,0.6);
+          line-height: 1.7;
+          margin-bottom: 2rem;
+          font-size: 1rem;
+          margin-top: 0;
+        }
+        .megamenu-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.6rem;
+          background: #3c8f8c;
+          color: #fff;
+          padding: 0.8rem 1.8rem;
+          border-radius: 8px;
+          text-decoration: none;
+          font-weight: 700;
+          font-size: 0.9rem;
+          transition: all 0.3s;
+          box-shadow: 0 4px 15px rgba(60, 143, 140, 0.2);
+        }
+        .megamenu-btn:hover {
+          background: #2d6d6b;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(60, 143, 140, 0.3);
+        }
+        .megamenu-image {
+          width: 250px;
+          height: 180px;
+          flex-shrink: 0;
+        }
+        .megamenu-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 8px;
+        }
 
         /* Search Icon */
         .nav3-search-btn {
@@ -659,14 +871,14 @@ export function Navigation() {
           padding: 0.85rem 0;
           font-size: 0.95rem;
           font-weight: 600;
-          color: #0f172a;
+          color: var(--text);
           text-decoration: none;
           background: none;
           border: none;
           width: 100%;
           cursor: pointer;
         }
-        .nav-mobile-link:hover { color: #1e40af; }
+        .nav-mobile-link:hover { color: var(--blue); }
         .nav-mobile-toggle { justify-content: space-between; }
         .nav-mobile-sub {
           padding: 0 0 0.75rem 1rem;
@@ -686,7 +898,7 @@ export function Navigation() {
           display: block;
           text-align: center;
           margin-top: 1.5rem;
-          background: #1e40af;
+          background: var(--blue);
           color: #fff;
           font-weight: 600;
           font-size: 0.95rem;

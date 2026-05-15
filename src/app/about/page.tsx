@@ -60,14 +60,14 @@ export default function AboutPage() {
         style={{
           padding: "8.5rem 0 3.5rem",
           background:
-            "linear-gradient(150deg, #F8FAFC 0%, #EFF6FF 55%, #DBEAFE 100%)",
-          borderBottom: "1px solid #DBEAFE",
+            "linear-gradient(150deg, #F8FAFC 0%, #f0f9f9 55%, #e6f4f3 100%)",
+          borderBottom: "1px solid #e6f4f3",
         }}
       >
         <div className="container" style={{ textAlign: "center" }}>
           <p
             className="overline"
-            style={{ color: "#1E40AF", marginBottom: "0.75rem" }}
+            style={{ color: "#3c8f8c", marginBottom: "0.75rem" }}
           >
             About Burlington Clinic
           </p>
@@ -76,7 +76,7 @@ export default function AboutPage() {
             style={{ fontSize: "clamp(2.2rem, 4.8vw, 3.8rem)", margin: 0 }}
           >
             Dr. Rajesh Manghnani &amp; The
-            <em style={{ color: "#1E40AF", fontStyle: "italic" }}>
+            <em style={{ color: "#3c8f8c", fontStyle: "italic" }}>
               {" "}
               Care Legacy
             </em>
@@ -148,7 +148,7 @@ export default function AboutPage() {
             <div className="about-cred-head">
               <p
                 className="overline"
-                style={{ color: "#1E40AF", marginBottom: "0.65rem" }}
+                style={{ color: "#3c8f8c", marginBottom: "0.65rem" }}
               >
                 Doctor & Clinic Profile
               </p>
@@ -160,7 +160,7 @@ export default function AboutPage() {
             <div className="about-cred-grid">
               {credentials.map((item) => (
                 <div key={item.title} className="about-cred-item">
-                  <item.icon size={18} color="#1E40AF" strokeWidth={2.2} />
+                  <item.icon size={18} color="#3c8f8c" strokeWidth={2.2} />
                   <div>
                     <h4>{item.title}</h4>
                     <p>{item.text}</p>
@@ -170,7 +170,7 @@ export default function AboutPage() {
             </div>
 
             <div className="about-quote-box">
-              <HeartPulse size={18} color="#1E40AF" strokeWidth={2.1} />
+              <HeartPulse size={18} color="#3c8f8c" strokeWidth={2.1} />
               <p>
                 Our commitment is simple: safe and natural treatment,
                 transparent guidance, and complete confidentiality at every
@@ -204,8 +204,8 @@ export default function AboutPage() {
         .about-image-card,
         .about-stats-grid,
         .about-credentials-wrap {
-          background: #ffffff;
-          border: 1px solid #E2E8F0;
+          background: "#ffffff",
+          border: "1px solid var(--surface2)",
           border-radius: 24px;
         }
         .about-story-card {
@@ -216,7 +216,7 @@ export default function AboutPage() {
           font-weight: 800;
           letter-spacing: 0.07em;
           text-transform: uppercase;
-          color: #EA580C;
+          color: #3c8f8c;
           margin-bottom: 0.85rem;
         }
         .about-title {
@@ -224,7 +224,7 @@ export default function AboutPage() {
           font-size: clamp(2rem, 4vw, 3.1rem);
           line-height: 1.1;
           letter-spacing: -0.04em;
-          color: #0F172A;
+          color: var(--text);
           margin-bottom: 1.1rem;
         }
         .about-copy {
@@ -253,14 +253,14 @@ export default function AboutPage() {
           gap: 0.8rem;
         }
         .about-stat-item {
-          border: 1px solid #E2E8F0;
+          border: 1px solid var(--surface2);
           border-radius: 16px;
           padding: 1rem;
           background: #F8FAFC;
         }
         .about-stat-value {
           font-family: "Plus Jakarta Sans", sans-serif;
-          color: #0F172A;
+          color: var(--text);
           font-size: 2.2rem;
           font-weight: 800;
           line-height: 1;
@@ -293,10 +293,10 @@ export default function AboutPage() {
           display: flex;
           gap: 0.7rem;
           align-items: flex-start;
-          border: 1px solid #DBEAFE;
+          border: 1px solid #e6f4f3;
           border-radius: 14px;
           padding: 0.85rem;
-          background: #EFF6FF;
+          background: #f0f9f9;
         }
         .about-cred-item h4 {
           font-size: 0.87rem;
@@ -312,7 +312,7 @@ export default function AboutPage() {
         }
         .about-quote-box {
           margin-top: 1rem;
-          border: 1px solid #DBEAFE;
+          border: 1px solid #e6f4f3;
           background: #F8FAFC;
           border-radius: 14px;
           padding: 0.95rem 1rem;

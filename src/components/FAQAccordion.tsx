@@ -56,16 +56,16 @@ export function FAQAccordion() {
         {/* Header */}
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: "3.5rem", maxWidth: "680px", marginLeft: "auto", marginRight: "auto" }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: "0.6rem", justifyContent: "center", marginBottom: "1rem" }}>
-            <span style={{ display: "block", height: "1px", width: "28px", background: "#1E40AF" }}></span>
-            <p style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#1E40AF", margin: 0 }}>
+            <span style={{ display: "block", height: "1px", width: "28px", background: "#3c8f8c" }}></span>
+            <p style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#3c8f8c", margin: 0 }}>
               Common Questions
             </p>
-            <span style={{ display: "block", height: "1px", width: "28px", background: "#1E40AF" }}></span>
+            <span style={{ display: "block", height: "1px", width: "28px", background: "#3c8f8c" }}></span>
           </div>
-          <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontFamily: "'DM Serif Display', Georgia, serif", fontWeight: 400, color: "#0F172A", letterSpacing: "-0.01em", margin: "0 0 1rem" }}>
+          <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontFamily: "'DM Serif Display', Georgia, serif", fontWeight: 400, color: "var(--text)", letterSpacing: "-0.01em", margin: "0 0 1rem" }}>
             Frequently Asked Questions
           </h2>
-          <p style={{ color: "#64748B", fontSize: "1rem", lineHeight: 1.75, margin: 0 }}>
+          <p style={{ color: "var(--muted)", fontSize: "1rem", lineHeight: 1.75, margin: 0 }}>
             Everything you need to know about our treatments, booking, and consultations. Cannot find the answer you&apos;re looking for? Please contact us directly.
           </p>
         </div>
@@ -78,10 +78,10 @@ export function FAQAccordion() {
               <div 
                 key={i}
                 style={{
-                  border: isOpen ? "1px solid #1E40AF" : "1px solid #DBEAFE",
+                  border: isOpen ? "1px solid #3c8f8c" : "1px solid #e6f4f3",
                   borderRadius: "14px",
                   background: "#fff",
-                  boxShadow: isOpen ? "0 8px 32px rgba(30,64,175,0.09)" : "0 2px 8px rgba(0,0,0,0.04)",
+                  boxShadow: isOpen ? "0 8px 32px rgba(60, 143, 140, 0.09)" : "0 2px 8px rgba(0,0,0,0.04)",
                   transition: "all 0.3s cubic-bezier(0.16,1,0.3,1)",
                   overflow: "hidden",
                   transform: isOpen ? "translateY(-1px)" : "none",
@@ -100,7 +100,7 @@ export function FAQAccordion() {
                 >
                   <h3 style={{
                     fontSize: "1rem", fontWeight: 600,
-                    color: isOpen ? "#1E40AF" : "#0F172A",
+                    color: isOpen ? "#3c8f8c" : "var(--text)",
                     transition: "color 0.2s", margin: 0, lineHeight: 1.4,
                   }}>
                     {f.q}
@@ -110,13 +110,13 @@ export function FAQAccordion() {
                   <div style={{
                     position: "relative", display: "flex", alignItems: "center", justifyContent: "center",
                     flexShrink: 0, width: "28px", height: "28px", borderRadius: "50%",
-                    border: isOpen ? "1.5px solid #1E40AF" : "1.5px solid #DBEAFE",
-                    background: isOpen ? "#1E40AF" : "#F8FAFC",
+                    border: isOpen ? "1.5px solid #3c8f8c" : "1.5px solid #e6f4f3",
+                    background: isOpen ? "#3c8f8c" : "#F8FAFC",
                     transition: "all 0.3s",
                     transform: isOpen ? "rotate(135deg)" : "none",
                   }}>
-                    <span style={{ position: "absolute", width: "11px", height: "2px", borderRadius: "2px", background: isOpen ? "#fff" : "#1E40AF", transition: "background 0.2s" }} />
-                    <span style={{ position: "absolute", width: "2px", height: "11px", borderRadius: "2px", background: isOpen ? "#fff" : "#1E40AF", transition: "all 0.3s", opacity: isOpen ? 0 : 1 }} />
+                    <span style={{ position: "absolute", width: "11px", height: "2px", borderRadius: "2px", background: isOpen ? "#fff" : "#3c8f8c", transition: "background 0.2s" }} />
+                    <span style={{ position: "absolute", width: "2px", height: "11px", borderRadius: "2px", background: isOpen ? "#fff" : "#3c8f8c", transition: "all 0.3s", opacity: isOpen ? 0 : 1 }} />
                   </div>
                 </button>
 
@@ -129,7 +129,7 @@ export function FAQAccordion() {
                       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                       style={{ overflow: "hidden" }}
                     >
-                      <div style={{ padding: "0 1.8rem 1.6rem", color: "#64748B", lineHeight: 1.8, fontSize: "0.93rem", borderTop: "1px solid #EFF6FF" }}>
+                      <div style={{ padding: "0 1.8rem 1.6rem", color: "var(--muted)", lineHeight: 1.8, fontSize: "0.93rem", borderTop: "1px solid #f0f9f9" }}>
                         <motion.div
                           initial={{ y: -6, opacity: 0 }}
                           animate={{ y: 0, opacity: 1 }}

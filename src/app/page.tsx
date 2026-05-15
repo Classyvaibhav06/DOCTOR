@@ -10,9 +10,11 @@ import {
   ShieldCheck,
   Star,
 } from "lucide-react";
+import AppointmentModal from "@/components/AppointmentModal";
+import LeadPopup from "@/components/LeadPopup";
 
 /* ─── HERO CAROUSEL ─────────────────────────────────── */
-function HeroCarousel() {
+function HeroCarousel({ onBook }: { onBook: () => void }) {
   const slides = [
     {
       src: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80",
@@ -49,10 +51,16 @@ function HeroCarousel() {
     <>
       <style>{`
         .hero-section {
-          position: relative; width: 100%; background: #FFFFFF; color: #0F172A;
-          font-family: 'Inter', system-ui, sans-serif;
-          padding-top: 7rem; padding-bottom: 5rem;
-          border-bottom: 1px solid #DBEAFE;
+          position: relative; width: 100%; 
+          background: linear-gradient(135deg, #0a1a19 0%, #2d6d6b 100%); 
+          color: #fff;
+          font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+          padding-top: 8rem; padding-bottom: 6rem;
+          overflow: hidden;
+        }
+        .hero-section::before {
+          content: ''; position: absolute; inset: 0; opacity: 0.05; pointer-events: none;
+          background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
         }
         .hero-inner {
           max-width: 1400px; margin: 0 auto; padding: 0 1.5rem;
@@ -65,10 +73,10 @@ function HeroCarousel() {
           display: flex; flex-direction: column; gap: 1.75rem;
         }
         .hero-h1 {
-          font-size: clamp(2.5rem, 5vw, 4rem);
+          font-size: clamp(2.5rem, 5vw, 4.2rem);
           font-family: 'Plus Jakarta Sans', sans-serif;
-          font-weight: 800; line-height: 1.08;
-          letter-spacing: -0.04em; color: #0F172A; margin: 0;
+          font-weight: 800; line-height: 1.1;
+          letter-spacing: -0.04em; color: #fff; margin: 0;
         }
         .hero-right-col {
           width: 50%; min-width: 300px;
@@ -77,13 +85,13 @@ function HeroCarousel() {
         .hero-carousel-wrap {
           position: relative; width: 100%; aspect-ratio: 4/3;
           border-radius: 24px; overflow: hidden;
-          box-shadow: 0 24px 50px rgba(30,64,175,0.15);
-          background: #1E40AF;
+          box-shadow: 0 24px 50px rgba(60, 143, 140, 0.15);
+          background: #3c8f8c;
         }
         .hero-stats-grid {
           display: grid; grid-template-columns: repeat(3, 1fr);
-          gap: 1.5rem; padding-top: 2rem; margin-top: 0.5rem;
-          border-top: 1px solid #DBEAFE;
+          gap: 1.5rem; padding-top: 2rem; margin-top: 1rem;
+          border-top: 1px solid rgba(255,255,255,0.1);
         }
         @media (max-width: 768px) {
           .hero-section { padding-top: 5.5rem; padding-bottom: 3rem; }
@@ -116,16 +124,16 @@ function HeroCarousel() {
                     display: "block",
                     height: "1px",
                     width: "32px",
-                    background: "#1E40AF",
+                    background: "#3c8f8c",
                   }}
                 ></span>
                 <p
                   style={{
                     fontSize: "0.72rem",
-                    fontWeight: 700,
-                    letterSpacing: "0.2em",
+                    fontWeight: 800,
+                    letterSpacing: "0.25em",
                     textTransform: "uppercase",
-                    color: "#1E40AF",
+                    color: "#4ca5a2",
                     margin: 0,
                   }}
                 >
@@ -138,7 +146,7 @@ function HeroCarousel() {
                 <em
                   style={{
                     fontStyle: "italic",
-                    color: "#1E40AF",
+                    color: "#4ca5a2",
                     fontFamily: "'Plus Jakarta Sans', sans-serif",
                     fontWeight: 800,
                   }}
@@ -151,8 +159,8 @@ function HeroCarousel() {
 
               <p
                 style={{
-                  fontSize: "1rem",
-                  color: "#64748B",
+                  fontSize: "1.1rem",
+                  color: "rgba(255,255,255,0.7)",
                   lineHeight: 1.8,
                   maxWidth: "600px",
                   margin: 0,
@@ -175,10 +183,8 @@ function HeroCarousel() {
                   paddingTop: "0.25rem",
                 }}
               >
-                <a
-                  href="https://bestsexologistdoctor.com/index.php/payment/"
-                  target="_blank"
-                  rel="noopener"
+                <button
+                  onClick={onBook}
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
@@ -188,15 +194,17 @@ function HeroCarousel() {
                     fontWeight: 700,
                     letterSpacing: "0.02em",
                     textDecoration: "none",
-                    background: "#1E40AF",
+                    background: "#3c8f8c",
                     color: "#fff",
                     padding: "0.75rem 1.6rem",
                     height: "48px",
-                    boxShadow: "0 4px 16px rgba(30,64,175,0.28)",
+                    boxShadow: "0 4px 16px rgba(60,143,140,0.28)",
+                    border: "none",
+                    cursor: "pointer"
                   }}
                 >
                   Book Appointment Online
-                </a>
+                </button>
 
                 <a
                   href="tel:+919893880001"
@@ -208,9 +216,9 @@ function HeroCarousel() {
                     fontSize: "0.86rem",
                     fontWeight: 600,
                     textDecoration: "none",
-                    border: "1.5px solid #DBEAFE",
-                    background: "#fff",
-                    color: "#0F172A",
+                    border: "1.5px solid rgba(255,255,255,0.2)",
+                    background: "rgba(255,255,255,0.05)",
+                    color: "#fff",
                     padding: "0.75rem 1.4rem",
                     height: "48px",
                     boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
@@ -241,7 +249,7 @@ function HeroCarousel() {
                         fontSize: "1.9rem",
                         fontFamily: "'Plus Jakarta Sans', sans-serif",
                         fontWeight: 800,
-                        color: "#1E40AF",
+                        color: "#4ca5a2",
                         lineHeight: 1,
                         letterSpacing: "-0.04em",
                       }}
@@ -252,7 +260,7 @@ function HeroCarousel() {
                       style={{
                         fontSize: "0.72rem",
                         fontWeight: 700,
-                        color: "#64748B",
+                        color: "rgba(255,255,255,0.6)",
                         marginTop: "0.4rem",
                         letterSpacing: "0.02em",
                       }}
@@ -313,7 +321,7 @@ function HeroCarousel() {
                         height: "8px",
                         borderRadius: "4px",
                         background:
-                          i === cur ? "#1E40AF" : "rgba(255,255,255,0.8)",
+                          i === cur ? "#3c8f8c" : "rgba(255,255,255,0.8)",
                         border: "none",
                         cursor: "pointer",
                         outline: "none",
@@ -378,23 +386,23 @@ export function FAQSection() {
         <div className="faq-split">
           {/* Left: Content & Branding */}
           <div>
-            <span className="overline" style={{ color: "#1E40AF" }}>
+            <span className="overline" style={{ color: "#3c8f8c" }}>
               Frequently Asked
             </span>
             <h2
               className="section-title"
               style={{
                 fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                color: "#0F172A",
+                color: "var(--text)",
                 margin: "1rem 0",
               }}
             >
               Clarity &{" "}
-              <em style={{ color: "#1E40AF", fontStyle: "italic" }}>Care</em>.
+              <em style={{ color: "#3c8f8c", fontStyle: "italic" }}>Care</em>.
             </h2>
             <p
               style={{
-                color: "#64748B",
+                color: "var(--muted)",
                 fontSize: "1.1rem",
                 lineHeight: 1.8,
                 marginBottom: "2rem",
@@ -417,7 +425,7 @@ export function FAQSection() {
                 style={{
                   fontSize: "1.2rem",
                   fontWeight: 700,
-                  color: "#0F172A",
+                  color: "var(--text)",
                   marginBottom: "0.5rem",
                 }}
               >
@@ -426,7 +434,7 @@ export function FAQSection() {
               <p
                 style={{
                   fontSize: "0.95rem",
-                  color: "#64748B",
+                  color: "var(--muted)",
                   lineHeight: 1.6,
                   marginBottom: "2rem",
                 }}
@@ -463,7 +471,7 @@ export function FAQSection() {
                 style={{
                   background: open === i ? "#F1F5F9" : "transparent",
                   border: "1px solid",
-                  borderColor: open === i ? "#BFDBFE" : "#E2E8F0",
+                  borderColor: open === i ? "#7fbdbb" : "#E2E8F0",
                   borderRadius: "20px",
                   overflow: "hidden",
                   transition: "all 0.3s",
@@ -487,7 +495,7 @@ export function FAQSection() {
                     style={{
                       fontSize: "1.1rem",
                       fontWeight: 700,
-                      color: "#0F172A",
+                      color: "var(--text)",
                       paddingRight: "1.5rem",
                     }}
                   >
@@ -496,7 +504,7 @@ export function FAQSection() {
                   <span
                     style={{
                       fontSize: "1.2rem",
-                      color: "#1E40AF",
+                      color: "#3c8f8c",
                       transition: "transform 0.3s",
                       transform: open === i ? "rotate(180deg)" : "rotate(0)",
                     }}
@@ -514,7 +522,7 @@ export function FAQSection() {
                   <div
                     style={{
                       padding: "0 1.8rem 1.8rem",
-                      color: "#64748B",
+                      color: "var(--muted)",
                       lineHeight: 1.8,
                       fontSize: "1rem",
                     }}
@@ -531,228 +539,142 @@ export function FAQSection() {
   );
 }
 
-/* ─── KNOWLEDGE CENTER (Redesigned) ───────────────── */
+/* ─── KNOWLEDGE CENTER (Bento Grid Videos) ───────────────── */
 export function KnowledgeCenter() {
-  const blogs = [
-    {
-      title: "Psychological Barriers vs. Physiological Causes",
-      date: "Oct 12, 2025",
-      desc: "A clinical breakdown of how neuro-stress impacts intimate wellness and practical recovery steps.",
-      tag: "Clinical Insight",
-    },
-    {
-      title: "The Science of German Homeopathic Dilutions",
-      date: "Sep 28, 2025",
-      desc: "Exploring the pharmacological efficacy of biochemic salts in treating chronic performance anxiety.",
-      tag: "Science",
-    },
-    {
-      title: "Integrative Wellness: Diet & Restoration",
-      date: "Aug 15, 2025",
-      desc: "Nutritional protocols designed to support hormonal balance and long-term vitality naturally.",
-      tag: "Wellness",
-    },
-  ];
   const videos = [
-    { id: "GROST5WDZQk", title: "Hypersensitive Glans Treatment" },
-    { id: "6IsSe9Q5SFs", title: "Phimosis Treatment without Surgery" },
-    { id: "iyGTDYFzFBY", title: "5 Best Balance Medicines" },
-    { id: "VTm_KICkLKM", title: "Top 5 Phimosis Medicines" },
+    { id: "6IsSe9Q5SFs", title: "Phimosis Treatment without Surgery", type: "featured" },
+    { id: "iyGTDYFzFBY", title: "5 Best Balance Medicines", type: "sidebar" },
+    { id: "VTm_KICkLKM", title: "Top 5 Phimosis Medicines", type: "sidebar" },
+    { id: "mgt2s-vvaSU", title: "Comprehensive Clinical Insight", type: "half" },
+    { id: "vgwb6Ykiiac", title: "Advanced Treatment Overview", type: "half" },
   ];
 
+  const YT_CHANNEL = "https://www.youtube.com/@DrRajeshManghnani";
+
   return (
-    <section id="media" style={{ background: "#F8FAFC", padding: "6rem 0" }}>
+    <section id="media" style={{ background: "var(--bg-deep)", padding: "7.5rem 0" }}>
       <style>{`
-        .knowledge-grid {
-          display: grid; 
-          grid-template-columns: 1fr 400px; 
-          gap: 4rem;
+        .video-bento-grid {
+          display: grid;
+          grid-template-columns: repeat(6, 1fr);
+          gap: 1.5rem;
+          margin-top: 3rem;
         }
-        .insight-card {
-          background: #FFFFFF;
-          border: 1px solid #E2E8F0;
-          border-radius: 16px;
-          padding: 1.15rem 1.2rem;
-          transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        .video-card {
+          position: relative;
+          background: #000;
+          border-radius: 24px;
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          border: 1px solid var(--glass-border);
         }
-        .insight-card:hover {
-          transform: translateY(-4px);
-          border-color: #BFDBFE;
-          box-shadow: 0 12px 30px rgba(30,64,175,0.10);
+        .video-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 50px var(--primary-glow);
+        }
+        .video-card.featured { grid-column: span 4; grid-row: span 2; }
+        .video-card.sidebar { grid-column: span 2; grid-row: span 1; aspect-ratio: 16/9; }
+        .video-card.half { grid-column: span 3; aspect-ratio: 16/9; }
+
+        .video-iframe {
+          width: 100%;
+          height: 100%;
+          border: none;
+        }
+        .video-overlay {
+          position: absolute;
+          bottom: 0; left: 0; width: 100%;
+          padding: 1.25rem;
+          background: linear-gradient(transparent, rgba(0,0,0,0.85));
+          color: var(--text-white);
+          pointer-events: none;
+          transition: opacity 0.3s;
+        }
+        .video-card:hover .video-overlay {
+          opacity: 0.7;
         }
         @media (max-width: 1024px) {
-          .knowledge-grid {
-            grid-template-columns: 1fr;
-            gap: 3rem;
-          }
+          .video-bento-grid { grid-template-columns: repeat(2, 1fr); }
+          .video-card.featured, .video-card.sidebar, .video-card.half { grid-column: span 2; grid-row: auto; aspect-ratio: 16/9; }
+        }
+        @media (max-width: 640px) {
+          .video-bento-grid { grid-template-columns: 1fr; }
+          .video-card.featured, .video-card.sidebar, .video-card.half { grid-column: span 1; }
         }
       `}</style>
       <div className="container">
         <div
           style={{
             display: "flex",
-            flexWrap: "wrap",
             justifyContent: "space-between",
             alignItems: "flex-end",
             gap: "2rem",
-            marginBottom: "2.5rem",
+            flexWrap: "wrap",
+            marginBottom: "1rem",
           }}
         >
           <div style={{ maxWidth: "600px" }}>
-            <span className="overline" style={{ color: "#1E40AF" }}>
-              Insight & Education
+            <span
+              className="overline"
+              style={{ color: "var(--primary-light)", letterSpacing: "0.3em" }}
+            >
+              DR. RAJESH MANGHNANI — YOUTUBE
             </span>
             <h2
               className="section-title"
               style={{
-                fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                color: "#0F172A",
+                color: "var(--text-white)",
                 margin: "1rem 0",
+                fontSize: "3.5rem",
               }}
             >
               Medical{" "}
-              <em style={{ color: "#1E40AF", fontStyle: "italic" }}>
+              <em style={{ color: "var(--primary)", fontStyle: "italic" }}>
                 Intelligence
               </em>
               .
             </h2>
             <p
-              style={{ color: "#64748B", fontSize: "1.1rem", lineHeight: 1.8 }}
+              style={{ color: "var(--text-silver)", fontSize: "1.1rem", lineHeight: 1.8 }}
             >
-              Empowering patients with clear, scientific, and compassionate
-              information about sexual health and modern treatment options.
+              Watch expert clinical lectures and treatment guides by Dr. Rajesh Manghnani on our official YouTube channel.
             </p>
           </div>
           <a
-            href="/media"
+            href={YT_CHANNEL}
+            target="_blank"
+            rel="noopener"
             className="btn-secondary"
-            style={{ height: "56px", padding: "0 2.5rem" }}
+            style={{ 
+              height: "56px", 
+              padding: "0 2.5rem", 
+              display: "flex", 
+              alignItems: "center", 
+              gap: "0.5rem",
+              borderColor: "var(--primary)",
+              color: "var(--primary)"
+            }}
           >
-            Explore Full Archives →
+            See More on YouTube <span style={{ fontSize: "1.2rem" }}>↗</span>
           </a>
         </div>
 
-        <div className="knowledge-grid">
-          {/* Main Stage: Featured Video */}
-          <div>
-            <div
-              style={{
-                background: "#000",
-                borderRadius: "32px",
-                overflow: "hidden",
-                position: "relative",
-                aspectRatio: "16/9",
-                boxShadow: "0 40px 80px rgba(30,64,175,0.15)",
-              }}
-            >
+        <div className="video-bento-grid">
+          {videos.map((v, i) => (
+            <div key={v.id} className={`video-card ${v.type}`}>
               <iframe
-                src={`https://www.youtube.com/embed/${videos[0].id}?rel=0&modestbranding=1`}
-                style={{ width: "100%", height: "100%", border: "none" }}
+                className="video-iframe"
+                src={`https://www.youtube.com/embed/${v.id}?rel=0&modestbranding=1`}
+                title={v.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
-            </div>
-            <div style={{ marginTop: "2.5rem" }}>
-              <div
-                style={{
-                  display: "inline-block",
-                  background: "#EFF6FF",
-                  color: "#1E40AF",
-                  fontWeight: 700,
-                  fontSize: "0.65rem",
-                  padding: "0.4rem 1.2rem",
-                  borderRadius: "50px",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.1em",
-                  marginBottom: "1rem",
-                }}
-              >
-                Featured Clinic Lecture
+              <div className="video-overlay">
+                <h4 style={{ margin: 0, fontSize: v.type === 'featured' ? '1.4rem' : '1rem', fontWeight: 700 }}>{v.title}</h4>
               </div>
-              <h3
-                className="section-title"
-                style={{
-                  fontSize: "1.8rem",
-                  color: "#0F172A",
-                  marginBottom: "1rem",
-                }}
-              >
-                {videos[0].title}
-              </h3>
-              <p
-                style={{
-                  color: "#64748B",
-                  lineHeight: 1.8,
-                  fontSize: "1.05rem",
-                }}
-              >
-                Dr. Rajesh Manghnani explains the clinical protocols for
-                non-surgical management of hypersensitivity and the role of
-                integrative homeopathy in restoring confidence.
-              </p>
             </div>
-          </div>
-
-          {/* Sidebar: Latest Insights */}
-          <div
-            style={{ display: "flex", flexDirection: "column", gap: "2rem" }}
-          >
-            <h3
-              style={{
-                fontSize: "1.2rem",
-                fontWeight: 800,
-                color: "#0F172A",
-                borderBottom: "2px solid #1E40AF",
-                paddingBottom: "0.75rem",
-                width: "fit-content",
-              }}
-            >
-              Latest Insights
-            </h3>
-            {blogs.map((b, i) => (
-              <div
-                key={i}
-                className="insight-card"
-                style={{ cursor: "pointer" }}
-              >
-                <div
-                  style={{
-                    fontSize: "0.65rem",
-                    color: "#1E40AF",
-                    fontWeight: 800,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.15em",
-                    marginBottom: "0.5rem",
-                  }}
-                >
-                  {b.tag}
-                </div>
-                <h4
-                  style={{
-                    fontSize: "1.1rem",
-                    color: "#0F172A",
-                    fontWeight: 700,
-                    marginBottom: "0.75rem",
-                    lineHeight: 1.4,
-                  }}
-                >
-                  {b.title}
-                </h4>
-                <p
-                  style={{
-                    fontSize: "0.9rem",
-                    color: "#64748B",
-                    lineHeight: 1.6,
-                    marginBottom: "0.5rem",
-                  }}
-                >
-                  {b.desc}
-                </p>
-                <div style={{ fontSize: "0.78rem", color: "#94A3B8" }}>
-                  {b.date}
-                </div>
-              </div>
-            ))}
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -761,6 +683,9 @@ export function KnowledgeCenter() {
 
 /* ─── HOME PAGE ──────────────────────────────────────── */
 export default function Home() {
+  const [isAppointmentModalOpen, setIsAppointmentModalOpen] = useState(false);
+  const openAppointmentModal = () => setIsAppointmentModalOpen(true);
+  const closeAppointmentModal = () => setIsAppointmentModalOpen(false);
   const trustHighlights = [
     { value: "23+", label: "Years in specialized sexual wellness care" },
     { value: "5.5L+", label: "Patients treated with confidential support" },
@@ -802,28 +727,28 @@ export default function Home() {
 
   const trustRatings = [
     {
-      platform: "Justdial · Kasturba Nagar",
+      platform: "Justdial · Verified Service",
       score: "4.9",
-      count: "887+ verified ratings",
+      count: "887+ Verified Ratings",
     },
     {
-      platform: "Justdial · Kasturba Nagar (Gynae)",
-      score: "4.6",
-      count: "80 ratings · 19 years",
+      platform: "Practo · Patient Stories",
+      score: "92%",
+      count: "418+ Patient Recommendations",
     },
     {
-      platform: "Justdial · Arera Colony",
-      score: "4.7",
-      count: "486 ratings and reviews",
+      platform: "Sulekha · Top Professional",
+      score: "5.0",
+      count: "132+ Verified Reviews",
     },
   ];
 
   return (
-    <div>
-      <Navigation />
+    <main className="min-h-screen">
+      <Navigation onBookAppointment={openAppointmentModal} />
 
       {/* ── HERO ── */}
-      <HeroCarousel />
+      <HeroCarousel onBook={openAppointmentModal} />
 
       {/* ── TRUST BAR ── */}
       <div className="trust-bar">
@@ -939,7 +864,7 @@ export default function Home() {
           .why-stat-val {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 1.8rem;
-            color: #1E40AF;
+            color: #3c8f8c;
             line-height: 1;
             font-weight: 800;
             letter-spacing: -0.04em;
@@ -958,7 +883,7 @@ export default function Home() {
             position: absolute;
             top: -1rem;
             right: -1rem;
-            background: #1E40AF;
+            background: #3c8f8c;
             color: #fff;
             border-radius: 50%;
             width: 120px;
@@ -1063,7 +988,7 @@ export default function Home() {
 
             {/* Right: Content */}
             <div>
-              <span className="overline" style={{ color: "#1E40AF" }}>
+              <span className="overline" style={{ color: "#3c8f8c" }}>
                 Founded on Trust
               </span>
               <h2
@@ -1071,7 +996,7 @@ export default function Home() {
                 style={{ marginTop: "0.75rem", marginBottom: "1.25rem" }}
               >
                 Crafting Pathways To{" "}
-                <em style={{ color: "#1E40AF", fontStyle: "italic" }}>
+                <em style={{ color: "#3c8f8c", fontStyle: "italic" }}>
                   Sexual Wellness
                 </em>
               </h2>
@@ -1208,7 +1133,7 @@ export default function Home() {
             gap: 8px;
             font-size: 0.85rem;
             font-weight: 700;
-            color: #1E40AF;
+            color: #3c8f8c;
             text-decoration: none;
             margin-top: auto;
             transition: gap 0.2s;
@@ -1219,7 +1144,7 @@ export default function Home() {
           .bento-card.featured {
             grid-column: span 2;
             grid-row: span 2;
-            background: #1E40AF;
+            background: #3c8f8c;
             color: #FFFFFF;
             border: none;
           }
@@ -1251,7 +1176,7 @@ export default function Home() {
 
         <div className="bento-container">
           <div className="bento-header">
-            <span className="overline" style={{ color: "#1E40AF" }}>
+            <span className="overline" style={{ color: "#3c8f8c" }}>
               Our Expertise
             </span>
             <h2 className="section-title" style={{ marginTop: "1rem" }}>
@@ -1406,8 +1331,8 @@ export default function Home() {
       {/* ── TRUST & RECOGNITION (Unified Section) ── */}
       <section
         style={{
-          background: "#0F172A",
-          padding: "6.5rem 0",
+          background: "linear-gradient(135deg, #051a1a 0%, #0a1a19 100%)",
+          padding: "7.5rem 0",
           position: "relative",
           overflow: "hidden",
         }}
@@ -1418,7 +1343,7 @@ export default function Home() {
             position: "absolute",
             inset: 0,
             backgroundImage:
-              "radial-gradient(rgba(30,64,175,0.08) 1px, transparent 1px)",
+              "radial-gradient(rgba(60, 143, 140, 0.08) 1px, transparent 1px)",
             backgroundSize: "32px 32px",
             pointerEvents: "none",
           }}
@@ -1428,8 +1353,8 @@ export default function Home() {
           .trust-section-inner { position: relative; z-index: 2; }
 
           /* Overline & heading on dark */
-          .trust-section-inner .overline { color: #3B82F6; }
-          .trust-section-inner .section-title { color: #F8FAFC; }
+          .trust-section-inner .overline { color: #4ca5a2; }
+          .trust-section-inner .section-title { color: #fff; }
 
           /* ── CERT GRID ── */
           .cert-grid {
@@ -1458,18 +1383,19 @@ export default function Home() {
             gap: 0.75rem;
           }
           .cert-card:hover {
-            background: rgba(59,130,246,0.08);
-            border-color: rgba(59,130,246,0.3);
-            transform: translateY(-4px);
+            background: rgba(60, 143, 140, 0.08);
+            border-color: rgba(60, 143, 140, 0.3);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(60, 143, 140, 0.15);
           }
           .cert-card-icon {
             font-size: 2rem;
             line-height: 1;
           }
           .cert-card-title {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: #F1F5F9;
+            font-size: 0.92rem;
+            font-weight: 800;
+            color: #fff;
             line-height: 1.3;
           }
           .cert-card-sub {
@@ -1488,12 +1414,9 @@ export default function Home() {
           /* ── RATINGS GRID ── */
           .ratings-redesign {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.25rem;
             margin-top: 2.5rem;
-          }
-          @media (max-width: 768px) {
-            .ratings-redesign { grid-template-columns: 1fr; }
           }
 
           .rating-redesign-card {
@@ -1508,16 +1431,17 @@ export default function Home() {
             transition: all 0.3s ease;
           }
           .rating-redesign-card:hover {
-            background: rgba(59,130,246,0.08);
-            border-color: rgba(59,130,246,0.3);
-            transform: translateY(-4px);
+            background: rgba(60, 143, 140, 0.08);
+            border-color: rgba(60, 143, 140, 0.3);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(60, 143, 140, 0.15);
           }
           .rating-redesign-platform {
             font-size: 0.72rem;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: #3B82F6;
+            letter-spacing: 0.15em;
+            color: #4ca5a2;
             margin-bottom: 0.5rem;
           }
           .rating-redesign-score {
@@ -1550,7 +1474,7 @@ export default function Home() {
               style={{ marginTop: "0.75rem", marginBottom: 0 }}
             >
               Trusted by Thousands,{" "}
-              <em style={{ fontStyle: "italic", color: "#3B82F6" }}>
+              <em style={{ fontStyle: "italic", color: "#4ca5a2" }}>
                 Recognized
               </em>{" "}
               by All
@@ -1558,35 +1482,9 @@ export default function Home() {
           </div>
 
           <div className="cert-grid">
-            {[
-              {
-                icon: "🎓",
-                title: "BHMS Graduate",
-                sub: "Govt. Homeopathy Medical College",
-              },
-              {
-                icon: "🇺🇸",
-                title: "American College of Sexology",
-                sub: "Member · Clinical Sexology",
-              },
-              {
-                icon: "🏅",
-                title: "ISO Certified (USA)",
-                sub: "International Quality Standard",
-              },
-              {
-                icon: "📖",
-                title: "World Book of Records",
-                sub: "Recognized Achievement",
-              },
-              {
-                icon: "🏛️",
-                title: "Govt. Registered Clinic",
-                sub: "Bhopal &amp; Mumbai, India",
-              },
-            ].map((c, i) => (
+            {trustCredentials.map((c, i) => (
               <div key={i} className="cert-card">
-                <div className="cert-card-icon">{c.icon}</div>
+                <div className="cert-card-icon"><c.icon size={32} /></div>
                 <div className="cert-card-title">{c.title}</div>
                 <div className="cert-card-sub">{c.sub}</div>
               </div>
@@ -1604,30 +1502,14 @@ export default function Home() {
               style={{ marginTop: "0.75rem", marginBottom: 0 }}
             >
               Top Rated Across{" "}
-              <em style={{ fontStyle: "italic", color: "#3B82F6" }}>
+              <em style={{ fontStyle: "italic", color: "#4ca5a2" }}>
                 All Platforms
               </em>
             </h2>
           </div>
 
           <div className="ratings-redesign">
-            {[
-              {
-                platform: "Justdial · Kasturba Nagar",
-                score: "4.9",
-                count: "887+ Verified Ratings",
-              },
-              {
-                platform: "Justdial · Kasturba Nagar (Gynae)",
-                score: "4.6",
-                count: "80 Ratings · 19 Years",
-              },
-              {
-                platform: "Justdial · Arera Colony",
-                score: "4.7",
-                count: "486 Ratings &amp; Reviews",
-              },
-            ].map((r, i) => (
+            {trustRatings.map((r, i) => (
               <div key={i} className="rating-redesign-card">
                 <div className="rating-redesign-platform">{r.platform}</div>
                 <div className="rating-redesign-score">{r.score}</div>
@@ -1685,7 +1567,7 @@ export default function Home() {
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #1E40AF;
+            color: #3c8f8c;
             font-size: 0.75rem;
             flex-shrink: 0;
             margin-top: 2px;
@@ -1698,8 +1580,8 @@ export default function Home() {
             margin-bottom: 2.5rem;
           }
           .abt-stat-card {
-            background: #fff;
-            border: 1px solid #E2E8F0;
+            background: var(--white);
+            border: 1px solid var(--surface2);
             border-radius: 12px;
             padding: 1.5rem;
             text-align: left;
@@ -1707,7 +1589,7 @@ export default function Home() {
           .abt-stat-val {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 2rem;
-            color: #1E40AF;
+            color: #3c8f8c;
             line-height: 1;
             font-weight: 800;
             letter-spacing: -0.04em;
@@ -1737,7 +1619,7 @@ export default function Home() {
             position: absolute;
             bottom: 2rem;
             left: 2rem;
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--white);
             backdrop-filter: blur(8px);
             padding: 0.75rem 1.25rem;
             border-radius: 50px;
@@ -1757,7 +1639,7 @@ export default function Home() {
           <div className="abt-grid">
             {/* Content */}
             <div>
-              <span className="overline" style={{ color: "#1E40AF" }}>
+              <span className="overline" style={{ color: "#3c8f8c" }}>
                 About The Doctor
               </span>
               <h2
@@ -1770,7 +1652,7 @@ export default function Home() {
                 style={{
                   fontSize: "0.85rem",
                   fontWeight: 700,
-                  color: "#1E40AF",
+                  color: "#3c8f8c",
                   textTransform: "uppercase",
                   letterSpacing: "0.05em",
                 }}
@@ -1909,7 +1791,7 @@ export default function Home() {
           .rv-overall-stars svg {
             width: 18px;
             height: 18px;
-            fill: #1E40AF;
+            fill: #3c8f8c;
           }
           .rv-overall-count {
             font-size: 0.85rem;
@@ -1936,7 +1818,7 @@ export default function Home() {
           }
           .rv-bar-fill {
             height: 100%;
-            background: #1E40AF;
+            background: #3c8f8c;
             border-radius: 4px;
           }
           .rv-bar-label {
@@ -2011,7 +1893,7 @@ export default function Home() {
             height: 48px;
             border-radius: 50%;
             background: #EFF6FF;
-            color: #1E40AF;
+            color: #3c8f8c;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -2070,7 +1952,7 @@ export default function Home() {
             margin-top: 1.5rem;
             font-size: 1rem;
             font-weight: 700;
-            color: #1E40AF;
+            color: #3c8f8c;
             text-decoration: none;
           }
           .rv-footer-link:hover {
@@ -2184,12 +2066,12 @@ export default function Home() {
 
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <span className="overline" style={{ color: "#1E40AF" }}>
+            <span className="overline" style={{ color: "#3c8f8c" }}>
               Clinical Impact
             </span>
             <h2 className="section-title" style={{ marginTop: "0.5rem" }}>
               Voices Of{" "}
-              <em style={{ color: "#1E40AF", fontStyle: "italic" }}>
+              <em style={{ color: "#3c8f8c", fontStyle: "italic" }}>
                 Restoration
               </em>
             </h2>
@@ -2461,6 +2343,11 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </div>
+      <AppointmentModal 
+        isOpen={isAppointmentModalOpen} 
+        onClose={closeAppointmentModal} 
+      />
+      <LeadPopup />
+    </main>
   );
 }
